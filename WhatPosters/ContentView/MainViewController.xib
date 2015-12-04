@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController">
+            <connections>
+                <outlet property="takeCameraPhoto" destination="okC-bn-gWS" id="RZd-ih-J6v"/>
+                <outlet property="takeGallaryPhoto" destination="mTh-qR-MCg" id="le2-tX-HOn"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okC-bn-gWS">
+                    <rect key="frame" x="202" y="233" width="195" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="195" id="4c6-Ds-RxT"/>
+                        <constraint firstAttribute="height" constant="30" id="YbO-gD-uHs"/>
+                    </constraints>
+                    <state key="normal" title="Open Camera">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="takeCameraPhoto:" destination="-1" eventType="touchUpInside" id="a1Q-cw-gbJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTh-qR-MCg">
+                    <rect key="frame" x="202" y="286" width="195" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="2fB-lz-Krb"/>
+                        <constraint firstAttribute="width" constant="195" id="rra-vn-OrI"/>
+                    </constraints>
+                    <state key="normal" title="Open Gallary">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="takeGallaryPhoto:" destination="-1" eventType="touchUpInside" id="CQC-fi-XOV"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="okC-bn-gWS" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-52" id="0Eu-Pl-8sQ"/>
+                <constraint firstItem="okC-bn-gWS" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="4NT-EL-VMW"/>
+                <constraint firstItem="mTh-qR-MCg" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="abA-W6-5rg"/>
+                <constraint firstItem="mTh-qR-MCg" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="1" id="fmj-Ri-pOs"/>
+            </constraints>
+            <point key="canvasLocation" x="305" y="383"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController">
+            <connections>
+                <outlet property="captureNewPhoto" destination="1jv-It-CgU" id="do3-dl-zsy"/>
+                <outlet property="imageView" destination="qE9-rs-bTT" id="4fo-kh-gmZ"/>
+                <outlet property="searchButton" destination="Klf-rU-Nlg" id="bDP-13-dhK"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qE9-rs-bTT">
+                    <rect key="frame" x="185" y="75" width="231" height="355"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="lessThanOrEqual" constant="355" id="ZiM-I3-Ja1"/>
+                        <constraint firstAttribute="width" constant="231" id="aEk-Bm-cvG"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1jv-It-CgU">
+                    <rect key="frame" x="185" y="467" width="104" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="104" id="THL-oX-Fc7"/>
+                        <constraint firstAttribute="height" constant="30" id="n2z-WM-ffe"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="New Photo">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="newPhotoButton:" destination="-1" eventType="touchUpInside" id="CwL-H2-YbJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klf-rU-Nlg">
+                    <rect key="frame" x="310" y="467" width="106" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="106" id="YrG-7c-lJk"/>
+                    </constraints>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Search">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="searchButton:" destination="-1" eventType="touchUpInside" id="d9Z-0I-83Z"/>
+                    </connections>
+                </button>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="qE9-rs-bTT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-47.5" id="5z0-Yg-9Sm"/>
+                <constraint firstItem="Klf-rU-Nlg" firstAttribute="trailing" secondItem="qE9-rs-bTT" secondAttribute="trailing" id="AYI-cL-gdz"/>
+                <constraint firstItem="Klf-rU-Nlg" firstAttribute="top" secondItem="1jv-It-CgU" secondAttribute="top" id="D0N-HY-G9s"/>
+                <constraint firstItem="qE9-rs-bTT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="FRb-ZW-C2x"/>
+                <constraint firstItem="Klf-rU-Nlg" firstAttribute="baseline" secondItem="1jv-It-CgU" secondAttribute="firstBaseline" id="Oze-Sm-r2W"/>
+                <constraint firstItem="Klf-rU-Nlg" firstAttribute="top" secondItem="qE9-rs-bTT" secondAttribute="bottom" constant="37" id="Qwf-QR-lXD"/>
+                <constraint firstItem="Klf-rU-Nlg" firstAttribute="firstBaseline" secondItem="1jv-It-CgU" secondAttribute="baseline" id="XV4-D9-Nrw"/>
+                <constraint firstItem="qE9-rs-bTT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gtx-CC-tnp"/>
+                <constraint firstItem="Klf-rU-Nlg" firstAttribute="leading" secondItem="1jv-It-CgU" secondAttribute="trailing" constant="21" id="nFF-qG-FpG"/>
+                <constraint firstItem="qE9-rs-bTT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="pMg-GC-xf4"/>
+            </constraints>
+            <point key="canvasLocation" x="299" y="270"/>
+        </view>
+    </objects>
+</document>
