@@ -28,7 +28,7 @@ static NSString *const  addNewGameURL = @"http://scorefolio.xululabs.us/nodeserv
 static NSString *const  addNewGameURL1 = @"http://scorefolio.xululabs.us/nodeserv/crevent.php";
 static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/upload";
 
-@interface WeatherHTTPClient ()<Utilitydeleget,GetmovieimagesnameArray>
+@interface WeatherHTTPClient ()<Utilitydeleget>
 
 @end
 UIImage *compressimage;

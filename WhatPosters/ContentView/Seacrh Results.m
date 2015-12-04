@@ -12,8 +12,9 @@
 #import "Venue.h"
 #import "Utility.h"
 #import "SVProgressHUD.h"
+#import "WeatherHTTPClient.h"
 
-@interface Seacrh_Results (){
+@interface Seacrh_Results () <WeatherHTTPClientDelegate>{
 
     NSArray *MoviePosterImagesArray;
     NSArray *MoviewPosterNamesArray;
@@ -47,6 +48,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 
 #pragma mark - Table view data source
 

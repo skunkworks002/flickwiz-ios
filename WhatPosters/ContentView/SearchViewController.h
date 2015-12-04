@@ -7,15 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@protocol GetmovieimagesnameArray <NSObject>
-
-- (void)GetmoviesArray :(NSDictionary *)movieimagesDictr ;
-
-@end
 
 @interface SearchViewController : UIViewController
 
-@property (assign, nonatomic) id<GetmovieimagesnameArray> delegateMC;
+//@property (assign, nonatomic) id<GetmovieimagesnameArray> delegateMC;
 
 @property (nonatomic, retain) UIImage *theImage;
 

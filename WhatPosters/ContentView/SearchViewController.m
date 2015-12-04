@@ -70,14 +70,9 @@ static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/up
 
 #pragma mark Search Poster Button
 
-- (void)GetmoviesArray:(NSDictionary *)movieimagesDictr {
-
-
-
-}
 
 - (IBAction)searchButton:(id)sender {
-  //  [[WeatherHTTPClient sharedWeatherHTTPClient]MovieResponse];
+  //[[WeatherHTTPClient sharedWeatherHTTPClient]MovieResponse];
     
     [SVProgressHUD show];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];

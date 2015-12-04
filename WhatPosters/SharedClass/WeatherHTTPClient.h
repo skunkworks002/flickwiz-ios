@@ -16,6 +16,9 @@
 @property (nonatomic, weak) id<WeatherHTTPClientDelegate>delegate;
 - (void)gameshareWithDitcr:(NSArray *)dataArray ;
 
+- (void)GetmoviesArray :(NSDictionary *)movieimagesDictr ;
+
+
 + (WeatherHTTPClient *)sharedWeatherHTTPClient;
 - (instancetype)initWithBaseURL:(NSURL *)url;
 //- (void)loginWithUsername:(NSString *)userName password:(NSString *)password;
