@@ -7,7 +7,6 @@
 //
 // abc
 
-
 #import "Utility.h"
 #import "Venue.h"
 NSString *venueName;

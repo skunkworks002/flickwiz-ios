@@ -14,11 +14,11 @@
 #import "WeatherHTTPClient.h"
 #import "Utility.h"
 #import "AFNetworking.h"
-#import "AppDelegate.h"
+#import "WeatherHTTPClient.h"
 
 static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/upload";
 
-@interface SearchViewController () <GetmovieimagesnameArray>{
+@interface SearchViewController () {
 
     dispatch_queue_t backgroundqueee;
     NSArray *imagesUrlArray;
@@ -67,10 +67,18 @@ static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/up
 
 }
 
+
 #pragma mark Search Poster Button
 
+- (void)GetmoviesArray:(NSDictionary *)movieimagesDictr {
+
+
+
+}
+
 - (IBAction)searchButton:(id)sender {
-   // [[WeatherHTTPClient sharedWeatherHTTPClient]MovieResponse];
+  //  [[WeatherHTTPClient sharedWeatherHTTPClient]MovieResponse];
+    
     [SVProgressHUD show];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];

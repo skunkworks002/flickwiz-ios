@@ -13,7 +13,7 @@
 #import "Venue.h"
 #import "SVProgressHUD.h"
 #import "UIImage+ImageCompress.h"
-#import "Seacrh Results.h"
+#import "SearchViewController.h"
 
 #warning PASTE YOUR API KEY HERE
 static NSString * const WorldWeatherOnlineAPIKey = @"PASTE YOUR API KEY HERE";
@@ -28,7 +28,7 @@ static NSString *const  addNewGameURL = @"http://scorefolio.xululabs.us/nodeserv
 static NSString *const  addNewGameURL1 = @"http://scorefolio.xululabs.us/nodeserv/crevent.php";
 static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/upload";
 
-@interface WeatherHTTPClient ()<Utilitydeleget>
+@interface WeatherHTTPClient ()<Utilitydeleget,GetmovieimagesnameArray>
 
 @end
 UIImage *compressimage;
@@ -275,8 +275,9 @@ NSString *imagesize;
 //           if ([responseObject isKindOfClass:[NSDictionary class]]) {
 //               // [SVProgressHUD show];
 //               NSDictionary *responseDictionary = (NSDictionary *)responseObject;
-//              NSArray *moviearrya = [responseDictionary objectForKey:@"bestOptionsList"];
-//               [[Utility sharedManager] setVenueArray:moviearrya];
+//            //  NSArray *moviearrya = [responseDictionary objectForKey:@"bestOptionsList"];
+//               [self GetmoviesArray:responseDictionary];
+//             //  [[Utility sharedManager] setVenueArray:moviearrya];
 //               BOOL status = [responseDictionary[@"status"] boolValue];
 //               if (status) {
 //                  // NSArray *venue = [Venue setData:responseDictionary[@"bestOptionsList"]];
@@ -295,7 +296,7 @@ NSString *imagesize;
 //            [self.delegate weatherHTTPClient:self didFailWithError:error];
 //        }     }];
 //}
-
+//
 
 
 

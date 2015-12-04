@@ -31,7 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    [SVProgressHUD showSuccessWithStatus:@"Downloading Complete...."];
     self.title = @"Best Matches";
     
      NSUserDefaults *movieimagesDef = [NSUserDefaults standardUserDefaults];
@@ -76,7 +76,6 @@
     cell.movieImages.layer.borderWidth=2.0;
     cell.movieImages.layer.masksToBounds = YES;
     cell.movieImages.layer.borderColor=[[UIColor grayColor] CGColor];
-    [SVProgressHUD showSuccessWithStatus:@"Downloading Complete...."];
     return cell;
 
 }
