@@ -62,7 +62,6 @@
 		7089C5211C0DA50100B14779 /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089C5191C0DA50100B14779 /* Venue.m */; };
 		7089C5221C0DA50100B14779 /* WeatherHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089C51B1C0DA50100B14779 /* WeatherHTTPClient.m */; };
 		7089C5261C0DA56100B14779 /* UIImage+ImageCompress.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089C5251C0DA56100B14779 /* UIImage+ImageCompress.m */; };
-		708C50AB1C0C248B0056D0EF /* images.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 708C50AA1C0C248B0056D0EF /* images.jpg */; };
 		7094B1151C0EC87100BF2AAF /* Mainbackgroundimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 7094B1141C0EC87000BF2AAF /* Mainbackgroundimage.png */; };
 		7094B1171C0ECAA500BF2AAF /* ImageUploadedByModMyi1342057019.344337.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7094B1161C0ECAA500BF2AAF /* ImageUploadedByModMyi1342057019.344337.jpg */; };
 		7094B1191C0EDAD800BF2AAF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7094B1181C0EDAD800BF2AAF /* QuartzCore.framework */; };
@@ -180,7 +179,6 @@
 		7089C51B1C0DA50100B14779 /* WeatherHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherHTTPClient.m; sourceTree = "<group>"; };
 		7089C5241C0DA56100B14779 /* UIImage+ImageCompress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageCompress.h"; sourceTree = "<group>"; };
 		7089C5251C0DA56100B14779 /* UIImage+ImageCompress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageCompress.m"; sourceTree = "<group>"; };
-		708C50AA1C0C248B0056D0EF /* images.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = images.jpg; path = ../../../images.jpg; sourceTree = "<group>"; };
 		7094B1141C0EC87000BF2AAF /* Mainbackgroundimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mainbackgroundimage.png; sourceTree = "<group>"; };
 		7094B1161C0ECAA500BF2AAF /* ImageUploadedByModMyi1342057019.344337.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ImageUploadedByModMyi1342057019.344337.jpg; sourceTree = "<group>"; };
 		7094B1181C0EDAD800BF2AAF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -340,7 +338,6 @@
 			children = (
 				7089C5231C0DA56100B14779 /* ImageCompress */,
 				7089C4D81C0DA4F800B14779 /* AFNetworking */,
-				708C50AA1C0C248B0056D0EF /* images.jpg */,
 				704B8D3C1C087DB6006257E9 /* SVProgressHUD */,
 			);
 			name = "Third Library";
@@ -565,7 +562,6 @@
 				704B8D201C08315C006257E9 /* Spectre.jpg in Resources */,
 				7094B1151C0EC87100BF2AAF /* Mainbackgroundimage.png in Resources */,
 				704B8D1E1C08315C006257E9 /* Salt.jpg in Resources */,
-				708C50AB1C0C248B0056D0EF /* images.jpg in Resources */,
 				704B8D0D1C082E80006257E9 /* MovieCell.xib in Resources */,
 				704B8D231C08315C006257E9 /* Wolverine.jpg in Resources */,
 				704B8D211C08315C006257E9 /* Spy.jpg in Resources */,
