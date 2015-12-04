@@ -22,7 +22,7 @@ static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/up
 
     dispatch_queue_t backgroundqueee;
     NSArray *imagesUrlArray;
-
+    // filick Wiz app
 }
 @end
 @implementation SearchViewController
