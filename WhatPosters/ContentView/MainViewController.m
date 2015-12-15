@@ -11,31 +11,30 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <QuartzCore/QuartzCore.h>
 
+
 @interface MainViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate >
 {
     UIImage *selectedImage;
+    NSString *selectedImageUrl;
 }
 @property (nonatomic, retain) SearchViewController *secondView;
 @property (nonatomic, retain) UIImage *theImage;
+@property (strong, nonatomic) IBOutlet UIButton *takeCameraPhoto;
+@property (strong, nonatomic) IBOutlet UIButton *takeGallaryPhoto;
 
 @end
 
 @implementation MainViewController
-@synthesize secondView;
-@synthesize theImage;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Main View";
-    ///animation
     
+    ///animation
     self.takeCameraPhoto.layer.cornerRadius = self.takeCameraPhoto.bounds.size.width/6.0;
     self.takeCameraPhoto.layer.borderWidth = 3.0;
     self.takeCameraPhoto.layer.borderColor = self.takeCameraPhoto.titleLabel.textColor.CGColor;
     self.takeCameraPhoto.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
 
-    
-    
     self.takeGallaryPhoto.layer.cornerRadius = self.takeCameraPhoto.bounds.size.width/6.0;
     self.takeGallaryPhoto.layer.borderWidth = 3.0;
     self.takeGallaryPhoto.layer.borderColor = self.takeCameraPhoto.titleLabel.textColor.CGColor;
@@ -43,10 +42,6 @@
     
     //background image on view
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
-
-
-    
-
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -137,6 +132,31 @@
 }
 
 #pragma mark --- UIImagePickerControllerDelegate Method
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    selectedImageUrl = [info objectForKey:UIImagePickerControllerReferenceURL ];
+    NSString *selectedname = [selectedImageUrl lastPathComponent];
+    NSArray *imagenameExtract = [selectedname componentsSeparatedByString:@"."];
+    NSString *actulimageName = [imagenameExtract objectAtIndex:0];
+    NSString *imageExention = [imagenameExtract objectAtIndex:1];
+    NSUserDefaults *imageDef = [NSUserDefaults standardUserDefaults];
+    [imageDef setObject:actulimageName forKey:@"actulimageName"];
+    [imageDef setObject:imageExention forKey:@"imageExention"];
+    [self dismissModalViewControllerAnimated:YES];
+    
+    if(self.secondView == nil)
+    {
+        SearchViewController *nextView = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:[NSBundle mainBundle]];
+        self.secondView = nextView;
+        nextView.theImage = selectedImage;
+        //nextView.theImageUrl = temimageString;
+    }
+    [self.navigationController pushViewController:_secondView animated:YES];
+}
+
+
+/*
+#pragma mark --- UIImagePickerControllerDelegate Method
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
@@ -149,6 +169,7 @@
     }
     [self.navigationController pushViewController:secondView animated:YES];
 }
+ */
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissModalViewControllerAnimated:YES];

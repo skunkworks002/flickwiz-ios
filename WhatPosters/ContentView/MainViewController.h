@@ -10,7 +10,4 @@
 
 @interface MainViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIButton *takeCameraPhoto;
-@property (strong, nonatomic) IBOutlet UIButton *takeGallaryPhoto;
-
 @end

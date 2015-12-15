@@ -10,7 +10,6 @@
 
 @interface MovieDetailsView () <UITextViewDelegate> {
 
-
     IBOutlet UILabel *WriterNames;
     IBOutlet UILabel *dirctorName;
     IBOutlet UIImageView *movieImageView;
@@ -22,6 +21,8 @@
 @end
 
 @implementation MovieDetailsView
+@synthesize selectedImage;
+@synthesize selectedMovieName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,11 +31,15 @@
     movieImageView.layer.cornerRadius = movieImageView.frame.size.width / 2;
     movieImageView.clipsToBounds = YES;
     
+    movieImageView.image = selectedImage;
+    movieNamerelsingDate.text = selectedMovieName;
+    movieType.text = _selectedmovieType;
+    moviedecrptiontextView.text = _selectedmovieDescrption;
+    dirctorName.text = _selectedmovieMakers;
+    WriterNames.text = _selectedmovieRaking;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
 
-    
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {

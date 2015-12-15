@@ -9,4 +9,6 @@
 #import <UIKit/UIKit.h>
 @interface Seacrh_Results : UITableViewController
 
+@property (weak, nonatomic) NSMutableDictionary *jsonResponsDic;
+
 @end

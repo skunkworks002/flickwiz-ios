@@ -11,14 +11,6 @@
 @interface SearchViewController : UIViewController
 
 //@property (assign, nonatomic) id<GetmovieimagesnameArray> delegateMC;
-
 @property (nonatomic, retain) UIImage *theImage;
-
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
-
-@property (strong, nonatomic) IBOutlet UIButton *searchButton;
-@property (strong, nonatomic) IBOutlet UIButton *captureNewPhoto;
-
--(void)setImage:(UIImage *)image;
 
 @end

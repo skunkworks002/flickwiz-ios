@@ -10,6 +10,6 @@
 
 @interface MovieCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *movienameLabel;
-
+@property (strong, nonatomic) IBOutlet UILabel *movieDateLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *movieImages;
 @end

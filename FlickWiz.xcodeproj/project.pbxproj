@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0423AB491C1A9AD600D61910 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423AB481C1A9AD600D61910 /* Base64.m */; };
 		704B8CD11C082A6F006257E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8CD01C082A6F006257E9 /* main.m */; };
 		704B8CD41C082A6F006257E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8CD31C082A6F006257E9 /* AppDelegate.m */; };
 		704B8CDC1C082A6F006257E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 704B8CDB1C082A6F006257E9 /* Assets.xcassets */; };
@@ -85,6 +86,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0423AB471C1A9AD600D61910 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		0423AB481C1A9AD600D61910 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		704B8CCC1C082A6F006257E9 /* FlickWiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickWiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		704B8CD01C082A6F006257E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		704B8CD21C082A6F006257E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -419,6 +422,8 @@
 		7089C50D1C0DA50000B14779 /* SharedClass */ = {
 			isa = PBXGroup;
 			children = (
+				0423AB471C1A9AD600D61910 /* Base64.h */,
+				0423AB481C1A9AD600D61910 /* Base64.m */,
 				7089C50E1C0DA50100B14779 /* ASAlertView.h */,
 				7089C50F1C0DA50100B14779 /* ASAlertView.m */,
 				7089C5161C0DA50100B14779 /* Utility.h */,
@@ -606,6 +611,7 @@
 				7089C5211C0DA50100B14779 /* Venue.m in Sources */,
 				7089C5081C0DA4F800B14779 /* UIAlertView+AFNetworking.m in Sources */,
 				7089C5061C0DA4F800B14779 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				0423AB491C1A9AD600D61910 /* Base64.m in Sources */,
 				7089C4FE1C0DA4F800B14779 /* AFHTTPRequestOperationManager.m in Sources */,
 				7089C50C1C0DA4F800B14779 /* UIWebView+AFNetworking.m in Sources */,
 				7089C5091C0DA4F800B14779 /* UIButton+AFNetworking.m in Sources */,

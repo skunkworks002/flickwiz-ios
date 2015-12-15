@@ -11,40 +11,64 @@
 #import "MainViewController.h"
 #import "Seacrh Results.h"
 #import "SVProgressHUD.h"
-#import "WeatherHTTPClient.h"
 #import "Utility.h"
 #import "AFNetworking.h"
 #import "WeatherHTTPClient.h"
+#import "AppDelegate.h"
+#import "Venue.h"
+#import "Base64.h"
 
-static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/upload";
+/// service
+static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/uploadme";
 
-@interface SearchViewController () {
+
+@interface SearchViewController () //<WeatherHTTPClientDelegate>
+{
 
     dispatch_queue_t backgroundqueee;
     NSArray *imagesUrlArray;
-    // filick Wiz app
+    NSMutableDictionary *responseJsonResult;
+    NSString *imagerefUrl;
+    NSString *imageName;
+    NSString *imageExt;
+    NSData *imageData;
+    NSUInteger imageSize;
+    NSString *imagesizeString;
+    NSString *strEncoded;
+    NSDictionary *parameters;
+    AFHTTPRequestOperationManager *manager;
+
 }
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIButton *searchButton;
+@property (strong, nonatomic) IBOutlet UIButton *captureNewPhoto;
 @end
+
 @implementation SearchViewController
-@synthesize imageView;
-@synthesize theImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+        
+//    WeatherHTTPClient *sampleProtocol = (WeatherHTTPClient *)[[WeatherHTTPClient alloc]init];
+//    sampleProtocol.delegate = self;
     
     //View Tittle
     self.title = @"SearchView";
-    //imagesUrlArray = [[Utility sharedManager] getVenueArray];
     
+    //  SET BACKGROUNG IMAGE OF VIEW
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
+    self.imageView.image = _theImage;
     
-    self.imageView.image = theImage;
+    NSUserDefaults *imageDef = [NSUserDefaults standardUserDefaults];
+    imageName = [imageDef objectForKey:@"actulimageName"];
+    imageExt = [imageDef objectForKey:@"imageExention"];
     
     ///image animation
-    imageView.layer.cornerRadius = 60.0f;
-    imageView.layer.borderWidth = 2.0f;
-    imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    imageView.clipsToBounds = YES;
+    _imageView.layer.cornerRadius = 60.0f;
+    _imageView.layer.borderWidth = 2.0f;
+    _imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _imageView.clipsToBounds = YES;
     
     self.searchButton.layer.cornerRadius = self.searchButton.bounds.size.width/6.0;
     self.searchButton.layer.borderWidth = 3.0;
@@ -67,36 +91,29 @@ static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/up
 
 }
 
-
 #pragma mark Search Poster Button
 
-
 - (IBAction)searchButton:(id)sender {
-  //[[WeatherHTTPClient sharedWeatherHTTPClient]MovieResponse];
     
     [SVProgressHUD show];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
-    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
-    [requestSerializer setValue:@"Content-Type" forHTTPHeaderField:@"application/json"];
-    responseSerializer.acceptableContentTypes = [responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
-    [manager GET:movieimagesUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        NSArray *moviearrya = [responseObject objectForKey:@"bestOptionsList"];
-        NSArray *movieNamesArry = [responseObject objectForKey:@"movieNames"];
-        NSUserDefaults *movieimagesDef = [NSUserDefaults standardUserDefaults];
-        [movieimagesDef setObject:moviearrya forKey:@"moviearrya"];
-        [movieimagesDef setObject:movieNamesArry forKey:@"movieNamesArry"];
-         Seacrh_Results *searchView = [Seacrh_Results new];
-        [self.navigationController pushViewController:searchView animated:YES];
+    imageData = UIImageJPEGRepresentation(_theImage, 1.0);
+    imageSize   = imageData.length;
+    imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
+    strEncoded = [Base64 encode:imageData];
+    parameters = @{@"name":imageName, @"ext":imageExt, @"size":imagesizeString,@"base64Code":strEncoded};
+    manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager POST:movieimagesUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        responseJsonResult = responseObject;
+        Seacrh_Results *searchViewResult = [Seacrh_Results new];
+        searchViewResult.jsonResponsDic = responseJsonResult;
+        [self.navigationController pushViewController:searchViewResult animated:YES];
         [SVProgressHUD dismissWithDelay:1.0];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         [SVProgressHUD showErrorWithStatus:@"Error"];
-
     }];
-
-     }
+}
 
 
 - (void)didReceiveMemoryWarning {
