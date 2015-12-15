@@ -6,6 +6,7 @@
 //  Copyright © 2015 Xululabs. All rights reserved.
 //
 
+// remove some comted code from search view
 
 #import "SearchViewController.h"
 #import "MainViewController.h"
@@ -21,6 +22,9 @@
 /// service
 static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/uploadme";
 
+//static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/upload";
+static NSString *const  tesmovieimagesUrl1 = @"http://52.5.222.145:9000/myservice/upload1";
+static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservice/uploaded";
 
 @interface SearchViewController () //<WeatherHTTPClientDelegate>
 {
@@ -114,6 +118,8 @@ static NSString *const  movieimagesUrl = @"http://52.5.222.145:9000/myservice/up
         [SVProgressHUD showErrorWithStatus:@"Error"];
     }];
 }
+
+
 
 
 - (void)didReceiveMemoryWarning {
