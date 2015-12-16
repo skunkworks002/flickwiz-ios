@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Main View";
-    
+
     ///animation
 //    self.takeCameraPhoto.layer.cornerRadius = self.takeCameraPhoto.bounds.size.width/6.0;
 //    self.takeCameraPhoto.layer.borderWidth = 3.0;

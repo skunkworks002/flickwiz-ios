@@ -20,8 +20,9 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="aA9-Eo-V5O">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.12549019607843137" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="HEK-Lf-Xr1">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_update.png" translatesAutoresizingMaskIntoConstraints="NO" id="HEK-Lf-Xr1">
                                 <rect key="frame" x="193" y="251" width="214" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="97" id="Knh-QX-LGW"/>
@@ -48,6 +49,6 @@
     </scenes>
     <resources>
         <image name="background.jpg" width="600" height="600"/>
-        <image name="logo.png" width="146" height="66"/>
+        <image name="logo_update.png" width="214" height="97"/>
     </resources>
 </document>

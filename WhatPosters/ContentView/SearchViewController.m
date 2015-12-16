@@ -61,29 +61,29 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
     self.title = @"SearchView";
     
     //  SET BACKGROUNG IMAGE OF VIEW
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
     self.imageView.image = _theImage;
     
     NSUserDefaults *imageDef = [NSUserDefaults standardUserDefaults];
     imageName = [imageDef objectForKey:@"actulimageName"];
     imageExt = [imageDef objectForKey:@"imageExention"];
     
-    ///image animation
+    //image animation
     _imageView.layer.cornerRadius = 60.0f;
     _imageView.layer.borderWidth = 2.0f;
     _imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     _imageView.clipsToBounds = YES;
     
-    self.searchButton.layer.cornerRadius = self.searchButton.bounds.size.width/6.0;
-    self.searchButton.layer.borderWidth = 3.0;
-    self.searchButton.layer.borderColor = self.searchButton.titleLabel.textColor.CGColor;
-    self.searchButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
-    
-    
-    self.captureNewPhoto.layer.cornerRadius = self.captureNewPhoto.bounds.size.width/6.0;
-    self.captureNewPhoto.layer.borderWidth = 3.0;
-    self.captureNewPhoto.layer.borderColor = self.captureNewPhoto.titleLabel.textColor.CGColor;
-    self.captureNewPhoto.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+//    self.searchButton.layer.cornerRadius = self.searchButton.bounds.size.width/6.0;
+//    self.searchButton.layer.borderWidth = 3.0;
+//    self.searchButton.layer.borderColor = self.searchButton.titleLabel.textColor.CGColor;
+//    self.searchButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+//    
+//    
+//    self.captureNewPhoto.layer.cornerRadius = self.captureNewPhoto.bounds.size.width/6.0;
+//    self.captureNewPhoto.layer.borderWidth = 3.0;
+//    self.captureNewPhoto.layer.borderColor = self.captureNewPhoto.titleLabel.textColor.CGColor;
+//    self.captureNewPhoto.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
 }
 
 #pragma mark NewPhotoButton

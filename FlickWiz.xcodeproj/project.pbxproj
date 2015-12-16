@@ -12,6 +12,9 @@
 		70344D121C21464D00E5AD1A /* lc.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D0F1C21464D00E5AD1A /* lc.png */; };
 		70344D131C21464D00E5AD1A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D101C21464D00E5AD1A /* logo.png */; };
 		70344D141C21464D00E5AD1A /* ph.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D111C21464D00E5AD1A /* ph.png */; };
+		70344D171C21668800E5AD1A /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D151C21668800E5AD1A /* 1.png */; };
+		70344D181C21668800E5AD1A /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D161C21668800E5AD1A /* 2.png */; };
+		70344D1A1C216B3300E5AD1A /* logo_update.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D191C216B3300E5AD1A /* logo_update.png */; };
 		704B8CD11C082A6F006257E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8CD01C082A6F006257E9 /* main.m */; };
 		704B8CD41C082A6F006257E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8CD31C082A6F006257E9 /* AppDelegate.m */; };
 		704B8CDC1C082A6F006257E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 704B8CDB1C082A6F006257E9 /* Assets.xcassets */; };
@@ -96,6 +99,9 @@
 		70344D0F1C21464D00E5AD1A /* lc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lc.png; sourceTree = "<group>"; };
 		70344D101C21464D00E5AD1A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		70344D111C21464D00E5AD1A /* ph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ph.png; sourceTree = "<group>"; };
+		70344D151C21668800E5AD1A /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		70344D161C21668800E5AD1A /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		70344D191C216B3300E5AD1A /* logo_update.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_update.png; sourceTree = "<group>"; };
 		704B8CCC1C082A6F006257E9 /* FlickWiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickWiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		704B8CD01C082A6F006257E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		704B8CD21C082A6F006257E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -457,6 +463,9 @@
 		7094B1131C0EC87000BF2AAF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				70344D191C216B3300E5AD1A /* logo_update.png */,
+				70344D151C21668800E5AD1A /* 1.png */,
+				70344D161C21668800E5AD1A /* 2.png */,
 				7094B1161C0ECAA500BF2AAF /* ImageUploadedByModMyi1342057019.344337.jpg */,
 				7094B1141C0EC87000BF2AAF /* Mainbackgroundimage.png */,
 				70344D0D1C21439700E5AD1A /* background.jpg */,
@@ -571,10 +580,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70344D181C21668800E5AD1A /* 2.png in Resources */,
 				70344D121C21464D00E5AD1A /* lc.png in Resources */,
 				70344D131C21464D00E5AD1A /* logo.png in Resources */,
 				704B8D1F1C08315C006257E9 /* Snitch.jpg in Resources */,
 				704B8D461C087DB6006257E9 /* SVProgressHUD.bundle in Resources */,
+				70344D171C21668800E5AD1A /* 1.png in Resources */,
 				704B8CDF1C082A6F006257E9 /* LaunchScreen.storyboard in Resources */,
 				704B8D221C08315C006257E9 /* The-Lone-Ranger-Movie-Poster.jpg in Resources */,
 				704B8D071C082B1A006257E9 /* Seacrh Results.xib in Resources */,
@@ -587,6 +598,7 @@
 				704B8D231C08315C006257E9 /* Wolverine.jpg in Resources */,
 				704B8D211C08315C006257E9 /* Spy.jpg in Resources */,
 				7094B1171C0ECAA500BF2AAF /* ImageUploadedByModMyi1342057019.344337.jpg in Resources */,
+				70344D1A1C216B3300E5AD1A /* logo_update.png in Resources */,
 				704B8D1B1C08315C006257E9 /* HangOver.jpg in Resources */,
 				704B8D1D1C08315C006257E9 /* Pengunis.jpg in Resources */,
 				704B8D361C087BA5006257E9 /* MainViewController.xib in Resources */,
