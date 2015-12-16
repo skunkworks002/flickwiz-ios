@@ -30,18 +30,18 @@
     self.title = @"Main View";
     
     ///animation
-    self.takeCameraPhoto.layer.cornerRadius = self.takeCameraPhoto.bounds.size.width/6.0;
-    self.takeCameraPhoto.layer.borderWidth = 3.0;
-    self.takeCameraPhoto.layer.borderColor = self.takeCameraPhoto.titleLabel.textColor.CGColor;
-    self.takeCameraPhoto.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
-
-    self.takeGallaryPhoto.layer.cornerRadius = self.takeCameraPhoto.bounds.size.width/6.0;
-    self.takeGallaryPhoto.layer.borderWidth = 3.0;
-    self.takeGallaryPhoto.layer.borderColor = self.takeCameraPhoto.titleLabel.textColor.CGColor;
-    self.takeGallaryPhoto.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+//    self.takeCameraPhoto.layer.cornerRadius = self.takeCameraPhoto.bounds.size.width/6.0;
+//    self.takeCameraPhoto.layer.borderWidth = 3.0;
+//    self.takeCameraPhoto.layer.borderColor = self.takeCameraPhoto.titleLabel.textColor.CGColor;
+//    self.takeCameraPhoto.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
+//
+//    self.takeGallaryPhoto.layer.cornerRadius = self.takeCameraPhoto.bounds.size.width/6.0;
+//    self.takeGallaryPhoto.layer.borderWidth = 3.0;
+//    self.takeGallaryPhoto.layer.borderColor = self.takeCameraPhoto.titleLabel.textColor.CGColor;
+//    self.takeGallaryPhoto.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
     
     //background image on view
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"background.jpg"]]];
     // Do any additional setup after loading the view from its nib.
 }
 

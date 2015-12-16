@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		0423AB491C1A9AD600D61910 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423AB481C1A9AD600D61910 /* Base64.m */; };
+		70344D0E1C21439700E5AD1A /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 70344D0D1C21439700E5AD1A /* background.jpg */; };
+		70344D121C21464D00E5AD1A /* lc.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D0F1C21464D00E5AD1A /* lc.png */; };
+		70344D131C21464D00E5AD1A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D101C21464D00E5AD1A /* logo.png */; };
+		70344D141C21464D00E5AD1A /* ph.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D111C21464D00E5AD1A /* ph.png */; };
 		704B8CD11C082A6F006257E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8CD01C082A6F006257E9 /* main.m */; };
 		704B8CD41C082A6F006257E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8CD31C082A6F006257E9 /* AppDelegate.m */; };
 		704B8CDC1C082A6F006257E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 704B8CDB1C082A6F006257E9 /* Assets.xcassets */; };
@@ -88,6 +92,10 @@
 /* Begin PBXFileReference section */
 		0423AB471C1A9AD600D61910 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		0423AB481C1A9AD600D61910 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		70344D0D1C21439700E5AD1A /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
+		70344D0F1C21464D00E5AD1A /* lc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lc.png; sourceTree = "<group>"; };
+		70344D101C21464D00E5AD1A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		70344D111C21464D00E5AD1A /* ph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ph.png; sourceTree = "<group>"; };
 		704B8CCC1C082A6F006257E9 /* FlickWiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickWiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		704B8CD01C082A6F006257E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		704B8CD21C082A6F006257E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -451,6 +459,10 @@
 			children = (
 				7094B1161C0ECAA500BF2AAF /* ImageUploadedByModMyi1342057019.344337.jpg */,
 				7094B1141C0EC87000BF2AAF /* Mainbackgroundimage.png */,
+				70344D0D1C21439700E5AD1A /* background.jpg */,
+				70344D0F1C21464D00E5AD1A /* lc.png */,
+				70344D101C21464D00E5AD1A /* logo.png */,
+				70344D111C21464D00E5AD1A /* ph.png */,
 			);
 			name = images;
 			path = WhatPosters/images;
@@ -559,6 +571,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70344D121C21464D00E5AD1A /* lc.png in Resources */,
+				70344D131C21464D00E5AD1A /* logo.png in Resources */,
 				704B8D1F1C08315C006257E9 /* Snitch.jpg in Resources */,
 				704B8D461C087DB6006257E9 /* SVProgressHUD.bundle in Resources */,
 				704B8CDF1C082A6F006257E9 /* LaunchScreen.storyboard in Resources */,
@@ -566,8 +580,10 @@
 				704B8D071C082B1A006257E9 /* Seacrh Results.xib in Resources */,
 				704B8D201C08315C006257E9 /* Spectre.jpg in Resources */,
 				7094B1151C0EC87100BF2AAF /* Mainbackgroundimage.png in Resources */,
+				70344D141C21464D00E5AD1A /* ph.png in Resources */,
 				704B8D1E1C08315C006257E9 /* Salt.jpg in Resources */,
 				704B8D0D1C082E80006257E9 /* MovieCell.xib in Resources */,
+				70344D0E1C21439700E5AD1A /* background.jpg in Resources */,
 				704B8D231C08315C006257E9 /* Wolverine.jpg in Resources */,
 				704B8D211C08315C006257E9 /* Spy.jpg in Resources */,
 				7094B1171C0ECAA500BF2AAF /* ImageUploadedByModMyi1342057019.344337.jpg in Resources */,

@@ -99,7 +99,7 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
 
 - (IBAction)searchButton:(id)sender {
     
-    [SVProgressHUD show];
+    [SVProgressHUD showWithStatus:@"Progress...."];
     imageData = UIImageJPEGRepresentation(_theImage, 1.0);
     imageSize   = imageData.length;
     imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
@@ -118,9 +118,6 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
         [SVProgressHUD showErrorWithStatus:@"Error"];
     }];
 }
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
