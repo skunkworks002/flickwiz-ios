@@ -17,35 +17,35 @@
 // new code for app
 
 @interface Seacrh_Results () <WeatherHTTPClientDelegate>{
-
-  //  NSArray
-    NSArray *MoviewPosterNamesArray;
-    NSArray *imagearray;
-    NSArray *imagesUrlArray;
-    NSArray *movienameArray;
-    UIImage *imagesData;
-    NSData *imageDate;
-    NSMutableDictionary *myresult;
-    UIImage *myImage;
-    NSMutableArray *dateStringArray;
+    // NSString
     NSString *datePick;
     NSString *Datestring2;
     NSString *movieName;
     NSString *movieDescString;
+    NSString *movietypestring;
+    NSString *moviemakerString;
+    NSString *movierakingString;
+    //  Arrays
+    NSArray *MoviewPosterNamesArray;
+    NSArray *imagearray;
+    NSArray *imagesUrlArray;
+    NSArray *movienameArray;
+    NSMutableArray *movierakingListArray;
+    NSMutableArray *dateStringArray;
     NSMutableArray *moviedecripArray;
     NSMutableArray *moviedecListArray;
     NSMutableArray *moviedateArray;
     NSMutableArray *movietypeArray;
-    NSString *movietypestring;
     NSMutableArray *movietypeListArray;
     NSMutableArray *moviemakerArray;
-    NSString *moviemakerString;
     NSMutableArray *moviemakerListArray;
     NSMutableArray *movierakingArray;
-    NSString *movierakingString;
-    NSMutableArray *movierakingListArray;
 
+    NSMutableDictionary *myresult;
 
+    UIImage *imagesData;
+    UIImage *myImage;
+    NSData *imageDate;
 }
 @end
 
@@ -101,15 +101,14 @@
         
     }
     
-     /// movie raking loop
+     // movie raking loop
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         movierakingArray = [MoviewPosterNamesArray objectAtIndex:i];
         movierakingString = [movierakingArray objectAtIndex:7];
         [movierakingListArray addObject:movierakingString];
         
-    }}
-
-
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

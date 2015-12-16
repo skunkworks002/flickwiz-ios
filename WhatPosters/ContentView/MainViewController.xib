@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< Updated upstream
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+>>>>>>> Stashed changes
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
@@ -51,7 +55,32 @@
                         <constraint firstAttribute="height" constant="285" id="Ie2-2Y-G92"/>
                         <constraint firstAttribute="width" constant="254" id="itT-Ll-cF2"/>
                     </constraints>
+<<<<<<< Updated upstream
                 </view>
+=======
+                    <state key="normal" title="Launch Camera View">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="takeCameraPhoto:" destination="-1" eventType="touchUpInside" id="a1Q-cw-gbJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTh-qR-MCg">
+                    <rect key="frame" x="202" y="286" width="195" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="2fB-lz-Krb"/>
+                        <constraint firstAttribute="width" constant="195" id="rra-vn-OrI"/>
+                    </constraints>
+                    <state key="normal" title="Select from Photo gallery">
+                        <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="takeGallaryPhoto:" destination="-1" eventType="touchUpInside" id="CQC-fi-XOV"/>
+                    </connections>
+                </button>
+>>>>>>> Stashed changes
             </subviews>
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
