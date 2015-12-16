@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0423AB491C1A9AD600D61910 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423AB481C1A9AD600D61910 /* Base64.m */; };
+		04D91C681C217644001DCF32 /* GiFHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D91C671C217644001DCF32 /* GiFHUD.m */; };
+		04D91C6A1C217860001DCF32 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04D91C691C217860001DCF32 /* loading.gif */; };
+		04D91C6C1C219342001DCF32 /* animation_mob.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04D91C6B1C219342001DCF32 /* animation_mob.gif */; };
 		70344D0E1C21439700E5AD1A /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 70344D0D1C21439700E5AD1A /* background.jpg */; };
 		70344D121C21464D00E5AD1A /* lc.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D0F1C21464D00E5AD1A /* lc.png */; };
 		70344D131C21464D00E5AD1A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D101C21464D00E5AD1A /* logo.png */; };
@@ -45,10 +48,6 @@
 		704B8D361C087BA5006257E9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704B8D331C087BA5006257E9 /* MainViewController.xib */; };
 		704B8D371C087BA5006257E9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8D341C087BA5006257E9 /* SearchViewController.m */; };
 		704B8D3A1C087BB1006257E9 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704B8D391C087BB1006257E9 /* SearchViewController.xib */; };
-		704B8D451C087DB6006257E9 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8D3E1C087DB6006257E9 /* SVIndefiniteAnimatedView.m */; };
-		704B8D461C087DB6006257E9 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 704B8D401C087DB6006257E9 /* SVProgressHUD.bundle */; };
-		704B8D471C087DB6006257E9 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8D421C087DB6006257E9 /* SVProgressHUD.m */; };
-		704B8D481C087DB6006257E9 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8D441C087DB6006257E9 /* SVRadialGradientLayer.m */; };
 		7089C4FD1C0DA4F800B14779 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089C4DB1C0DA4F800B14779 /* AFHTTPRequestOperation.m */; };
 		7089C4FE1C0DA4F800B14779 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089C4DD1C0DA4F800B14779 /* AFHTTPRequestOperationManager.m */; };
 		7089C4FF1C0DA4F800B14779 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089C4DF1C0DA4F800B14779 /* AFHTTPSessionManager.m */; };
@@ -95,6 +94,10 @@
 /* Begin PBXFileReference section */
 		0423AB471C1A9AD600D61910 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		0423AB481C1A9AD600D61910 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		04D91C661C217644001DCF32 /* GiFHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiFHUD.h; sourceTree = "<group>"; };
+		04D91C671C217644001DCF32 /* GiFHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiFHUD.m; sourceTree = "<group>"; };
+		04D91C691C217860001DCF32 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
+		04D91C6B1C219342001DCF32 /* animation_mob.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animation_mob.gif; sourceTree = "<group>"; };
 		70344D0D1C21439700E5AD1A /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		70344D0F1C21464D00E5AD1A /* lc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lc.png; sourceTree = "<group>"; };
 		70344D101C21464D00E5AD1A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -144,14 +147,6 @@
 		704B8D341C087BA5006257E9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		704B8D381C087BB1006257E9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		704B8D391C087BB1006257E9 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		704B8D3D1C087DB6006257E9 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
-		704B8D3E1C087DB6006257E9 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
-		704B8D3F1C087DB6006257E9 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
-		704B8D401C087DB6006257E9 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
-		704B8D411C087DB6006257E9 /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
-		704B8D421C087DB6006257E9 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		704B8D431C087DB6006257E9 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
-		704B8D441C087DB6006257E9 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		7089C4DA1C0DA4F800B14779 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		7089C4DB1C0DA4F800B14779 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		7089C4DC1C0DA4F800B14779 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -231,6 +226,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04D91C651C217644001DCF32 /* ProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				04D91C661C217644001DCF32 /* GiFHUD.h */,
+				04D91C671C217644001DCF32 /* GiFHUD.m */,
+			);
+			path = ProgressHUD;
+			sourceTree = "<group>";
+		};
 		704B8CC31C082A6F006257E9 = {
 			isa = PBXGroup;
 			children = (
@@ -353,27 +357,12 @@
 		704B8D3B1C087DB6006257E9 /* Third Library */ = {
 			isa = PBXGroup;
 			children = (
+				04D91C651C217644001DCF32 /* ProgressHUD */,
 				7089C5231C0DA56100B14779 /* ImageCompress */,
 				7089C4D81C0DA4F800B14779 /* AFNetworking */,
-				704B8D3C1C087DB6006257E9 /* SVProgressHUD */,
 			);
 			name = "Third Library";
 			path = "WhatPosters/Third Library";
-			sourceTree = "<group>";
-		};
-		704B8D3C1C087DB6006257E9 /* SVProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				704B8D3D1C087DB6006257E9 /* SVIndefiniteAnimatedView.h */,
-				704B8D3E1C087DB6006257E9 /* SVIndefiniteAnimatedView.m */,
-				704B8D3F1C087DB6006257E9 /* SVProgressHUD-Prefix.pch */,
-				704B8D401C087DB6006257E9 /* SVProgressHUD.bundle */,
-				704B8D411C087DB6006257E9 /* SVProgressHUD.h */,
-				704B8D421C087DB6006257E9 /* SVProgressHUD.m */,
-				704B8D431C087DB6006257E9 /* SVRadialGradientLayer.h */,
-				704B8D441C087DB6006257E9 /* SVRadialGradientLayer.m */,
-			);
-			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
 		7089C4D81C0DA4F800B14779 /* AFNetworking */ = {
@@ -463,6 +452,8 @@
 		7094B1131C0EC87000BF2AAF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				04D91C6B1C219342001DCF32 /* animation_mob.gif */,
+				04D91C691C217860001DCF32 /* loading.gif */,
 				70344D191C216B3300E5AD1A /* logo_update.png */,
 				70344D151C21668800E5AD1A /* 1.png */,
 				70344D161C21668800E5AD1A /* 2.png */,
@@ -584,7 +575,6 @@
 				70344D121C21464D00E5AD1A /* lc.png in Resources */,
 				70344D131C21464D00E5AD1A /* logo.png in Resources */,
 				704B8D1F1C08315C006257E9 /* Snitch.jpg in Resources */,
-				704B8D461C087DB6006257E9 /* SVProgressHUD.bundle in Resources */,
 				70344D171C21668800E5AD1A /* 1.png in Resources */,
 				704B8CDF1C082A6F006257E9 /* LaunchScreen.storyboard in Resources */,
 				704B8D221C08315C006257E9 /* The-Lone-Ranger-Movie-Poster.jpg in Resources */,
@@ -596,12 +586,14 @@
 				704B8D0D1C082E80006257E9 /* MovieCell.xib in Resources */,
 				70344D0E1C21439700E5AD1A /* background.jpg in Resources */,
 				704B8D231C08315C006257E9 /* Wolverine.jpg in Resources */,
+				04D91C6A1C217860001DCF32 /* loading.gif in Resources */,
 				704B8D211C08315C006257E9 /* Spy.jpg in Resources */,
 				7094B1171C0ECAA500BF2AAF /* ImageUploadedByModMyi1342057019.344337.jpg in Resources */,
 				70344D1A1C216B3300E5AD1A /* logo_update.png in Resources */,
 				704B8D1B1C08315C006257E9 /* HangOver.jpg in Resources */,
 				704B8D1D1C08315C006257E9 /* Pengunis.jpg in Resources */,
 				704B8D361C087BA5006257E9 /* MainViewController.xib in Resources */,
+				04D91C6C1C219342001DCF32 /* animation_mob.gif in Resources */,
 				704B8D1C1C08315C006257E9 /* Inception.jpg in Resources */,
 				704B8CDC1C082A6F006257E9 /* Assets.xcassets in Resources */,
 				704B8D281C083D57006257E9 /* MovieDetailsView.xib in Resources */,
@@ -641,15 +633,14 @@
 				7089C5061C0DA4F800B14779 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				0423AB491C1A9AD600D61910 /* Base64.m in Sources */,
 				7089C4FE1C0DA4F800B14779 /* AFHTTPRequestOperationManager.m in Sources */,
+				04D91C681C217644001DCF32 /* GiFHUD.m in Sources */,
 				7089C50C1C0DA4F800B14779 /* UIWebView+AFNetworking.m in Sources */,
 				7089C5091C0DA4F800B14779 /* UIButton+AFNetworking.m in Sources */,
 				7089C5221C0DA50100B14779 /* WeatherHTTPClient.m in Sources */,
 				7089C5071C0DA4F800B14779 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				7089C5201C0DA50100B14779 /* Utility.m in Sources */,
 				704B8D061C082B1A006257E9 /* Seacrh Results.m in Sources */,
-				704B8D451C087DB6006257E9 /* SVIndefiniteAnimatedView.m in Sources */,
 				704B8D0C1C082E80006257E9 /* MovieCell.m in Sources */,
-				704B8D471C087DB6006257E9 /* SVProgressHUD.m in Sources */,
 				7089C5261C0DA56100B14779 /* UIImage+ImageCompress.m in Sources */,
 				704B8D271C083D57006257E9 /* MovieDetailsView.m in Sources */,
 				7089C5051C0DA4F800B14779 /* AFURLSessionManager.m in Sources */,
@@ -659,7 +650,6 @@
 				7089C5031C0DA4F800B14779 /* AFURLRequestSerialization.m in Sources */,
 				7089C50A1C0DA4F800B14779 /* UIImageView+AFNetworking.m in Sources */,
 				7089C5001C0DA4F800B14779 /* AFNetworkReachabilityManager.m in Sources */,
-				704B8D481C087DB6006257E9 /* SVRadialGradientLayer.m in Sources */,
 				7089C51C1C0DA50100B14779 /* ASAlertView.m in Sources */,
 				7089C4FD1C0DA4F800B14779 /* AFHTTPRequestOperation.m in Sources */,
 				7089C4FF1C0DA4F800B14779 /* AFHTTPSessionManager.m in Sources */,

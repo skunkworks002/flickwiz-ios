@@ -11,7 +11,8 @@
 #import "SearchViewController.h"
 #import "MainViewController.h"
 #import "Seacrh Results.h"
-#import "SVProgressHUD.h"
+//#import "SVProgressHUD.h"
+#import "GiFHUD.h"
 #import "Utility.h"
 #import "AFNetworking.h"
 #import "WeatherHTTPClient.h"
@@ -53,7 +54,10 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-        
+    
+    [GiFHUD setGifWithImageName:@"animation_mob.gif"];
+
+    
 //    WeatherHTTPClient *sampleProtocol = (WeatherHTTPClient *)[[WeatherHTTPClient alloc]init];
 //    sampleProtocol.delegate = self;
     
@@ -99,7 +103,10 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
 
 - (IBAction)searchButton:(id)sender {
     
-    [SVProgressHUD showWithStatus:@"Progress...."];
+    //[SVProgressHUD showWithStatus:@"Progress...."];
+    
+    [GiFHUD show];
+
     imageData = UIImageJPEGRepresentation(_theImage, 1.0);
     imageSize   = imageData.length;
     imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
@@ -112,10 +119,20 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
         Seacrh_Results *searchViewResult = [Seacrh_Results new];
         searchViewResult.jsonResponsDic = responseJsonResult;
         [self.navigationController pushViewController:searchViewResult animated:YES];
-        [SVProgressHUD dismissWithDelay:1.0];
+      
+        
+     //   [SVProgressHUD dismissWithDelay:1.0];
+    
+        [GiFHUD dismiss];
+
+    
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-        [SVProgressHUD showErrorWithStatus:@"Error"];
+        
+        [GiFHUD dismiss];
+
+        
+//        [SVProgressHUD showErrorWithStatus:@"Error"];
     }];
 }
 

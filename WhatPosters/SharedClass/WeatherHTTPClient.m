@@ -11,7 +11,7 @@
 #import "AFNetworking.h"
 #import "Utility.h"
 #import "Venue.h"
-#import "SVProgressHUD.h"
+//#import "SVProgressHUD.h"
 #import "UIImage+ImageCompress.h"
 #import "SearchViewController.h"
 
