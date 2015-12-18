@@ -18,6 +18,10 @@
 		70344D171C21668800E5AD1A /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D151C21668800E5AD1A /* 1.png */; };
 		70344D181C21668800E5AD1A /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D161C21668800E5AD1A /* 2.png */; };
 		70344D1A1C216B3300E5AD1A /* logo_update.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D191C216B3300E5AD1A /* logo_update.png */; };
+		7047800D1C242DFC0043177E /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 704780061C242DFC0043177E /* SVIndefiniteAnimatedView.m */; };
+		7047800E1C242DFC0043177E /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 704780081C242DFC0043177E /* SVProgressHUD.bundle */; };
+		7047800F1C242DFC0043177E /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7047800A1C242DFC0043177E /* SVProgressHUD.m */; };
+		704780101C242DFC0043177E /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7047800C1C242DFC0043177E /* SVRadialGradientLayer.m */; };
 		704B8CD11C082A6F006257E9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8CD01C082A6F006257E9 /* main.m */; };
 		704B8CD41C082A6F006257E9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8CD31C082A6F006257E9 /* AppDelegate.m */; };
 		704B8CDC1C082A6F006257E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 704B8CDB1C082A6F006257E9 /* Assets.xcassets */; };
@@ -105,6 +109,14 @@
 		70344D151C21668800E5AD1A /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		70344D161C21668800E5AD1A /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		70344D191C216B3300E5AD1A /* logo_update.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_update.png; sourceTree = "<group>"; };
+		704780051C242DFC0043177E /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		704780061C242DFC0043177E /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		704780071C242DFC0043177E /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		704780081C242DFC0043177E /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		704780091C242DFC0043177E /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		7047800A1C242DFC0043177E /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		7047800B1C242DFC0043177E /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		7047800C1C242DFC0043177E /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		704B8CCC1C082A6F006257E9 /* FlickWiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickWiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		704B8CD01C082A6F006257E9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		704B8CD21C082A6F006257E9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -235,6 +247,21 @@
 			path = ProgressHUD;
 			sourceTree = "<group>";
 		};
+		704780041C242DFC0043177E /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				704780051C242DFC0043177E /* SVIndefiniteAnimatedView.h */,
+				704780061C242DFC0043177E /* SVIndefiniteAnimatedView.m */,
+				704780071C242DFC0043177E /* SVProgressHUD-Prefix.pch */,
+				704780081C242DFC0043177E /* SVProgressHUD.bundle */,
+				704780091C242DFC0043177E /* SVProgressHUD.h */,
+				7047800A1C242DFC0043177E /* SVProgressHUD.m */,
+				7047800B1C242DFC0043177E /* SVRadialGradientLayer.h */,
+				7047800C1C242DFC0043177E /* SVRadialGradientLayer.m */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		704B8CC31C082A6F006257E9 = {
 			isa = PBXGroup;
 			children = (
@@ -357,6 +384,7 @@
 		704B8D3B1C087DB6006257E9 /* Third Library */ = {
 			isa = PBXGroup;
 			children = (
+				704780041C242DFC0043177E /* SVProgressHUD */,
 				04D91C651C217644001DCF32 /* ProgressHUD */,
 				7089C5231C0DA56100B14779 /* ImageCompress */,
 				7089C4D81C0DA4F800B14779 /* AFNetworking */,
@@ -576,6 +604,7 @@
 				70344D131C21464D00E5AD1A /* logo.png in Resources */,
 				704B8D1F1C08315C006257E9 /* Snitch.jpg in Resources */,
 				70344D171C21668800E5AD1A /* 1.png in Resources */,
+				7047800E1C242DFC0043177E /* SVProgressHUD.bundle in Resources */,
 				704B8CDF1C082A6F006257E9 /* LaunchScreen.storyboard in Resources */,
 				704B8D221C08315C006257E9 /* The-Lone-Ranger-Movie-Poster.jpg in Resources */,
 				704B8D071C082B1A006257E9 /* Seacrh Results.xib in Resources */,
@@ -632,8 +661,11 @@
 				7089C5081C0DA4F800B14779 /* UIAlertView+AFNetworking.m in Sources */,
 				7089C5061C0DA4F800B14779 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				0423AB491C1A9AD600D61910 /* Base64.m in Sources */,
+				7047800F1C242DFC0043177E /* SVProgressHUD.m in Sources */,
+				704780101C242DFC0043177E /* SVRadialGradientLayer.m in Sources */,
 				7089C4FE1C0DA4F800B14779 /* AFHTTPRequestOperationManager.m in Sources */,
 				04D91C681C217644001DCF32 /* GiFHUD.m in Sources */,
+				7047800D1C242DFC0043177E /* SVIndefiniteAnimatedView.m in Sources */,
 				7089C50C1C0DA4F800B14779 /* UIWebView+AFNetworking.m in Sources */,
 				7089C5091C0DA4F800B14779 /* UIButton+AFNetworking.m in Sources */,
 				7089C5221C0DA50100B14779 /* WeatherHTTPClient.m in Sources */,

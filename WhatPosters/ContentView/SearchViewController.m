@@ -6,12 +6,11 @@
 //  Copyright © 2015 Xululabs. All rights reserved.
 //
 
-// remove some comted code from search view
 
 #import "SearchViewController.h"
 #import "MainViewController.h"
 #import "Seacrh Results.h"
-//#import "SVProgressHUD.h"
+#import "SVProgressHUD.h"
 #import "GiFHUD.h"
 #import "Utility.h"
 #import "AFNetworking.h"
@@ -98,6 +97,7 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
 #pragma mark Search Poster Button
 
 - (IBAction)searchButton:(id)sender {
+    
     [GiFHUD show];
     imageData = UIImageJPEGRepresentation(_theImage, 1.0);
     imageSize   = imageData.length;
@@ -111,12 +111,10 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
         Seacrh_Results *searchViewResult = [Seacrh_Results new];
         searchViewResult.jsonResponsDic = responseJsonResult;
         [self.navigationController pushViewController:searchViewResult animated:YES];
-     //   [SVProgressHUD dismissWithDelay:1.0];
-        [GiFHUD dismiss];
+          [GiFHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-        [GiFHUD dismiss];
-//        [SVProgressHUD showErrorWithStatus:@"Error"];
+     [SVProgressHUD showErrorWithStatus:@"Error"];
     }];
 }
 

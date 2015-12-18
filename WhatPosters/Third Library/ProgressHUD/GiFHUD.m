@@ -199,6 +199,7 @@ static GiFHUD *instance;
         }
     }
     else {
+        
         if ((self = [super initWithFrame:CGRectMake(220, 50, SizeX, 170)])) {
             [self setAlpha:0];
          //   [self setCenter:APPDELEGATE.window.center];
