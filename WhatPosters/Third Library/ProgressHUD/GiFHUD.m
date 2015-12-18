@@ -23,7 +23,6 @@
 #define FadeDuration    0.3
 #define GifSpeed        0.3
 
-
 #define APPDELEGATE     ((AppDelegate*)[[UIApplication sharedApplication] delegate])
 
 #if __has_feature(objc_arc)
@@ -157,8 +156,6 @@ static UIImage *animatedImageWithAnimatedGIFReleasingImageSource(CGImageSourceRe
 
 @end
 
-
-
 #pragma mark - GiFHUD Implementation
 
 @implementation GiFHUD
@@ -176,26 +173,54 @@ static GiFHUD *instance;
 }
 
 - (instancetype)init {
-    if ((self = [super initWithFrame:CGRectMake(72, 75, SizeX, SizeY)])) {
-        
+    
+    CGFloat width = [UIScreen mainScreen].bounds.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    if (width < height) {
+
+        if ((self = [super initWithFrame:CGRectMake(72, 70, SizeX, SizeY)])) {
         [self setAlpha:0];
-       // [self setCenter:APPDELEGATE.window.center];
+      //  [self setCenter:APPDELEGATE.window.center];
         [self setClipsToBounds:NO];
-        
+           // [self.layer setBackgroundColor:[[UIColor clearColor]CGColor]];
+            
         [self.layer setBackgroundColor:[[UIColor colorWithWhite:0 alpha:0.5] CGColor]];
-        [self.layer setCornerRadius:10];
+       // [self.layer setCornerRadius:10];
         [self.layer setMasksToBounds:YES];
         
-      //  self.imageView = [[UIImageView alloc] initWithFrame:CGRectInset(self.bounds, 20, 20)];
-
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectInset(self.bounds, 0, 20)];
         self.imageView.backgroundColor = [UIColor clearColor];
         
+       // self.imageView.center = _imageView.superview.center;
+      
         [self addSubview:self.imageView];
-        
         [APPDELEGATE.window addSubview:self];
+        
+        }
     }
-    return self;
+    else {
+        if ((self = [super initWithFrame:CGRectMake(220, 50, SizeX, 170)])) {
+            [self setAlpha:0];
+         //   [self setCenter:APPDELEGATE.window.center];
+            [self setClipsToBounds:NO];
+            
+            [self.layer setBackgroundColor:[[UIColor clearColor]CGColor]];
+           // [self.layer setBackgroundColor:[[UIColor colorWithWhite:0 alpha:0.5] CGColor]];
+            // [self.layer setCornerRadius:10];
+            [self.layer setMasksToBounds:YES];
+            
+            self.imageView = [[UIImageView alloc] initWithFrame:CGRectInset(self.bounds, 0, 20)];
+            self.imageView.backgroundColor = [UIColor clearColor];
+            
+            // self.imageView.center = _imageView.superview.center;
+            
+            [self addSubview:self.imageView];
+            [APPDELEGATE.window addSubview:self];
+        }
+    }
+   
+
+        return self;
 }
 
 #pragma mark HUD

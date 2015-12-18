@@ -56,7 +56,6 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
     [super viewDidLoad];
     
     [GiFHUD setGifWithImageName:@"animation_mob.gif"];
-
     
 //    WeatherHTTPClient *sampleProtocol = (WeatherHTTPClient *)[[WeatherHTTPClient alloc]init];
 //    sampleProtocol.delegate = self;
@@ -82,8 +81,6 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
 //    self.searchButton.layer.borderWidth = 3.0;
 //    self.searchButton.layer.borderColor = self.searchButton.titleLabel.textColor.CGColor;
 //    self.searchButton.titleLabel.font = [UIFont fontWithName:@"HelveticaNeue-Light" size:18];
-//    
-//    
 //    self.captureNewPhoto.layer.cornerRadius = self.captureNewPhoto.bounds.size.width/6.0;
 //    self.captureNewPhoto.layer.borderWidth = 3.0;
 //    self.captureNewPhoto.layer.borderColor = self.captureNewPhoto.titleLabel.textColor.CGColor;
@@ -96,17 +93,12 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
 
     MainViewController *nextView = [[MainViewController alloc] initWithNibName:@"MainViewController"bundle:[NSBundle mainBundle]];
         [self.navigationController pushViewController:nextView animated:YES];
-
 }
 
 #pragma mark Search Poster Button
 
 - (IBAction)searchButton:(id)sender {
-    
-    //[SVProgressHUD showWithStatus:@"Progress...."];
-    
     [GiFHUD show];
-
     imageData = UIImageJPEGRepresentation(_theImage, 1.0);
     imageSize   = imageData.length;
     imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
@@ -119,19 +111,11 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
         Seacrh_Results *searchViewResult = [Seacrh_Results new];
         searchViewResult.jsonResponsDic = responseJsonResult;
         [self.navigationController pushViewController:searchViewResult animated:YES];
-      
-        
      //   [SVProgressHUD dismissWithDelay:1.0];
-    
         [GiFHUD dismiss];
-
-    
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-        
         [GiFHUD dismiss];
-
-        
 //        [SVProgressHUD showErrorWithStatus:@"Error"];
     }];
 }
