@@ -10,9 +10,6 @@
 
 @interface MovieDetailsView : UIViewController
 
-
-
-
 // New Code
 @property (weak, nonatomic) UIImage *selectedImage;
 @property (weak, nonatomic) NSString *selectedMovieName;
@@ -23,9 +20,10 @@
 @property (weak, nonatomic) NSString *selectedmovieMakers;
 @property (weak, nonatomic) NSString *selectedmovieRaking;
 
-
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
 //@property (nonatomic, weak) id<ModalViewControllerDelegate> delegate;
 
+-(IBAction)twitterPostButton:(id)sender;
+-(IBAction)faceBookPostButton:(id)sender;
 
 @end

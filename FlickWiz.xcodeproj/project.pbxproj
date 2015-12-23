@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041397A01C29333A00851D04 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0413979F1C29333A00851D04 /* Social.framework */; };
+		041397A21C29335B00851D04 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041397A11C29335B00851D04 /* Accounts.framework */; };
 		0423AB491C1A9AD600D61910 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423AB481C1A9AD600D61910 /* Base64.m */; };
 		04D91C681C217644001DCF32 /* GiFHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D91C671C217644001DCF32 /* GiFHUD.m */; };
 		04D91C6A1C217860001DCF32 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04D91C691C217860001DCF32 /* loading.gif */; };
@@ -96,6 +98,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0413979F1C29333A00851D04 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		041397A11C29335B00851D04 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		0423AB471C1A9AD600D61910 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		0423AB481C1A9AD600D61910 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		04D91C661C217644001DCF32 /* GiFHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiFHUD.h; sourceTree = "<group>"; };
@@ -213,6 +217,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041397A21C29335B00851D04 /* Accounts.framework in Frameworks */,
+				041397A01C29333A00851D04 /* Social.framework in Frameworks */,
 				7094B1191C0EDAD800BF2AAF /* QuartzCore.framework in Frameworks */,
 				704B8D301C086FAF006257E9 /* CoreGraphics.framework in Frameworks */,
 				704B8D2E1C086FA7006257E9 /* CoreFoundation.framework in Frameworks */,
@@ -312,6 +318,8 @@
 		704B8CE81C082A6F006257E9 /* WhatPostersTests */ = {
 			isa = PBXGroup;
 			children = (
+				041397A11C29335B00851D04 /* Accounts.framework */,
+				0413979F1C29333A00851D04 /* Social.framework */,
 				7094B1181C0EDAD800BF2AAF /* QuartzCore.framework */,
 				704B8D2F1C086FAF006257E9 /* CoreGraphics.framework */,
 				704B8D2D1C086FA7006257E9 /* CoreFoundation.framework */,

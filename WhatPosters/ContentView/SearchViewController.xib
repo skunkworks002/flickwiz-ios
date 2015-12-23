@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qE9-rs-bTT">
-                    <rect key="frame" x="185" y="75" width="231" height="355"/>
+                    <rect key="frame" x="185" y="85" width="231" height="355"/>
                     <animations/>
                     <constraints>
                         <constraint firstAttribute="height" relation="lessThanOrEqual" constant="355" id="ZiM-I3-Ja1"/>
@@ -57,10 +57,10 @@
             <animations/>
             <color key="backgroundColor" red="0.12549019607843137" green="0.10980392156862745" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="qE9-rs-bTT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-47.5" id="5z0-Yg-9Sm"/>
-                <constraint firstItem="1jv-It-CgU" firstAttribute="top" secondItem="qE9-rs-bTT" secondAttribute="bottom" constant="37" id="9at-Co-Ycn"/>
+                <constraint firstItem="qE9-rs-bTT" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-37.5" id="5z0-Yg-9Sm"/>
+                <constraint firstItem="1jv-It-CgU" firstAttribute="top" secondItem="qE9-rs-bTT" secondAttribute="bottom" constant="27" id="9at-Co-Ycn"/>
                 <constraint firstItem="Klf-rU-Nlg" firstAttribute="leading" secondItem="1jv-It-CgU" secondAttribute="trailing" constant="22" id="EAS-SS-ReZ"/>
-                <constraint firstItem="qE9-rs-bTT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="75" id="FRb-ZW-C2x"/>
+                <constraint firstItem="qE9-rs-bTT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="85" id="FRb-ZW-C2x"/>
                 <constraint firstItem="1jv-It-CgU" firstAttribute="top" secondItem="Klf-rU-Nlg" secondAttribute="top" id="O7i-0Q-CHj"/>
                 <constraint firstItem="1jv-It-CgU" firstAttribute="leading" secondItem="qE9-rs-bTT" secondAttribute="leading" id="Ts1-5P-Ihl"/>
                 <constraint firstItem="qE9-rs-bTT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="gtx-CC-tnp"/>

@@ -7,6 +7,7 @@
 //
 
 #import "MovieDetailsView.h"
+#import <Social/Social.h>
 
 @interface MovieDetailsView () <UITextViewDelegate> {
 
@@ -45,6 +46,53 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)twitterPostButton:(id)sender{
+    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        SLComposeViewController *tweetSheet = [SLComposeViewController
+                                               composeViewControllerForServiceType:SLServiceTypeTwitter];
+        [tweetSheet setInitialText:selectedMovieName];
+        //[tweetSheet addImage:[UIImage imageNamed:@"images.jpeg"]];
+       // [tweetSheet setInitialText:_selectedmovieDescrption];
+        [tweetSheet addURL:[NSURL URLWithString:@"https://en.wikipedia.org/wiki/Iron_Man_2"]];
+
+        [tweetSheet addImage:selectedImage];
+        [self presentViewController:tweetSheet animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Twitter" message:@"A Twitter account must be set up on your device. login within your device setting twitter account.." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+}
+
+-(IBAction)faceBookPostButton:(id)sender{
+    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
+    {
+        SLComposeViewController *fbookSheet = [SLComposeViewController
+                                               composeViewControllerForServiceType:SLServiceTypeFacebook];
+        [fbookSheet setInitialText:selectedMovieName];
+
+      //  [fbookSheet setTitle:_selectedmovieDescrption];
+        
+        [fbookSheet addImage:selectedImage];
+        [fbookSheet addURL:[NSURL URLWithString:@"https://en.wikipedia.org/wiki/Iron_Man_2"]];
+        
+        [self presentViewController:fbookSheet animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FaceBook" message:@"A FaceBook account must be set up on your device. login within your device setting FaceBook account.." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
 }
 
 /*

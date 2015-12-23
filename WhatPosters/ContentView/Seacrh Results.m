@@ -61,7 +61,8 @@
     moviedecListArray = [NSMutableArray array];
     moviemakerListArray = [NSMutableArray array];
     movierakingListArray = [NSMutableArray array];
-    ///json result
+    
+    // json result
     myresult = jsonResponsDic;
     
     self.title = @"Best Matches";
@@ -106,7 +107,6 @@
         movierakingArray = [MoviewPosterNamesArray objectAtIndex:i];
         movierakingString = [movierakingArray objectAtIndex:7];
         [movierakingListArray addObject:movierakingString];
-        
     }
 }
 
@@ -132,7 +132,6 @@
     {
         NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"MovieCell" owner:self options:nil];
         cell = [nibArray objectAtIndex:0];
-        
     }
     imagesData =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[imagesUrlArray objectAtIndex:indexPath.row]]]];
     [cell.movieImages setImage:imagesData];
@@ -143,14 +142,10 @@
     cell.movieImages.layer.borderWidth=2.0;
     cell.movieImages.layer.masksToBounds = YES;
     cell.movieImages.layer.borderColor=[[UIColor grayColor] CGColor];
-    
     return cell;
-
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-
-{
-    return 81 ;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 81;
 }
 
 #pragma mark - Table view delegate
@@ -158,7 +153,6 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-   
     MovieDetailsView *moviedetailView = [MovieDetailsView new];
     // first access the cell
     static NSString *simpleTableIdentifier = @"Cell";
@@ -172,7 +166,6 @@
     [cell.movieImages setImage:imagesData];
     myImage = cell.movieImages.image;
     moviedetailView.selectedImage = myImage;
-    
     cell.movienameLabel.text = [movienameArray objectAtIndex:indexPath.row];
     movieName = cell.movienameLabel.text;
     moviedetailView.selectedMovieName = movieName;
