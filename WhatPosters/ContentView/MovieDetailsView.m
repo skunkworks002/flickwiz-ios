@@ -17,6 +17,8 @@
     IBOutlet UITextView *moviedecrptiontextView;
     IBOutlet UILabel *movieType;
     IBOutlet UILabel *movieNamerelsingDate;
+    IBOutlet UILabel *moviedirectorNameLabel;
+    IBOutlet UILabel *movieWriterName;
 }
 
 @end
@@ -28,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Movie Detail";
+//    NSString *s = @"Qazi Saqib";
+//    NSString *secondString = [s stringByReplacingOccurrencesOfString:@" " withString:@""];
     
     movieImageView.layer.cornerRadius = movieImageView.frame.size.width / 2;
     movieImageView.clipsToBounds = YES;
@@ -38,6 +42,8 @@
     moviedecrptiontextView.text = _selectedmovieDescrption;
     dirctorName.text = _selectedmovieMakers;
     WriterNames.text = _selectedmovieRaking;
+    moviedirectorNameLabel.text = _selectedmoviedirectorName;
+    movieWriterName.text = _selectedmoviewriterName;
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
 

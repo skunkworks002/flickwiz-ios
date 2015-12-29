@@ -16,6 +16,11 @@
 {
     UIImage *selectedImage;
     NSString *selectedImageUrl;
+    NSString *selectedname;
+    NSArray *imagenameExtract;
+    NSString *actulimageName;
+    NSString *imageExention;
+    NSUserDefaults *imageDef;
 }
 @property (nonatomic, retain) SearchViewController *secondView;
 @property (nonatomic, retain) UIImage *theImage;
@@ -135,11 +140,11 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     selectedImageUrl = [info objectForKey:UIImagePickerControllerReferenceURL ];
-    NSString *selectedname = [selectedImageUrl lastPathComponent];
-    NSArray *imagenameExtract = [selectedname componentsSeparatedByString:@"."];
-    NSString *actulimageName = [imagenameExtract objectAtIndex:0];
-    NSString *imageExention = [imagenameExtract objectAtIndex:1];
-    NSUserDefaults *imageDef = [NSUserDefaults standardUserDefaults];
+   selectedname = [selectedImageUrl lastPathComponent];
+   imagenameExtract = [selectedname componentsSeparatedByString:@"."];
+   actulimageName = [imagenameExtract objectAtIndex:0];
+   imageExention = [imagenameExtract objectAtIndex:1];
+    imageDef = [NSUserDefaults standardUserDefaults];
     [imageDef setObject:actulimageName forKey:@"actulimageName"];
     [imageDef setObject:imageExention forKey:@"imageExention"];
     [self dismissModalViewControllerAnimated:YES];
