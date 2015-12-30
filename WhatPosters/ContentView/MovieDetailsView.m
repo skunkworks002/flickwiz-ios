@@ -54,6 +54,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - Button Action Methodes twitterPostButton  -
+
 -(IBAction)twitterPostButton:(id)sender{
     
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
@@ -76,6 +79,8 @@
         [self presentViewController:alertController animated:YES completion:nil];
     }
 }
+
+#pragma mark - Button Action Methodes faceBookPostButton  -
 
 -(IBAction)faceBookPostButton:(id)sender{
     
