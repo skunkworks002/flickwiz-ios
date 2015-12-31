@@ -33,10 +33,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Main View";
-    
     //background image on view
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"background.jpg"]]];
     // Do any additional setup after loading the view from its nib.
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,10 +132,10 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     selectedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     selectedImageUrl = [info objectForKey:UIImagePickerControllerReferenceURL ];
-   selectednameString = [selectedImageUrl lastPathComponent];
-   imagenameExtractArray = [selectednameString componentsSeparatedByString:@"."];
-   actulimageNameString = [imagenameExtractArray objectAtIndex:0];
-   imageExentionString = [imagenameExtractArray objectAtIndex:1];
+    selectednameString = [selectedImageUrl lastPathComponent];
+    imagenameExtractArray = [selectednameString componentsSeparatedByString:@"."];
+    actulimageNameString = [imagenameExtractArray objectAtIndex:0];
+    imageExentionString = [imagenameExtractArray objectAtIndex:1];
     imageDef = [NSUserDefaults standardUserDefaults];
     [imageDef setObject:actulimageNameString forKey:@"actulimageName"];
     [imageDef setObject:actulimageNameString forKey:@"imageExention"];

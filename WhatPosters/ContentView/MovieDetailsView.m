@@ -19,6 +19,10 @@
     IBOutlet UILabel *movieNamerelsingDate;
     IBOutlet UILabel *moviedirectorNameLabel;
     IBOutlet UILabel *movieWriterName;
+    NSArray *actornameExtractArray;
+    NSArray *directrnameExtractArray;
+    NSArray *writernameExtractArray1;
+    NSMutableArray *cominedArray;
 }
 
 @end
@@ -27,12 +31,11 @@
 @synthesize selectedImage;
 @synthesize selectedMovieName;
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Movie Detail";
 //    NSString *s = @"Qazi Saqib";
-//    NSString *secondString = [s stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
     movieImageView.layer.cornerRadius = movieImageView.frame.size.width / 2;
     movieImageView.clipsToBounds = YES;
     
@@ -45,6 +48,8 @@
     moviedirectorNameLabel.text = _selectedmoviedirectorName;
     movieWriterName.text = _selectedmoviewriterName;
     
+    
+   
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
 
 }
@@ -64,10 +69,7 @@
         SLComposeViewController *tweetSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
         [tweetSheet setInitialText:selectedMovieName];
-        //[tweetSheet addImage:[UIImage imageNamed:@"images.jpeg"]];
-       // [tweetSheet setInitialText:_selectedmovieDescrption];
-        [tweetSheet addURL:[NSURL URLWithString:@"https://en.wikipedia.org/wiki/Iron_Man_2"]];
-
+        [tweetSheet addURL:[NSURL URLWithString:_selectedmoviedetailpathString]];
         [tweetSheet addImage:selectedImage];
         [self presentViewController:tweetSheet animated:YES completion:nil];
     }
@@ -89,11 +91,8 @@
         SLComposeViewController *fbookSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeFacebook];
         [fbookSheet setInitialText:selectedMovieName];
-
-      //  [fbookSheet setTitle:_selectedmovieDescrption];
-        
         [fbookSheet addImage:selectedImage];
-        [fbookSheet addURL:[NSURL URLWithString:@"https://en.wikipedia.org/wiki/Iron_Man_2"]];
+        [fbookSheet addURL:[NSURL URLWithString:_selectedmoviedetailpathString]];
         
         [self presentViewController:fbookSheet animated:YES completion:nil];
     }

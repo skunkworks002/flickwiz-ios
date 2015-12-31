@@ -27,6 +27,8 @@
     NSString *movierakingString;
     NSString *moviedirectorString;
     NSString *moviewriterString;
+    NSString *moviedetailpathString;
+
 
     //  Arrays
     NSArray *MoviewPosterNamesArray;
@@ -34,7 +36,7 @@
     NSArray *imagesUrlArray;
     NSArray *movienameArray;
     NSMutableArray *movierakingListArray;
-    NSMutableArray *dateStringArray;
+    NSMutableArray *dateArray;
     NSMutableArray *moviedecripArray;
     NSMutableArray *moviedecListArray;
     NSMutableArray *moviedateArray;
@@ -43,11 +45,13 @@
     NSMutableArray *moviemakerArray;
     NSMutableArray *moviedirctorArray;
     NSMutableArray *moviewriterArray;
+    NSMutableArray *moviedetailpathArray;
 
     NSMutableArray *moviemakerListArray;
     NSMutableArray *movierakingArray;
     NSMutableArray *moviedirectorListArray;
     NSMutableArray *moviewriterListArray;
+    NSMutableArray *moviedetailpathListArray;
 
 
     NSMutableDictionary *myresult;
@@ -72,6 +76,7 @@
     movierakingListArray = [NSMutableArray array];
     moviewriterListArray = [NSMutableArray array];
     moviedirectorListArray = [NSMutableArray array];
+    moviedetailpathListArray = [NSMutableArray array];
     
     // json result
     myresult = jsonResponsDic;
@@ -84,24 +89,32 @@
     // IMDBDETAIL ARRAY
     MoviewPosterNamesArray = [myresult objectForKey:@"imdbdetials"];
     
+    // use for loop here Movie Detail path Count
+    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
+        moviedetailpathArray = [MoviewPosterNamesArray objectAtIndex:i];
+        moviedetailpathString = [moviedetailpathArray objectAtIndex:0];
+        [moviedetailpathListArray addObject:moviedetailpathString];
+    }
+
+    
     // use for loop here Movie Date Count
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
-        dateStringArray = [MoviewPosterNamesArray objectAtIndex:i];
-        Datestring2 = [dateStringArray objectAtIndex:2];
+        dateArray = [MoviewPosterNamesArray objectAtIndex:i];
+        Datestring2 = [dateArray objectAtIndex:3];
         [moviedateArray addObject:Datestring2];
     }
     
     ///movie Type loop
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         movietypeArray = [MoviewPosterNamesArray objectAtIndex:i];
-        movietypestring = [movietypeArray objectAtIndex:4];
+        movietypestring = [movietypeArray objectAtIndex:5];
         [movietypeListArray addObject:movietypestring];
     }
     
     /// movie director name
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         moviedirctorArray = [MoviewPosterNamesArray objectAtIndex:i];
-        moviedirectorString = [moviedirctorArray objectAtIndex:5];
+        moviedirectorString = [moviedirctorArray objectAtIndex:6];
         [moviedirectorListArray addObject:moviedirectorString];
         
     }
@@ -109,7 +122,7 @@
     /// movie writers name
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         moviewriterArray = [MoviewPosterNamesArray objectAtIndex:i];
-        moviewriterString = [moviewriterArray objectAtIndex:6];
+        moviewriterString = [moviewriterArray objectAtIndex:7];
         [moviewriterListArray addObject:moviewriterString];
         
     }
@@ -117,7 +130,7 @@
     // movie Maker's loop
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         moviemakerArray = [MoviewPosterNamesArray objectAtIndex:i];
-        moviemakerString = [moviemakerArray objectAtIndex:7];
+        moviemakerString = [moviemakerArray objectAtIndex:8];
         [moviemakerListArray addObject:moviemakerString];
         
     }
@@ -125,16 +138,17 @@
     // movie Description loop
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         moviedecripArray = [MoviewPosterNamesArray objectAtIndex:i];
-        movieDescString = [moviedecripArray objectAtIndex:8];
+        movieDescString = [moviedecripArray objectAtIndex:9];
         [moviedecListArray addObject:movieDescString];
     }
     
      // movie raking loop
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         movierakingArray = [MoviewPosterNamesArray objectAtIndex:i];
-        movierakingString = [movierakingArray objectAtIndex:9];
+        movierakingString = [movierakingArray objectAtIndex:10];
         [movierakingListArray addObject:movierakingString];
     }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -202,7 +216,8 @@
     moviedetailView.selectedmovieRaking = [movierakingListArray objectAtIndex:indexPath.row];
     moviedetailView.selectedmoviedirectorName = [moviedirectorListArray objectAtIndex:indexPath.row];
     moviedetailView.selectedmoviewriterName = [moviemakerListArray objectAtIndex:indexPath.row];
-
+    moviedetailView.selectedmoviedetailpathString = [moviedetailpathListArray objectAtIndex:indexPath.row];
+    
     [self.navigationController pushViewController:moviedetailView animated:YES];
 }
 
