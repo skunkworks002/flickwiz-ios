@@ -13,6 +13,31 @@
 		04D91C681C217644001DCF32 /* GiFHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D91C671C217644001DCF32 /* GiFHUD.m */; };
 		04D91C6A1C217860001DCF32 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04D91C691C217860001DCF32 /* loading.gif */; };
 		04D91C6C1C219342001DCF32 /* animation_mob.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04D91C6B1C219342001DCF32 /* animation_mob.gif */; };
+		04E043CE1C33AEC00042AB88 /* MoviewDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043CC1C33AEC00042AB88 /* MoviewDetailController.m */; };
+		04E043CF1C33AEC00042AB88 /* MoviewDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E043CD1C33AEC00042AB88 /* MoviewDetailController.xib */; };
+		04E043D91C33AFF80042AB88 /* LableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043D11C33AFF80042AB88 /* LableCell.m */; };
+		04E043DA1C33AFF80042AB88 /* LableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E043D21C33AFF80042AB88 /* LableCell.xib */; };
+		04E043DB1C33AFF80042AB88 /* PhotoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043D41C33AFF80042AB88 /* PhotoCell.m */; };
+		04E043DC1C33AFF80042AB88 /* PhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E043D51C33AFF80042AB88 /* PhotoCell.xib */; };
+		04E043DD1C33AFF80042AB88 /* TextViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043D71C33AFF80042AB88 /* TextViewCell.m */; };
+		04E043DE1C33AFF80042AB88 /* TextViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E043D81C33AFF80042AB88 /* TextViewCell.xib */; };
+		04E043E71C33B9AD0042AB88 /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043E51C33B9AD0042AB88 /* ButtonCell.m */; };
+		04E043E81C33B9AD0042AB88 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E043E61C33B9AD0042AB88 /* ButtonCell.xib */; };
+		04E043EC1C33BA350042AB88 /* PickLabelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043EA1C33BA350042AB88 /* PickLabelCell.m */; };
+		04E043ED1C33BA350042AB88 /* PickLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E043EB1C33BA350042AB88 /* PickLabelCell.xib */; };
+		04E044091C33F56F0042AB88 /* AADatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043F01C33F56F0042AB88 /* AADatePicker.m */; };
+		04E0440A1C33F56F0042AB88 /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043F21C33F56F0042AB88 /* AbstractActionSheetPicker.m */; };
+		04E0440B1C33F56F0042AB88 /* ActionSheetCustomPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043F41C33F56F0042AB88 /* ActionSheetCustomPicker.m */; };
+		04E0440C1C33F56F0042AB88 /* ActionSheetDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043F71C33F56F0042AB88 /* ActionSheetDatePicker.m */; };
+		04E0440D1C33F56F0042AB88 /* ActionSheetDistancePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043F91C33F56F0042AB88 /* ActionSheetDistancePicker.m */; };
+		04E0440E1C33F56F0042AB88 /* ActionSheetLocalePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043FB1C33F56F0042AB88 /* ActionSheetLocalePicker.m */; };
+		04E0440F1C33F56F0042AB88 /* ActionSheetMultipleStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043FD1C33F56F0042AB88 /* ActionSheetMultipleStringPicker.m */; };
+		04E044101C33F56F0042AB88 /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E044001C33F56F0042AB88 /* ActionSheetStringPicker.m */; };
+		04E044111C33F56F0042AB88 /* ALEInlineDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E044021C33F56F0042AB88 /* ALEInlineDatePickerViewController.m */; };
+		04E044121C33F56F0042AB88 /* DistancePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E044041C33F56F0042AB88 /* DistancePickerView.m */; };
+		04E044131C33F56F0042AB88 /* NSDate+TCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E044061C33F56F0042AB88 /* NSDate+TCUtils.m */; };
+		04E044141C33F56F0042AB88 /* SWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E044081C33F56F0042AB88 /* SWActionSheet.m */; };
+		04E044161C33FC080042AB88 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E044151C33FC080042AB88 /* Foundation.framework */; };
 		70344D0E1C21439700E5AD1A /* background.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 70344D0D1C21439700E5AD1A /* background.jpg */; };
 		70344D121C21464D00E5AD1A /* lc.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D0F1C21464D00E5AD1A /* lc.png */; };
 		70344D131C21464D00E5AD1A /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 70344D101C21464D00E5AD1A /* logo.png */; };
@@ -106,6 +131,51 @@
 		04D91C671C217644001DCF32 /* GiFHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiFHUD.m; sourceTree = "<group>"; };
 		04D91C691C217860001DCF32 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		04D91C6B1C219342001DCF32 /* animation_mob.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animation_mob.gif; sourceTree = "<group>"; };
+		04E043CB1C33AEC00042AB88 /* MoviewDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviewDetailController.h; sourceTree = "<group>"; };
+		04E043CC1C33AEC00042AB88 /* MoviewDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviewDetailController.m; sourceTree = "<group>"; };
+		04E043CD1C33AEC00042AB88 /* MoviewDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviewDetailController.xib; sourceTree = "<group>"; };
+		04E043D01C33AFF80042AB88 /* LableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LableCell.h; sourceTree = "<group>"; };
+		04E043D11C33AFF80042AB88 /* LableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LableCell.m; sourceTree = "<group>"; };
+		04E043D21C33AFF80042AB88 /* LableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LableCell.xib; sourceTree = "<group>"; };
+		04E043D31C33AFF80042AB88 /* PhotoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCell.h; sourceTree = "<group>"; };
+		04E043D41C33AFF80042AB88 /* PhotoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCell.m; sourceTree = "<group>"; };
+		04E043D51C33AFF80042AB88 /* PhotoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoCell.xib; sourceTree = "<group>"; };
+		04E043D61C33AFF80042AB88 /* TextViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextViewCell.h; sourceTree = "<group>"; };
+		04E043D71C33AFF80042AB88 /* TextViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextViewCell.m; sourceTree = "<group>"; };
+		04E043D81C33AFF80042AB88 /* TextViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextViewCell.xib; sourceTree = "<group>"; };
+		04E043E41C33B9AD0042AB88 /* ButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
+		04E043E51C33B9AD0042AB88 /* ButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
+		04E043E61C33B9AD0042AB88 /* ButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
+		04E043E91C33BA350042AB88 /* PickLabelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickLabelCell.h; sourceTree = "<group>"; };
+		04E043EA1C33BA350042AB88 /* PickLabelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickLabelCell.m; sourceTree = "<group>"; };
+		04E043EB1C33BA350042AB88 /* PickLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickLabelCell.xib; sourceTree = "<group>"; };
+		04E043EF1C33F56F0042AB88 /* AADatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AADatePicker.h; sourceTree = "<group>"; };
+		04E043F01C33F56F0042AB88 /* AADatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AADatePicker.m; sourceTree = "<group>"; };
+		04E043F11C33F56F0042AB88 /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
+		04E043F21C33F56F0042AB88 /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
+		04E043F31C33F56F0042AB88 /* ActionSheetCustomPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPicker.h; sourceTree = "<group>"; };
+		04E043F41C33F56F0042AB88 /* ActionSheetCustomPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetCustomPicker.m; sourceTree = "<group>"; };
+		04E043F51C33F56F0042AB88 /* ActionSheetCustomPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetCustomPickerDelegate.h; sourceTree = "<group>"; };
+		04E043F61C33F56F0042AB88 /* ActionSheetDatePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDatePicker.h; sourceTree = "<group>"; };
+		04E043F71C33F56F0042AB88 /* ActionSheetDatePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDatePicker.m; sourceTree = "<group>"; };
+		04E043F81C33F56F0042AB88 /* ActionSheetDistancePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetDistancePicker.h; sourceTree = "<group>"; };
+		04E043F91C33F56F0042AB88 /* ActionSheetDistancePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetDistancePicker.m; sourceTree = "<group>"; };
+		04E043FA1C33F56F0042AB88 /* ActionSheetLocalePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetLocalePicker.h; sourceTree = "<group>"; };
+		04E043FB1C33F56F0042AB88 /* ActionSheetLocalePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetLocalePicker.m; sourceTree = "<group>"; };
+		04E043FC1C33F56F0042AB88 /* ActionSheetMultipleStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetMultipleStringPicker.h; sourceTree = "<group>"; };
+		04E043FD1C33F56F0042AB88 /* ActionSheetMultipleStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetMultipleStringPicker.m; sourceTree = "<group>"; };
+		04E043FE1C33F56F0042AB88 /* ActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetPicker.h; sourceTree = "<group>"; };
+		04E043FF1C33F56F0042AB88 /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
+		04E044001C33F56F0042AB88 /* ActionSheetStringPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionSheetStringPicker.m; sourceTree = "<group>"; };
+		04E044011C33F56F0042AB88 /* ALEInlineDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALEInlineDatePickerViewController.h; sourceTree = "<group>"; };
+		04E044021C33F56F0042AB88 /* ALEInlineDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALEInlineDatePickerViewController.m; sourceTree = "<group>"; };
+		04E044031C33F56F0042AB88 /* DistancePickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistancePickerView.h; sourceTree = "<group>"; };
+		04E044041C33F56F0042AB88 /* DistancePickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistancePickerView.m; sourceTree = "<group>"; };
+		04E044051C33F56F0042AB88 /* NSDate+TCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TCUtils.h"; sourceTree = "<group>"; };
+		04E044061C33F56F0042AB88 /* NSDate+TCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TCUtils.m"; sourceTree = "<group>"; };
+		04E044071C33F56F0042AB88 /* SWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWActionSheet.h; sourceTree = "<group>"; };
+		04E044081C33F56F0042AB88 /* SWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWActionSheet.m; sourceTree = "<group>"; };
+		04E044151C33FC080042AB88 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		70344D0D1C21439700E5AD1A /* background.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = background.jpg; sourceTree = "<group>"; };
 		70344D0F1C21464D00E5AD1A /* lc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lc.png; sourceTree = "<group>"; };
 		70344D101C21464D00E5AD1A /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
@@ -217,6 +287,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E044161C33FC080042AB88 /* Foundation.framework in Frameworks */,
 				041397A21C29335B00851D04 /* Accounts.framework in Frameworks */,
 				041397A01C29333A00851D04 /* Social.framework in Frameworks */,
 				7094B1191C0EDAD800BF2AAF /* QuartzCore.framework in Frameworks */,
@@ -253,6 +324,39 @@
 			path = ProgressHUD;
 			sourceTree = "<group>";
 		};
+		04E043EE1C33F56F0042AB88 /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				04E043EF1C33F56F0042AB88 /* AADatePicker.h */,
+				04E043F01C33F56F0042AB88 /* AADatePicker.m */,
+				04E043F11C33F56F0042AB88 /* AbstractActionSheetPicker.h */,
+				04E043F21C33F56F0042AB88 /* AbstractActionSheetPicker.m */,
+				04E043F31C33F56F0042AB88 /* ActionSheetCustomPicker.h */,
+				04E043F41C33F56F0042AB88 /* ActionSheetCustomPicker.m */,
+				04E043F51C33F56F0042AB88 /* ActionSheetCustomPickerDelegate.h */,
+				04E043F61C33F56F0042AB88 /* ActionSheetDatePicker.h */,
+				04E043F71C33F56F0042AB88 /* ActionSheetDatePicker.m */,
+				04E043F81C33F56F0042AB88 /* ActionSheetDistancePicker.h */,
+				04E043F91C33F56F0042AB88 /* ActionSheetDistancePicker.m */,
+				04E043FA1C33F56F0042AB88 /* ActionSheetLocalePicker.h */,
+				04E043FB1C33F56F0042AB88 /* ActionSheetLocalePicker.m */,
+				04E043FC1C33F56F0042AB88 /* ActionSheetMultipleStringPicker.h */,
+				04E043FD1C33F56F0042AB88 /* ActionSheetMultipleStringPicker.m */,
+				04E043FE1C33F56F0042AB88 /* ActionSheetPicker.h */,
+				04E043FF1C33F56F0042AB88 /* ActionSheetStringPicker.h */,
+				04E044001C33F56F0042AB88 /* ActionSheetStringPicker.m */,
+				04E044011C33F56F0042AB88 /* ALEInlineDatePickerViewController.h */,
+				04E044021C33F56F0042AB88 /* ALEInlineDatePickerViewController.m */,
+				04E044031C33F56F0042AB88 /* DistancePickerView.h */,
+				04E044041C33F56F0042AB88 /* DistancePickerView.m */,
+				04E044051C33F56F0042AB88 /* NSDate+TCUtils.h */,
+				04E044061C33F56F0042AB88 /* NSDate+TCUtils.m */,
+				04E044071C33F56F0042AB88 /* SWActionSheet.h */,
+				04E044081C33F56F0042AB88 /* SWActionSheet.m */,
+			);
+			path = Pickers;
+			sourceTree = "<group>";
+		};
 		704780041C242DFC0043177E /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +375,7 @@
 		704B8CC31C082A6F006257E9 = {
 			isa = PBXGroup;
 			children = (
+				04E044151C33FC080042AB88 /* Foundation.framework */,
 				7094B1131C0EC87000BF2AAF /* images */,
 				7089C50D1C0DA50000B14779 /* SharedClass */,
 				704B8D3B1C087DB6006257E9 /* Third Library */,
@@ -355,6 +460,9 @@
 				704B8D241C083D57006257E9 /* MovieDetailsView.h */,
 				704B8D251C083D57006257E9 /* MovieDetailsView.m */,
 				704B8D261C083D57006257E9 /* MovieDetailsView.xib */,
+				04E043CB1C33AEC00042AB88 /* MoviewDetailController.h */,
+				04E043CC1C33AEC00042AB88 /* MoviewDetailController.m */,
+				04E043CD1C33AEC00042AB88 /* MoviewDetailController.xib */,
 			);
 			name = ContentView;
 			path = WhatPosters/ContentView;
@@ -363,9 +471,24 @@
 		704B8D081C082E5A006257E9 /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				04E043E91C33BA350042AB88 /* PickLabelCell.h */,
+				04E043EA1C33BA350042AB88 /* PickLabelCell.m */,
+				04E043EB1C33BA350042AB88 /* PickLabelCell.xib */,
+				04E043D01C33AFF80042AB88 /* LableCell.h */,
+				04E043D11C33AFF80042AB88 /* LableCell.m */,
+				04E043D21C33AFF80042AB88 /* LableCell.xib */,
+				04E043D31C33AFF80042AB88 /* PhotoCell.h */,
+				04E043D41C33AFF80042AB88 /* PhotoCell.m */,
+				04E043D51C33AFF80042AB88 /* PhotoCell.xib */,
+				04E043D61C33AFF80042AB88 /* TextViewCell.h */,
+				04E043D71C33AFF80042AB88 /* TextViewCell.m */,
+				04E043D81C33AFF80042AB88 /* TextViewCell.xib */,
 				704B8D091C082E80006257E9 /* MovieCell.h */,
 				704B8D0A1C082E80006257E9 /* MovieCell.m */,
 				704B8D0B1C082E80006257E9 /* MovieCell.xib */,
+				04E043E41C33B9AD0042AB88 /* ButtonCell.h */,
+				04E043E51C33B9AD0042AB88 /* ButtonCell.m */,
+				04E043E61C33B9AD0042AB88 /* ButtonCell.xib */,
 			);
 			name = TableCell;
 			path = WhatPosters/TableCell;
@@ -392,6 +515,7 @@
 		704B8D3B1C087DB6006257E9 /* Third Library */ = {
 			isa = PBXGroup;
 			children = (
+				04E043EE1C33F56F0042AB88 /* Pickers */,
 				704780041C242DFC0043177E /* SVProgressHUD */,
 				04D91C651C217644001DCF32 /* ProgressHUD */,
 				7089C5231C0DA56100B14779 /* ImageCompress */,
@@ -612,28 +736,34 @@
 				70344D131C21464D00E5AD1A /* logo.png in Resources */,
 				704B8D1F1C08315C006257E9 /* Snitch.jpg in Resources */,
 				70344D171C21668800E5AD1A /* 1.png in Resources */,
+				04E043CF1C33AEC00042AB88 /* MoviewDetailController.xib in Resources */,
 				7047800E1C242DFC0043177E /* SVProgressHUD.bundle in Resources */,
 				704B8CDF1C082A6F006257E9 /* LaunchScreen.storyboard in Resources */,
+				04E043DC1C33AFF80042AB88 /* PhotoCell.xib in Resources */,
 				704B8D221C08315C006257E9 /* The-Lone-Ranger-Movie-Poster.jpg in Resources */,
 				704B8D071C082B1A006257E9 /* Seacrh Results.xib in Resources */,
 				704B8D201C08315C006257E9 /* Spectre.jpg in Resources */,
 				7094B1151C0EC87100BF2AAF /* Mainbackgroundimage.png in Resources */,
+				04E043DA1C33AFF80042AB88 /* LableCell.xib in Resources */,
 				70344D141C21464D00E5AD1A /* ph.png in Resources */,
 				704B8D1E1C08315C006257E9 /* Salt.jpg in Resources */,
 				704B8D0D1C082E80006257E9 /* MovieCell.xib in Resources */,
 				70344D0E1C21439700E5AD1A /* background.jpg in Resources */,
 				704B8D231C08315C006257E9 /* Wolverine.jpg in Resources */,
 				04D91C6A1C217860001DCF32 /* loading.gif in Resources */,
+				04E043ED1C33BA350042AB88 /* PickLabelCell.xib in Resources */,
 				704B8D211C08315C006257E9 /* Spy.jpg in Resources */,
 				7094B1171C0ECAA500BF2AAF /* ImageUploadedByModMyi1342057019.344337.jpg in Resources */,
 				70344D1A1C216B3300E5AD1A /* logo_update.png in Resources */,
 				704B8D1B1C08315C006257E9 /* HangOver.jpg in Resources */,
 				704B8D1D1C08315C006257E9 /* Pengunis.jpg in Resources */,
 				704B8D361C087BA5006257E9 /* MainViewController.xib in Resources */,
+				04E043DE1C33AFF80042AB88 /* TextViewCell.xib in Resources */,
 				04D91C6C1C219342001DCF32 /* animation_mob.gif in Resources */,
 				704B8D1C1C08315C006257E9 /* Inception.jpg in Resources */,
 				704B8CDC1C082A6F006257E9 /* Assets.xcassets in Resources */,
 				704B8D281C083D57006257E9 /* MovieDetailsView.xib in Resources */,
+				04E043E81C33B9AD0042AB88 /* ButtonCell.xib in Resources */,
 				704B8D3A1C087BB1006257E9 /* SearchViewController.xib in Resources */,
 				704B8D1A1C08315C006257E9 /* GreayMovie.jpg in Resources */,
 			);
@@ -660,23 +790,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E043DB1C33AFF80042AB88 /* PhotoCell.m in Sources */,
+				04E043EC1C33BA350042AB88 /* PickLabelCell.m in Sources */,
+				04E044101C33F56F0042AB88 /* ActionSheetStringPicker.m in Sources */,
 				7089C5021C0DA4F800B14779 /* AFURLConnectionOperation.m in Sources */,
 				704B8CD41C082A6F006257E9 /* AppDelegate.m in Sources */,
 				7089C5011C0DA4F800B14779 /* AFSecurityPolicy.m in Sources */,
+				04E043CE1C33AEC00042AB88 /* MoviewDetailController.m in Sources */,
+				04E0440E1C33F56F0042AB88 /* ActionSheetLocalePicker.m in Sources */,
+				04E0440C1C33F56F0042AB88 /* ActionSheetDatePicker.m in Sources */,
 				704B8D351C087BA5006257E9 /* MainViewController.m in Sources */,
 				7089C50B1C0DA4F800B14779 /* UIProgressView+AFNetworking.m in Sources */,
+				04E0440F1C33F56F0042AB88 /* ActionSheetMultipleStringPicker.m in Sources */,
+				04E043E71C33B9AD0042AB88 /* ButtonCell.m in Sources */,
+				04E043DD1C33AFF80042AB88 /* TextViewCell.m in Sources */,
 				7089C5211C0DA50100B14779 /* Venue.m in Sources */,
 				7089C5081C0DA4F800B14779 /* UIAlertView+AFNetworking.m in Sources */,
+				04E043D91C33AFF80042AB88 /* LableCell.m in Sources */,
 				7089C5061C0DA4F800B14779 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				0423AB491C1A9AD600D61910 /* Base64.m in Sources */,
 				7047800F1C242DFC0043177E /* SVProgressHUD.m in Sources */,
+				04E044141C33F56F0042AB88 /* SWActionSheet.m in Sources */,
 				704780101C242DFC0043177E /* SVRadialGradientLayer.m in Sources */,
 				7089C4FE1C0DA4F800B14779 /* AFHTTPRequestOperationManager.m in Sources */,
 				04D91C681C217644001DCF32 /* GiFHUD.m in Sources */,
 				7047800D1C242DFC0043177E /* SVIndefiniteAnimatedView.m in Sources */,
+				04E0440B1C33F56F0042AB88 /* ActionSheetCustomPicker.m in Sources */,
+				04E0440D1C33F56F0042AB88 /* ActionSheetDistancePicker.m in Sources */,
+				04E044111C33F56F0042AB88 /* ALEInlineDatePickerViewController.m in Sources */,
 				7089C50C1C0DA4F800B14779 /* UIWebView+AFNetworking.m in Sources */,
 				7089C5091C0DA4F800B14779 /* UIButton+AFNetworking.m in Sources */,
 				7089C5221C0DA50100B14779 /* WeatherHTTPClient.m in Sources */,
+				04E044091C33F56F0042AB88 /* AADatePicker.m in Sources */,
 				7089C5071C0DA4F800B14779 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				7089C5201C0DA50100B14779 /* Utility.m in Sources */,
 				704B8D061C082B1A006257E9 /* Seacrh Results.m in Sources */,
@@ -687,12 +832,15 @@
 				7089C5041C0DA4F800B14779 /* AFURLResponseSerialization.m in Sources */,
 				704B8CD11C082A6F006257E9 /* main.m in Sources */,
 				704B8D371C087BA5006257E9 /* SearchViewController.m in Sources */,
+				04E044121C33F56F0042AB88 /* DistancePickerView.m in Sources */,
 				7089C5031C0DA4F800B14779 /* AFURLRequestSerialization.m in Sources */,
 				7089C50A1C0DA4F800B14779 /* UIImageView+AFNetworking.m in Sources */,
 				7089C5001C0DA4F800B14779 /* AFNetworkReachabilityManager.m in Sources */,
 				7089C51C1C0DA50100B14779 /* ASAlertView.m in Sources */,
 				7089C4FD1C0DA4F800B14779 /* AFHTTPRequestOperation.m in Sources */,
+				04E044131C33F56F0042AB88 /* NSDate+TCUtils.m in Sources */,
 				7089C4FF1C0DA4F800B14779 /* AFHTTPSessionManager.m in Sources */,
+				04E0440A1C33F56F0042AB88 /* AbstractActionSheetPicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
