@@ -36,6 +36,8 @@
     [super viewDidLoad];
     self.title = @"Movie Detail";
 //    NSString *s = @"Qazi Saqib";
+//    NSString *secondString = [s stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
     movieImageView.layer.cornerRadius = movieImageView.frame.size.width / 2;
     movieImageView.clipsToBounds = YES;
     
@@ -48,7 +50,10 @@
     moviedirectorNameLabel.text = _selectedmoviedirectorName;
     movieWriterName.text = _selectedmoviewriterName;
     
-    
+    // Separate String by comma & create Arryay
+   actornameExtractArray = [_selectedmovieMakers componentsSeparatedByString:@","];
+   directrnameExtractArray = [_selectedmoviedirectorName componentsSeparatedByString:@","];
+   writernameExtractArray1 = [_selectedmoviewriterName componentsSeparatedByString:@","];
    
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
 
