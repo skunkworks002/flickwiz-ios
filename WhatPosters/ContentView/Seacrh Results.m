@@ -181,14 +181,14 @@
     cell.movienameLabel.text = [movienameArray objectAtIndex:indexPath.row];
     cell.movieDateLabel.text = [moviedateArray objectAtIndex:indexPath.row];
     cell.movieImages.layer.backgroundColor=[[UIColor clearColor] CGColor];
-    cell.movieImages.layer.cornerRadius=20;
-    cell.movieImages.layer.borderWidth=2.0;
+//    cell.movieImages.layer.cornerRadius=20;
+//    cell.movieImages.layer.borderWidth=2.0;
     cell.movieImages.layer.masksToBounds = YES;
     cell.movieImages.layer.borderColor=[[UIColor grayColor] CGColor];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 81;
+    return 91;
 }
 
 #pragma mark - Table view delegate
@@ -197,7 +197,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    
-   MoviewDetailController *moviedetailView = [MoviewDetailController new];
+   MovieDetailsView *moviedetailView = [MovieDetailsView new];
 
   // first access the cell
     static NSString *simpleTableIdentifier = @"Cell";

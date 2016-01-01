@@ -231,19 +231,19 @@
                     result = @"Name of Movie";
                     break;
                 case 2:
-                    result = @"Actor Name";
+                    result = @"Actor Name Picker";
                     break;
                 case 3:
-                    result = @"Type";
+                    result = @"Movie Type Picker";
                     break;
                 case 4:
                     result = @"Ranking";
                     break;
                 case 5:
-                    result = @"Diractor";
+                    result = @"Diractor Name Picker";
                     break;
                 case 6:
-                    result = @"Writer";
+                    result = @"Writer Name Picker";
                     break;
                 case 7:
                     result = @"Descripton";
@@ -411,7 +411,7 @@ default:
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
         [tweetSheet setInitialText:selectedMovieName];
        
-        [tweetSheet addURL:[NSURL URLWithString:@"https://en.wikipedia.org/wiki/Iron_Man_2"]];
+        [tweetSheet addURL:[NSURL URLWithString:_selectedmoviedetailpathString]];
         
         [tweetSheet addImage:selectedImage];
         [self presentViewController:tweetSheet animated:YES completion:nil];
@@ -437,7 +437,7 @@ default:
         [fbookSheet setInitialText:selectedMovieName];
         
         [fbookSheet addImage:selectedImage];
-        [fbookSheet addURL:[NSURL URLWithString:@"https://en.wikipedia.org/wiki/Iron_Man_2"]];
+        [fbookSheet addURL:[NSURL URLWithString:_selectedmoviedetailpathString]];
         
         [self presentViewController:fbookSheet animated:YES completion:nil];
     }

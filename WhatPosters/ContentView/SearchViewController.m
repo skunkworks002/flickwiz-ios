@@ -71,10 +71,10 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
     imageExt = [imageDef objectForKey:@"imageExention"];
     
     //image animation
-    _imageView.layer.cornerRadius = 60.0f;
-    _imageView.layer.borderWidth = 2.0f;
-    _imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    _imageView.clipsToBounds = YES;    
+//    _imageView.layer.cornerRadius = 60.0f;
+//    _imageView.layer.borderWidth = 2.0f;
+//    _imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    _imageView.clipsToBounds = YES;    
 }
 
 #pragma mark NewPhotoButton
