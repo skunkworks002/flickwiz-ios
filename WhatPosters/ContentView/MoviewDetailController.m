@@ -36,7 +36,8 @@
      IBOutlet UILabel *movieWriterName;
 */
     NSInteger index;
-    
+    NSInteger item;
+    NSInteger convertselectItem;
     NSString *actorNameString;
     NSString *typeNameString;
     NSString *diractorNameString;
@@ -101,15 +102,14 @@
   
     switch (index) {
         case 0:
-        {
-    if (indexPath.section == 0) {
-        
-        static NSString *CellIdentifier = @"PhotoCell";
-        PhotoCell *cell = (PhotoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"PhotoCell" owner:self options:nil] objectAtIndex:0];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            cell.imageViewCell.image = selectedImage;
-        return  cell;
+            {
+              if (indexPath.section == 0) {
+               static NSString *CellIdentifier = @"PhotoCell";
+              PhotoCell *cell = (PhotoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+               cell = [[[NSBundle mainBundle] loadNibNamed:@"PhotoCell" owner:self options:nil] objectAtIndex:0];
+               cell.selectionStyle = UITableViewCellSelectionStyleNone;
+               cell.imageViewCell.image = selectedImage;
+               return  cell;
     }
     if ((indexPath.section == 1) || (indexPath.section == 4)) {
         
@@ -168,9 +168,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell.faceBookButton addTarget:self action:@selector(facebookPostBtFunction) forControlEvents:UIControlEventTouchUpInside];
         [cell.twitterButton addTarget:self action:@selector(twitterPostButtonFunction) forControlEvents:UIControlEventTouchUpInside];
-        //cell.restBtn.frame = CGRectMake(20, 5, 280, 25);
-        //[cell.restBtn setTitle:@"Login" forState:UIControlStateNormal];
-        return cell;
+         return cell;
     }}
             break;
             
@@ -202,8 +200,8 @@
     switch (index) {
         case 0:
         {
-                       if (indexPath.section == 2) {
-                [self showActorNameFunction];
+            if (indexPath.section == 2) {
+            [self showActorNameFunction];
             }
             else if (indexPath.section == 3){
                 [self typeNameFunction];
@@ -280,7 +278,7 @@ default:
     if (selectedIndex > 30) {
         selectedIndex = 0;
     }
-    [ActionSheetStringPicker showPickerWithTitle:@"Site Selection"
+    [ActionSheetStringPicker showPickerWithTitle:@"Actor Name Selection"
                                             rows:actornameExtractArray
                                 initialSelection:selectedIndex
      
@@ -290,7 +288,7 @@ default:
                                            actorNameString = selectedValue;
                                             [self.tableView reloadData];
                                           
-                                           //[self reloadIndex:selectedValue];
+                                           [self actorreloadIndex:selectedValue];
                                        }
                                      cancelBlock:^(ActionSheetStringPicker *picker) {
                                          NSLog(@"Block Picker Canceled");
@@ -303,7 +301,7 @@ default:
     if (selectedIndex > 30) {
         selectedIndex = 0;
     }
-    [ActionSheetStringPicker showPickerWithTitle:@"Site Selection"
+    [ActionSheetStringPicker showPickerWithTitle:@"Movie Type Selection"
                                             rows:movietypenameExtractArray
                                 initialSelection:selectedIndex
      
@@ -312,7 +310,7 @@ default:
                                                  picker, (long)selectedIndex, selectedValue);
                                            typeNameString = selectedValue;
                                             [self.tableView reloadData];
-                                       //    [self reloadIndex:selectedValue];
+                                         [self movietypereloadIndex:selectedValue];
                                        }
                                      cancelBlock:^(ActionSheetStringPicker *picker) {
                                          NSLog(@"Block Picker Canceled");
@@ -325,7 +323,7 @@ default:
     if (selectedIndex > 30) {
         selectedIndex = 0;
     }
-    [ActionSheetStringPicker showPickerWithTitle:@"Site Selection"
+    [ActionSheetStringPicker showPickerWithTitle:@"Director Name Selection"
                                             rows:directrnameExtractArray
                                 initialSelection:selectedIndex
      
@@ -334,7 +332,7 @@ default:
                                                  picker, (long)selectedIndex, selectedValue);
                                            diractorNameString = selectedValue;
                                            [self.tableView reloadData];
-                                           // [self reloadIndex:selectedValue];
+                                            [self dirctorreloadIndex:selectedValue];
                                        }
                                      cancelBlock:^(ActionSheetStringPicker *picker) {
                                          NSLog(@"Block Picker Canceled");
@@ -347,7 +345,7 @@ default:
     if (selectedIndex > 30) {
         selectedIndex = 0;
     }
-    [ActionSheetStringPicker showPickerWithTitle:@"Site Selection"
+    [ActionSheetStringPicker showPickerWithTitle:@"Writer Name Selection"
                                             rows:writernameExtractArray1
                                 initialSelection:selectedIndex
                                        doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
@@ -355,7 +353,7 @@ default:
                                                  picker, (long)selectedIndex, selectedValue);
                                            writerNameString = selectedValue;
                                            [self.tableView reloadData];
-                                          // [self reloadIndex:selectedValue];
+                                           [self writerreloadIndex:selectedValue];
                                        }
                                      cancelBlock:^(ActionSheetStringPicker *picker) {
                                          NSLog(@"Block Picker Canceled");
@@ -363,6 +361,47 @@ default:
                                      }
                                           origin:self.view];
 }
+
+#pragma Mark Reload index Function
+
+- (void)actorreloadIndex:(NSString *)Actorvalue {
+    convertselectItem = 1;
+    NSArray *items = actornameExtractArray;
+    item = [items indexOfObject:Actorvalue];
+    item = convertselectItem;
+    index = item;
+    [self.tableView reloadData];
+}
+
+- (void)movietypereloadIndex:(NSString *)movieTypevalue {
+    convertselectItem = 2;
+    NSArray *items = movietypenameExtractArray;
+    item = [items indexOfObject:movieTypevalue];
+    item = convertselectItem;
+    index = item;
+    
+    [self.tableView reloadData];
+}
+
+- (void)dirctorreloadIndex:(NSString *)Directorvalue {
+    convertselectItem = 3;
+    NSArray *items = directrnameExtractArray;
+    item = [items indexOfObject:Directorvalue];
+    index = item;
+    
+    [self.tableView reloadData];
+}
+
+- (void)writerreloadIndex:(NSString *)Writervalue {
+    convertselectItem = 4;
+    NSArray *items = writernameExtractArray1;
+    item = [items indexOfObject:Writervalue];
+    index = item;
+    
+    [self.tableView reloadData];
+}
+
+
 
 -(void)twitterPostButtonFunction{
 
