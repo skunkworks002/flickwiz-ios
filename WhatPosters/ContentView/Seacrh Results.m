@@ -196,8 +196,9 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  /*  MovieDetailsView *moviedetailView = [MovieDetailsView new];
    
+   MoviewDetailController *moviedetailView = [MoviewDetailController new];
+
   // first access the cell
     static NSString *simpleTableIdentifier = @"Cell";
     MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -218,43 +219,13 @@
     moviedetailView.selectedmovieMakers = [moviemakerListArray objectAtIndex:indexPath.row];
     moviedetailView.selectedmovieRaking = [movierakingListArray objectAtIndex:indexPath.row];
     moviedetailView.selectedmoviedirectorName = [moviedirectorListArray objectAtIndex:indexPath.row];
-    moviedetailView.selectedmoviewriterName = [moviemakerListArray objectAtIndex:indexPath.row];
-<<<<<<< Updated upstream
-    moviedetailView.selectedmoviedetailpathString = [moviedetailpathListArray objectAtIndex:indexPath.row];
-    
-=======
 
+    moviedetailView.selectedmoviewriterName = [moviewriterListArray objectAtIndex:indexPath.row];
+
+    moviedetailView.selectedmoviedetailpathString = [moviedetailpathListArray objectAtIndex:indexPath.row];
+
+      [self.navigationController pushViewController:moviedetailView animated:YES];
   
->>>>>>> Stashed changes
-    [self.navigationController pushViewController:moviedetailView animated:YES];
-  */
-    
-   
-    MoviewDetailController *movieDetailPush = [MoviewDetailController new];
-    
-    // first access the cell
-    static NSString *simpleTableIdentifier = @"Cell";
-    MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil)
-    {
-        NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"MovieCell" owner:self options:nil];
-        cell = [nibArray objectAtIndex:0];
-    }
-    imagesData =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[imagesUrlArray objectAtIndex:indexPath.row]]]];
-    [cell.movieImages setImage:imagesData];
-    myImage = cell.movieImages.image;
-    movieDetailPush.selectedImage = myImage;
-    cell.movienameLabel.text = [movienameArray objectAtIndex:indexPath.row];
-    movieName = cell.movienameLabel.text;
-    movieDetailPush.selectedMovieName = movieName;
-    movieDetailPush.selectedmovieType = [movietypeListArray objectAtIndex:indexPath.row];
-    movieDetailPush.selectedmovieDescrption = [moviedecListArray objectAtIndex:indexPath.row];
-    movieDetailPush.selectedmovieMakers = [moviemakerListArray objectAtIndex:indexPath.row];
-    movieDetailPush.selectedmovieRaking = [movierakingListArray objectAtIndex:indexPath.row];
-    movieDetailPush.selectedmoviedirectorName = [moviedirectorListArray objectAtIndex:indexPath.row];
-    movieDetailPush.selectedmoviewriterName = [moviemakerListArray objectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:movieDetailPush animated:YES];
-    
     
 }
 

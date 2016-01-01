@@ -35,16 +35,19 @@
      IBOutlet UILabel *moviedirectorNameLabel;
      IBOutlet UILabel *movieWriterName;
 */
-    
-    NSMutableArray *actorName;
-    NSMutableArray *typeArray;
-    NSMutableArray *directorArray;
-    NSMutableArray *writerArray;
+    NSInteger index;
     
     NSString *actorNameString;
     NSString *typeNameString;
     NSString *diractorNameString;
     NSString *writerNameString;
+
+    // new code for array separation
+    NSArray *actornameExtractArray;
+    NSArray *directrnameExtractArray;
+    NSArray *writernameExtractArray1;
+    NSArray * movietypenameExtractArray;
+    NSMutableArray *cominedArray;
 
 }
 @property (nonatomic, strong) AbstractActionSheetPicker *actionSheetPicker;
@@ -59,17 +62,16 @@
     [super viewDidLoad];
 
     self.title = @"Movie Details";
-   
-    /// Picker Array's
-    actorName =[NSMutableArray arrayWithObjects:@"Salman Khan",@"Aamir Khan",@"Shahid Kapoor",@"SRK",@"Wordcloud", nil];
-    typeArray =[NSMutableArray arrayWithObjects:@"Action",@"Commedy", nil];
-    directorArray =[NSMutableArray arrayWithObjects:@"Rohit Shitty",@"Karan Johar", nil];
-    writerArray =[NSMutableArray arrayWithObjects:@"Ismail Shah",@"Saleem Khan",@"Akash Mannia",@"Rana Arani", nil];
-    
-    // from old movie detail class code
-    //  moviedirectorNameLabel.text = _selectedmoviedirectorName;
+    index = 0;
     
     // self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
+    
+    // Separate String by comma & create Array for picker
+    actornameExtractArray = [_selectedmovieMakers componentsSeparatedByString:@","];
+    directrnameExtractArray = [_selectedmoviedirectorName componentsSeparatedByString:@","];
+    writernameExtractArray1 = [_selectedmoviewriterName componentsSeparatedByString:@","];
+    movietypenameExtractArray = [_selectedmovieType componentsSeparatedByString:@","];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,7 +82,15 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 9;
+    
+    switch (index) {
+        case 0:
+            return 9;
+            break;
+        default:
+            break;
+    }
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -89,21 +99,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
+    switch (index) {
+        case 0:
+        {
     if (indexPath.section == 0) {
         
         static NSString *CellIdentifier = @"PhotoCell";
         PhotoCell *cell = (PhotoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             cell = [[[NSBundle mainBundle] loadNibNamed:@"PhotoCell" owner:self options:nil] objectAtIndex:0];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
-       // cell.imageViewCell.image = [UIImage imageNamed:@""];
-       
-      // new code
-      //  cell.imageViewCell.layer.cornerRadius = cell.imageViewCell.frame.size.width / 2;
-       // cell.imageViewCell.clipsToBounds = YES;
-        cell.imageViewCell.image = selectedImage;
+            cell.imageViewCell.image = selectedImage;
         return  cell;
     }
-    
     if ((indexPath.section == 1) || (indexPath.section == 4)) {
         
         static NSString *CellIdentifier = @"LableCell";
@@ -113,50 +120,32 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
         if (indexPath.section == 1) {
-          //  cell.customLable.text = @"Name";
             cell.customLable.text = selectedMovieName;
-
         }
         if (indexPath.section == 4) {
-//            cell.customLable.text = @"Ranking";
-
+            cell.customLable.backgroundColor = [UIColor clearColor];
             cell.customLable.text = _selectedmovieRaking;
-
-
         }
         return cell;
     }
-    
     if (indexPath.section == 2) {
         PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
         cell.textLabel.text = actorNameString;
-
         return cell;
     }
     if (indexPath.section == 3) {
         PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
-        cell.textLabel.text = _selectedmovieType;
+        cell.textLabel.text = typeNameString;
         return cell;
     }
     if (indexPath.section == 5) {
         PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
-     //   cell.textLabel.text = diractorNameString;
-
-        cell.textLabel.text = _selectedmovieMakers;
-
-        
-//        dirctorName.text = _selectedmovieMakers;
-
+        cell.textLabel.text = diractorNameString;
         return cell;
     }
     if (indexPath.section == 6) {
         PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
         cell.textLabel.text = writerNameString;
-        cell.backgroundColor = [UIColor clearColor];
-
-
-//        movieWriterName.text = _selectedmoviewriterName;
-
         return cell;
     }
 
@@ -168,11 +157,7 @@
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
          //   cell.customTextView.delegate = self;
         }
-    //    cell.customTextView.text = @"coming description text from server";
-      
         cell.customTextView.text = _selectedmovieDescrption;
-
-        
         return cell;
     }
     if (indexPath.section == 8) {
@@ -182,14 +167,17 @@
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ButtonCell"owner:self options:nil] objectAtIndex:0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         [cell.faceBookButton addTarget:self action:@selector(facebookPostBtFunction) forControlEvents:UIControlEventTouchUpInside];
-        
         [cell.twitterButton addTarget:self action:@selector(twitterPostButtonFunction) forControlEvents:UIControlEventTouchUpInside];
-        
-        
         //cell.restBtn.frame = CGRectMake(20, 5, 280, 25);
         //[cell.restBtn setTitle:@"Login" forState:UIControlStateNormal];
         return cell;
+    }}
+            break;
+            
+        default:
+            break;
     }
+
     return nil;
 }
 
@@ -211,7 +199,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
    
-            if (indexPath.section == 2) {
+    switch (index) {
+        case 0:
+        {
+                       if (indexPath.section == 2) {
                 [self showActorNameFunction];
             }
             else if (indexPath.section == 3){
@@ -222,12 +213,21 @@
             }
             else if (indexPath.section == 6){
                 [self writerNameFunction];
-            }
+            }}
+            break;
+            
+        default:
+            break;
+    }
+
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSString *result = nil;
    
+    switch (index) {
+        case 0:
+        {
             switch (section) {
                 case 1:
                     result = @"Name of Movie";
@@ -256,6 +256,11 @@
             default:
             break;
     }
+    }break;
+    
+default:
+    break;
+}
     return result;
 }
 
@@ -271,12 +276,12 @@
 }
 
 - (void)showActorNameFunction {
-    NSInteger selectedIndex = [actorName indexOfObject:actorNameString];
+    NSInteger selectedIndex = [actornameExtractArray indexOfObject:actorNameString];
     if (selectedIndex > 30) {
         selectedIndex = 0;
     }
     [ActionSheetStringPicker showPickerWithTitle:@"Site Selection"
-                                            rows:actorName
+                                            rows:actornameExtractArray
                                 initialSelection:selectedIndex
      
                                        doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
@@ -294,12 +299,12 @@
 }
 
 - (void)typeNameFunction {
-    NSInteger selectedIndex = [typeArray indexOfObject:typeNameString];
+    NSInteger selectedIndex = [movietypenameExtractArray indexOfObject:typeNameString];
     if (selectedIndex > 30) {
         selectedIndex = 0;
     }
     [ActionSheetStringPicker showPickerWithTitle:@"Site Selection"
-                                            rows:typeArray
+                                            rows:movietypenameExtractArray
                                 initialSelection:selectedIndex
      
                                        doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
@@ -316,12 +321,12 @@
 }
 
 - (void)directorNameFunction {
-    NSInteger selectedIndex = [directorArray indexOfObject:diractorNameString];
+    NSInteger selectedIndex = [directrnameExtractArray indexOfObject:diractorNameString];
     if (selectedIndex > 30) {
         selectedIndex = 0;
     }
     [ActionSheetStringPicker showPickerWithTitle:@"Site Selection"
-                                            rows:directorArray
+                                            rows:directrnameExtractArray
                                 initialSelection:selectedIndex
      
                                        doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
@@ -338,12 +343,12 @@
 }
 
 - (void)writerNameFunction {
-    NSInteger selectedIndex = [writerArray indexOfObject:writerNameString];
+    NSInteger selectedIndex = [writernameExtractArray1 indexOfObject:writerNameString];
     if (selectedIndex > 30) {
         selectedIndex = 0;
     }
     [ActionSheetStringPicker showPickerWithTitle:@"Site Selection"
-                                            rows:writerArray
+                                            rows:writernameExtractArray1
                                 initialSelection:selectedIndex
                                        doneBlock:^(ActionSheetStringPicker *picker, NSInteger selectedIndex, id selectedValue) {
                                            NSLog(@"Picker: %@, Index: %ld, value: %@",

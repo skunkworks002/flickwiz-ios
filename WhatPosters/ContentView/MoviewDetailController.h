@@ -24,6 +24,8 @@
 @property (weak, nonatomic) NSString *selectedmovieRaking;
 @property (weak, nonatomic) NSString *selectedmoviedirectorName;
 @property (weak, nonatomic) NSString *selectedmoviewriterName;
+@property (weak, nonatomic) NSString *selectedmoviedetailpathString;
+
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatar;
