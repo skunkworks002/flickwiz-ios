@@ -22,7 +22,8 @@
     NSArray *actornameExtractArray;
     NSArray *directrnameExtractArray;
     NSArray *writernameExtractArray1;
-    NSMutableArray *cominedArray;
+    NSArray *movietypenameExtractArray;
+
 }
 
 @end
@@ -54,7 +55,9 @@
    actornameExtractArray = [_selectedmovieMakers componentsSeparatedByString:@","];
    directrnameExtractArray = [_selectedmoviedirectorName componentsSeparatedByString:@","];
    writernameExtractArray1 = [_selectedmoviewriterName componentsSeparatedByString:@","];
-   
+    movietypenameExtractArray = [_selectedmovieType componentsSeparatedByString:@","];
+    
+    // background image 
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
 
 }
