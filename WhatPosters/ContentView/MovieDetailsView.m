@@ -39,8 +39,8 @@
 //    NSString *s = @"Qazi Saqib";
 //    NSString *secondString = [s stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    movieImageView.layer.cornerRadius = movieImageView.frame.size.width / 2;
-    movieImageView.clipsToBounds = YES;
+//    movieImageView.layer.cornerRadius = movieImageView.frame.size.width / 2;
+//    movieImageView.clipsToBounds = YES;
     
     movieImageView.image = selectedImage;
     movieNamerelsingDate.text = selectedMovieName;
