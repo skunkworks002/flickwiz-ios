@@ -13,6 +13,8 @@ How's FlickWiz App Work  :
  pass to next view for processing. when processing is complete so we generate a best matche's of movie's list of related movie image poster.
 
 *After this user can check any movie deatil from list .
+
 *And check all the inforamtion about movie on next detail view.
+
 *A user can check more deatil information about (Acotr,MovieType,Director,Writer etc..) .its check from deatil view all these infromation.
 
