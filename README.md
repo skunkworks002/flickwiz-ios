@@ -1,6 +1,11 @@
 # flickwiz-ios
 FlickWiz IOS Application
 
+Requirements :
+============================
+Objective c
+Xcode 7
+
 About FlickWiz App:
 ============================
 
