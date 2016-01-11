@@ -4,7 +4,6 @@ FlickWiz IOS Application
 Requirements :
 ============================
 *Objective c
-
 *Xcode 7
 
 About FlickWiz App:
@@ -25,3 +24,9 @@ How's FlickWiz App Work :
 *A user can check more detail information about (Actor's,MovieType's,Director's,Writer's etc..)from deatil view .
 
 *User can share movie detail link and image from app on (twitter & FB).
+
+
+License :
+============================
+
+*Released under the Orbit Software Solution license. See the LICENSE file for more info.
