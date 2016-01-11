@@ -10,7 +10,7 @@ How's FlickWiz App Work  :
 ============================
 
 *Trough this app we take a image through camera or pick image from gallery of any movie image poster and image 
- pass to next view for processing. when processing is complete so we generate a best matche's of movie's list of related movie image poster.
+ pass to next view for processing. when processing is complete we generate a best matche's of movie's list of related movie image poster.
 
 *After this user can check any movie deatil from list .
 
