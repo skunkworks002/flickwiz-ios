@@ -7,7 +7,7 @@ Requirements :
 
 *Xcode 7
 
-About FlickWiz App:
+About FlickWiz App :
 ============================
 
 *FilckWiz app is an image processing app through this app user process the image of movie and generate list of best mathce's of any movie image related .
