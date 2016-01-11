@@ -4,7 +4,7 @@ FlickWiz IOS Application
 About FlickWiz App:
 ============================
 
-*FilckWiz app is an image processing app through this app we process the image of movie and generate list of best mathces of any movie's image related .
+*FilckWiz app is an image processing app through this app we process the image of movie and generate list of best mathce's of any movie's image related .
 
 How's FlickWiz App Work  :
 ============================
