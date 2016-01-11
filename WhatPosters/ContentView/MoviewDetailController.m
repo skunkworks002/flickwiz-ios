@@ -23,7 +23,7 @@
 
 
 @interface MoviewDetailController () <UINavigationControllerDelegate, UITextViewDelegate,UIAlertViewDelegate> {
-
+    
     // from old movie detail class
     /*
      IBOutlet UILabel *WriterNames;
@@ -34,7 +34,7 @@
      IBOutlet UILabel *movieNamerelsingDate;
      IBOutlet UILabel *moviedirectorNameLabel;
      IBOutlet UILabel *movieWriterName;
-*/
+     */
     NSInteger index;
     NSInteger item;
     NSInteger convertselectItem;
@@ -42,14 +42,14 @@
     NSString *typeNameString;
     NSString *diractorNameString;
     NSString *writerNameString;
-
+    
     // new code for array separation
     NSArray *actornameExtractArray;
     NSArray *directrnameExtractArray;
     NSArray *writernameExtractArray1;
     NSArray * movietypenameExtractArray;
     NSMutableArray *cominedArray;
-
+    
 }
 @property (nonatomic, strong) AbstractActionSheetPicker *actionSheetPicker;
 
@@ -61,7 +61,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.title = @"Movie Details";
     index = 0;
     
@@ -72,7 +72,7 @@
     directrnameExtractArray = [_selectedmoviedirectorName componentsSeparatedByString:@","];
     writernameExtractArray1 = [_selectedmoviewriterName componentsSeparatedByString:@","];
     movietypenameExtractArray = [_selectedmovieType componentsSeparatedByString:@","];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,83 +99,83 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-  
+    
     switch (index) {
         case 0:
-            {
-              if (indexPath.section == 0) {
-               static NSString *CellIdentifier = @"PhotoCell";
-              PhotoCell *cell = (PhotoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-               cell = [[[NSBundle mainBundle] loadNibNamed:@"PhotoCell" owner:self options:nil] objectAtIndex:0];
-               cell.selectionStyle = UITableViewCellSelectionStyleNone;
-               cell.imageViewCell.image = selectedImage;
-               return  cell;
-    }
-    if ((indexPath.section == 1) || (indexPath.section == 4)) {
-        
-        static NSString *CellIdentifier = @"LableCell";
-        LableCell *cell = (LableCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"LableCell" owner:self options:nil] objectAtIndex:0];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        }
-        if (indexPath.section == 1) {
-            cell.customLable.text = selectedMovieName;
-        }
-        if (indexPath.section == 4) {
-            cell.customLable.backgroundColor = [UIColor clearColor];
-            cell.customLable.text = _selectedmovieRaking;
-        }
-        return cell;
-    }
-    if (indexPath.section == 2) {
-        PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
-        cell.textLabel.text = actorNameString;
-        return cell;
-    }
-    if (indexPath.section == 3) {
-        PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
-        cell.textLabel.text = typeNameString;
-        return cell;
-    }
-    if (indexPath.section == 5) {
-        PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
-        cell.textLabel.text = diractorNameString;
-        return cell;
-    }
-    if (indexPath.section == 6) {
-        PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
-        cell.textLabel.text = writerNameString;
-        return cell;
-    }
-
-    if (indexPath.section == 7) {
-        static NSString *CellIdentifier = @"TextViewCell";
-        TextViewCell *cell = (TextViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"TextViewCell"owner:self options:nil] objectAtIndex:0];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-         //   cell.customTextView.delegate = self;
-        }
-        cell.customTextView.text = _selectedmovieDescrption;
-        return cell;
-    }
-    if (indexPath.section == 8) {
-
-        static NSString *CellButtonIdn = @"ButtonCell";
-        ButtonCell *cell = (ButtonCell *)[tableView dequeueReusableCellWithIdentifier:CellButtonIdn];
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"ButtonCell"owner:self options:nil] objectAtIndex:0];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        [cell.faceBookButton addTarget:self action:@selector(facebookPostBtFunction) forControlEvents:UIControlEventTouchUpInside];
-        [cell.twitterButton addTarget:self action:@selector(twitterPostButtonFunction) forControlEvents:UIControlEventTouchUpInside];
-         return cell;
-    }}
+        {
+            if (indexPath.section == 0) {
+                static NSString *CellIdentifier = @"PhotoCell";
+                PhotoCell *cell = (PhotoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"PhotoCell" owner:self options:nil] objectAtIndex:0];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                cell.imageViewCell.image = selectedImage;
+                return  cell;
+            }
+            if ((indexPath.section == 1) || (indexPath.section == 4)) {
+                
+                static NSString *CellIdentifier = @"LableCell";
+                LableCell *cell = (LableCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                if (cell == nil) {
+                    cell = [[[NSBundle mainBundle] loadNibNamed:@"LableCell" owner:self options:nil] objectAtIndex:0];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                }
+                if (indexPath.section == 1) {
+                    cell.customLable.text = selectedMovieName;
+                }
+                if (indexPath.section == 4) {
+                    cell.customLable.backgroundColor = [UIColor clearColor];
+                    cell.customLable.text = _selectedmovieRaking;
+                }
+                return cell;
+            }
+            if (indexPath.section == 2) {
+                PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
+                cell.textLabel.text = actorNameString;
+                return cell;
+            }
+            if (indexPath.section == 3) {
+                PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
+                cell.textLabel.text = typeNameString;
+                return cell;
+            }
+            if (indexPath.section == 5) {
+                PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
+                cell.textLabel.text = diractorNameString;
+                return cell;
+            }
+            if (indexPath.section == 6) {
+                PickLabelCell *cell = [self pickerLabelCellWithTableView:self.tableView];
+                cell.textLabel.text = writerNameString;
+                return cell;
+            }
+            
+            if (indexPath.section == 7) {
+                static NSString *CellIdentifier = @"TextViewCell";
+                TextViewCell *cell = (TextViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+                if (cell == nil) {
+                    cell = [[[NSBundle mainBundle] loadNibNamed:@"TextViewCell"owner:self options:nil] objectAtIndex:0];
+                    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                    //   cell.customTextView.delegate = self;
+                }
+                cell.customTextView.text = _selectedmovieDescrption;
+                return cell;
+            }
+            if (indexPath.section == 8) {
+                
+                static NSString *CellButtonIdn = @"ButtonCell";
+                ButtonCell *cell = (ButtonCell *)[tableView dequeueReusableCellWithIdentifier:CellButtonIdn];
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"ButtonCell"owner:self options:nil] objectAtIndex:0];
+                cell.selectionStyle = UITableViewCellSelectionStyleNone;
+                [cell.faceBookButton addTarget:self action:@selector(facebookPostBtFunction) forControlEvents:UIControlEventTouchUpInside];
+                [cell.twitterButton addTarget:self action:@selector(twitterPostButtonFunction) forControlEvents:UIControlEventTouchUpInside];
+                return cell;
+            }}
             break;
             
         default:
             break;
     }
-
+    
     return nil;
 }
 
@@ -196,12 +196,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-   
+    
     switch (index) {
         case 0:
         {
             if (indexPath.section == 2) {
-            [self showActorNameFunction];
+                [self showActorNameFunction];
             }
             else if (indexPath.section == 3){
                 [self typeNameFunction];
@@ -217,12 +217,12 @@
         default:
             break;
     }
-
+    
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     NSString *result = nil;
-   
+    
     switch (index) {
         case 0:
         {
@@ -251,14 +251,14 @@
                 case 8:
                     result = @"Sharing Option";
                     break;
-            default:
+                default:
+                    break;
+            }
+        }break;
+            
+        default:
             break;
     }
-    }break;
-    
-default:
-    break;
-}
     return result;
 }
 
@@ -286,8 +286,8 @@ default:
                                            NSLog(@"Picker: %@, Index: %ld, value: %@",
                                                  picker, (long)selectedIndex, selectedValue);
                                            actorNameString = selectedValue;
-                                            [self.tableView reloadData];
-                                          
+                                           [self.tableView reloadData];
+                                           
                                            [self actorreloadIndex:selectedValue];
                                        }
                                      cancelBlock:^(ActionSheetStringPicker *picker) {
@@ -309,8 +309,8 @@ default:
                                            NSLog(@"Picker: %@, Index: %ld, value: %@",
                                                  picker, (long)selectedIndex, selectedValue);
                                            typeNameString = selectedValue;
-                                            [self.tableView reloadData];
-                                         [self movietypereloadIndex:selectedValue];
+                                           [self.tableView reloadData];
+                                           [self movietypereloadIndex:selectedValue];
                                        }
                                      cancelBlock:^(ActionSheetStringPicker *picker) {
                                          NSLog(@"Block Picker Canceled");
@@ -332,7 +332,7 @@ default:
                                                  picker, (long)selectedIndex, selectedValue);
                                            diractorNameString = selectedValue;
                                            [self.tableView reloadData];
-                                            [self dirctorreloadIndex:selectedValue];
+                                           [self dirctorreloadIndex:selectedValue];
                                        }
                                      cancelBlock:^(ActionSheetStringPicker *picker) {
                                          NSLog(@"Block Picker Canceled");
@@ -404,13 +404,13 @@ default:
 
 
 -(void)twitterPostButtonFunction{
-
+    
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweetSheet = [SLComposeViewController
                                                composeViewControllerForServiceType:SLServiceTypeTwitter];
         [tweetSheet setInitialText:selectedMovieName];
-       
+        
         [tweetSheet addURL:[NSURL URLWithString:_selectedmoviedetailpathString]];
         
         [tweetSheet addImage:selectedImage];

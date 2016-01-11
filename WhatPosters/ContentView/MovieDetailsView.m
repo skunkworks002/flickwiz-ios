@@ -10,7 +10,7 @@
 #import <Social/Social.h>
 
 @interface MovieDetailsView () <UITextViewDelegate> {
-
+    
     IBOutlet UILabel *WriterNames;
     IBOutlet UILabel *dirctorName;
     IBOutlet UIImageView *movieImageView;
@@ -23,7 +23,7 @@
     NSArray *directrnameExtractArray;
     NSArray *writernameExtractArray1;
     NSArray *movietypenameExtractArray;
-
+    
 }
 
 @end
@@ -36,11 +36,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Movie Detail";
-//    NSString *s = @"Qazi Saqib";
-//    NSString *secondString = [s stringByReplacingOccurrencesOfString:@" " withString:@""];
+    //    NSString *s = @"Qazi Saqib";
+    //    NSString *secondString = [s stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-//    movieImageView.layer.cornerRadius = movieImageView.frame.size.width / 2;
-//    movieImageView.clipsToBounds = YES;
+    //    movieImageView.layer.cornerRadius = movieImageView.frame.size.width / 2;
+    //    movieImageView.clipsToBounds = YES;
     
     movieImageView.image = selectedImage;
     movieNamerelsingDate.text = selectedMovieName;
@@ -52,14 +52,14 @@
     movieWriterName.text = _selectedmoviewriterName;
     
     // Separate String by comma & create Arryay
-   actornameExtractArray = [_selectedmovieMakers componentsSeparatedByString:@","];
-   directrnameExtractArray = [_selectedmoviedirectorName componentsSeparatedByString:@","];
-   writernameExtractArray1 = [_selectedmoviewriterName componentsSeparatedByString:@","];
+    actornameExtractArray = [_selectedmovieMakers componentsSeparatedByString:@","];
+    directrnameExtractArray = [_selectedmoviedirectorName componentsSeparatedByString:@","];
+    writernameExtractArray1 = [_selectedmoviewriterName componentsSeparatedByString:@","];
     movietypenameExtractArray = [_selectedmovieType componentsSeparatedByString:@","];
     
-    // background image 
+    // background image
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -114,13 +114,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
