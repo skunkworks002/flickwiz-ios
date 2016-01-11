@@ -14,7 +14,7 @@ How's FlickWiz App Work  :
 
 *After this user can check any movie deatil from list .
 
-*And check all the inforamtion about movie on next detail view.
+*And show all the inforamtion about movie deatil on next detail view.
 
 *A user can check more deatil information about (Acotr,MovieType,Director,Writer etc..) .its check from deatil view all these infromation.
 
