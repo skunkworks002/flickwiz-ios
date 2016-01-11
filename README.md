@@ -18,3 +18,4 @@ How's FlickWiz App Work :
 
 *A user can check more detail information about (Actor's,MovieType's,Director's,Writer's etc..)from deatil view .
 
+*User can share movie detail link and image from app on (twitter & FB).
