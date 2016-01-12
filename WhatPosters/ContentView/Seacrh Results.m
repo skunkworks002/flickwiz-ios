@@ -8,18 +8,14 @@
 
 #import "Seacrh Results.h"
 #import "MovieCell.h"
-#import "MovieDetailsView.h"
+//#import "MovieDetailsView.h"
 #import "Venue.h"
 #import "Utility.h"
-//#import "SVProgressHUD.h"
-#import "WeatherHTTPClient.h"
 
 #import "MoviewDetailController.h"
 
-// new code for app
-
-@interface Seacrh_Results () <WeatherHTTPClientDelegate>{
-    // NSString
+@interface Seacrh_Results () {
+    // NSStrings
     NSString *datePick;
     NSString *Datestring2;
     NSString *movieName;
@@ -30,7 +26,6 @@
     NSString *moviedirectorString;
     NSString *moviewriterString;
     NSString *moviedetailpathString;
-
 
     //  Arrays
     NSArray *MoviewPosterNamesArray;
@@ -48,13 +43,11 @@
     NSMutableArray *moviedirctorArray;
     NSMutableArray *moviewriterArray;
     NSMutableArray *moviedetailpathArray;
-
     NSMutableArray *moviemakerListArray;
     NSMutableArray *movierakingArray;
     NSMutableArray *moviedirectorListArray;
     NSMutableArray *moviewriterListArray;
     NSMutableArray *moviedetailpathListArray;
-
 
     NSMutableDictionary *myresult;
 
@@ -97,7 +90,6 @@
         moviedetailpathString = [moviedetailpathArray objectAtIndex:0];
         [moviedetailpathListArray addObject:moviedetailpathString];
     }
-
     
     // use for loop here Movie Date Count
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
@@ -106,7 +98,7 @@
         [moviedateArray addObject:Datestring2];
     }
     
-    ///movie Type loop
+    // movie Type loop
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         movietypeArray = [MoviewPosterNamesArray objectAtIndex:i];
         movietypestring = [movietypeArray objectAtIndex:5];
@@ -150,7 +142,6 @@
         movierakingString = [movierakingArray objectAtIndex:10];
         [movierakingListArray addObject:movierakingString];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -171,8 +162,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *simpleTableIdentifier = @"Cell";
     MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil)
-    {
+    if (cell == nil) {
         NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"MovieCell" owner:self options:nil];
         cell = [nibArray objectAtIndex:0];
     }
@@ -197,13 +187,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
    
-   MovieDetailsView *moviedetailView = [MovieDetailsView new];
-
+   MoviewDetailController *moviedetailView = [MoviewDetailController new];
   // first access the cell
     static NSString *simpleTableIdentifier = @"Cell";
     MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    if (cell == nil)
-    {
+    if (cell == nil) {
         NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"MovieCell" owner:self options:nil];
         cell = [nibArray objectAtIndex:0];
     }
@@ -219,14 +207,9 @@
     moviedetailView.selectedmovieMakers = [moviemakerListArray objectAtIndex:indexPath.row];
     moviedetailView.selectedmovieRaking = [movierakingListArray objectAtIndex:indexPath.row];
     moviedetailView.selectedmoviedirectorName = [moviedirectorListArray objectAtIndex:indexPath.row];
-
     moviedetailView.selectedmoviewriterName = [moviewriterListArray objectAtIndex:indexPath.row];
-
     moviedetailView.selectedmoviedetailpathString = [moviedetailpathListArray objectAtIndex:indexPath.row];
-
-      [self.navigationController pushViewController:moviedetailView animated:YES];
-  
-    
+    [self.navigationController pushViewController:moviedetailView animated:YES];
 }
 
 @end

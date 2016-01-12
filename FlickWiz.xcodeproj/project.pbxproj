@@ -10,6 +10,9 @@
 		041397A01C29333A00851D04 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0413979F1C29333A00851D04 /* Social.framework */; };
 		041397A21C29335B00851D04 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 041397A11C29335B00851D04 /* Accounts.framework */; };
 		0423AB491C1A9AD600D61910 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 0423AB481C1A9AD600D61910 /* Base64.m */; };
+		04264CE21C44E6780078FA4D /* MoviesPersonsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04264CE01C44E6780078FA4D /* MoviesPersonsDetailView.m */; };
+		04264CE31C44E6780078FA4D /* MoviesPersonsDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04264CE11C44E6780078FA4D /* MoviesPersonsDetailView.xib */; };
+		04264CE51C4520980078FA4D /* No_Image_Available.png in Resources */ = {isa = PBXBuildFile; fileRef = 04264CE41C4520980078FA4D /* No_Image_Available.png */; };
 		04D91C681C217644001DCF32 /* GiFHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D91C671C217644001DCF32 /* GiFHUD.m */; };
 		04D91C6A1C217860001DCF32 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04D91C691C217860001DCF32 /* loading.gif */; };
 		04D91C6C1C219342001DCF32 /* animation_mob.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04D91C6B1C219342001DCF32 /* animation_mob.gif */; };
@@ -127,6 +130,10 @@
 		041397A11C29335B00851D04 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		0423AB471C1A9AD600D61910 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		0423AB481C1A9AD600D61910 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
+		04264CDF1C44E6780078FA4D /* MoviesPersonsDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviesPersonsDetailView.h; sourceTree = "<group>"; };
+		04264CE01C44E6780078FA4D /* MoviesPersonsDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesPersonsDetailView.m; sourceTree = "<group>"; };
+		04264CE11C44E6780078FA4D /* MoviesPersonsDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesPersonsDetailView.xib; sourceTree = "<group>"; };
+		04264CE41C4520980078FA4D /* No_Image_Available.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = No_Image_Available.png; sourceTree = "<group>"; };
 		04D91C661C217644001DCF32 /* GiFHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiFHUD.h; sourceTree = "<group>"; };
 		04D91C671C217644001DCF32 /* GiFHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiFHUD.m; sourceTree = "<group>"; };
 		04D91C691C217860001DCF32 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
@@ -375,7 +382,6 @@
 		704B8CC31C082A6F006257E9 = {
 			isa = PBXGroup;
 			children = (
-				04E044151C33FC080042AB88 /* Foundation.framework */,
 				7094B1131C0EC87000BF2AAF /* images */,
 				7089C50D1C0DA50000B14779 /* SharedClass */,
 				704B8D3B1C087DB6006257E9 /* Third Library */,
@@ -427,6 +433,7 @@
 				0413979F1C29333A00851D04 /* Social.framework */,
 				7094B1181C0EDAD800BF2AAF /* QuartzCore.framework */,
 				704B8D2F1C086FAF006257E9 /* CoreGraphics.framework */,
+				04E044151C33FC080042AB88 /* Foundation.framework */,
 				704B8D2D1C086FA7006257E9 /* CoreFoundation.framework */,
 				704B8D2B1C086FA0006257E9 /* UIKit.framework */,
 				704B8D291C086F9A006257E9 /* MobileCoreServices.framework */,
@@ -463,6 +470,9 @@
 				04E043CB1C33AEC00042AB88 /* MoviewDetailController.h */,
 				04E043CC1C33AEC00042AB88 /* MoviewDetailController.m */,
 				04E043CD1C33AEC00042AB88 /* MoviewDetailController.xib */,
+				04264CDF1C44E6780078FA4D /* MoviesPersonsDetailView.h */,
+				04264CE01C44E6780078FA4D /* MoviesPersonsDetailView.m */,
+				04264CE11C44E6780078FA4D /* MoviesPersonsDetailView.xib */,
 			);
 			name = ContentView;
 			path = WhatPosters/ContentView;
@@ -612,6 +622,7 @@
 		7094B1131C0EC87000BF2AAF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				04264CE41C4520980078FA4D /* No_Image_Available.png */,
 				04D91C6B1C219342001DCF32 /* animation_mob.gif */,
 				04D91C691C217860001DCF32 /* loading.gif */,
 				70344D191C216B3300E5AD1A /* logo_update.png */,
@@ -735,6 +746,7 @@
 				70344D121C21464D00E5AD1A /* lc.png in Resources */,
 				70344D131C21464D00E5AD1A /* logo.png in Resources */,
 				704B8D1F1C08315C006257E9 /* Snitch.jpg in Resources */,
+				04264CE51C4520980078FA4D /* No_Image_Available.png in Resources */,
 				70344D171C21668800E5AD1A /* 1.png in Resources */,
 				04E043CF1C33AEC00042AB88 /* MoviewDetailController.xib in Resources */,
 				7047800E1C242DFC0043177E /* SVProgressHUD.bundle in Resources */,
@@ -742,6 +754,7 @@
 				04E043DC1C33AFF80042AB88 /* PhotoCell.xib in Resources */,
 				704B8D221C08315C006257E9 /* The-Lone-Ranger-Movie-Poster.jpg in Resources */,
 				704B8D071C082B1A006257E9 /* Seacrh Results.xib in Resources */,
+				04264CE31C44E6780078FA4D /* MoviesPersonsDetailView.xib in Resources */,
 				704B8D201C08315C006257E9 /* Spectre.jpg in Resources */,
 				7094B1151C0EC87100BF2AAF /* Mainbackgroundimage.png in Resources */,
 				04E043DA1C33AFF80042AB88 /* LableCell.xib in Resources */,
@@ -841,6 +854,7 @@
 				04E044131C33F56F0042AB88 /* NSDate+TCUtils.m in Sources */,
 				7089C4FF1C0DA4F800B14779 /* AFHTTPSessionManager.m in Sources */,
 				04E0440A1C33F56F0042AB88 /* AbstractActionSheetPicker.m in Sources */,
+				04264CE21C44E6780078FA4D /* MoviesPersonsDetailView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

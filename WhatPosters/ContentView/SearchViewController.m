@@ -6,7 +6,6 @@
 //  Copyright © 2015 Xululabs. All rights reserved.
 //
 
-
 #import "SearchViewController.h"
 #import "MainViewController.h"
 #import "Seacrh Results.h"
@@ -14,7 +13,6 @@
 #import "GiFHUD.h"
 #import "Utility.h"
 #import "AFNetworking.h"
-#import "WeatherHTTPClient.h"
 #import "AppDelegate.h"
 #import "Venue.h"
 #import "Base64.h"
