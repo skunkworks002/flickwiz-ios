@@ -1,4 +1,4 @@
- //
+//
 //  MoviewDetailController.m
 //  FlickWiz
 //
@@ -41,7 +41,7 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
     NSArray *movietypenameExtractArray;
     
     AFHTTPRequestOperationManager *manager;
-
+    
 }
 @property (nonatomic, strong) AbstractActionSheetPicker *actionSheetPicker;
 
@@ -189,12 +189,12 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
             
             if (indexPath.section == 24) {
                 ButtonCell *cell = [self textFieldCellWithTableView:tableView];
-                    [cell.faceBookButton addTarget:self action:@selector(facebookPostBtFunction) forControlEvents:UIControlEventTouchUpInside];
-                    [cell.twitterButton addTarget:self action:@selector(twitterPostButtonFunction) forControlEvents:UIControlEventTouchUpInside];
-                    cell.twitterButton.backgroundColor = [UIColor grayColor];
-                    cell.faceBookButton.backgroundColor = [UIColor grayColor];
-                    return cell;
-                }
+                [cell.faceBookButton addTarget:self action:@selector(facebookPostBtFunction) forControlEvents:UIControlEventTouchUpInside];
+                [cell.twitterButton addTarget:self action:@selector(twitterPostButtonFunction) forControlEvents:UIControlEventTouchUpInside];
+                cell.twitterButton.backgroundColor = [UIColor whiteColor];
+                cell.faceBookButton.backgroundColor = [UIColor whiteColor];
+                return cell;
+            }
             
             // Actor Names Buttons + actions
             if (indexPath.section == 4) {
@@ -222,8 +222,8 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
                 [cell2.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
                 cell2.twitterButton.hidden = YES;
                 return cell2;
-                }
-                if (indexPath.section == 6) {
+            }
+            if (indexPath.section == 6) {
                 ButtonCell *cell = [self textFieldCellWithTableView:tableView];
                 if ([actornameExtractArray count] <= 2) {
                     cell.hidden = YES;
@@ -301,7 +301,7 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
                     return cell;
                 }
                 cell.faceBookButton.tag = indexPath.row +7;
-
+                
                 NSString *movieDiractor = directrnameExtractArray[1];
                 [cell.faceBookButton setTitle:movieDiractor forState:UIControlStateNormal];
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
@@ -330,7 +330,7 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
             if (indexPath.section == 18) {
                 ButtonCell *cell = [self textFieldCellWithTableView:tableView];
                 cell.faceBookButton.tag = indexPath.row +9;
-
+                
                 NSString *movieWriter = writernameExtractArray1[0];
                 [cell.faceBookButton setTitle:movieWriter forState:UIControlStateNormal];
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
@@ -346,7 +346,7 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
                     return cell;
                 }
                 cell.faceBookButton.tag = indexPath.row +10;
-
+                
                 NSString *movieWriter = writernameExtractArray1[1];
                 [cell.faceBookButton setTitle:movieWriter forState:UIControlStateNormal];
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
@@ -356,20 +356,20 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
                 return cell;
             }
             if (indexPath.section == 20) {
-                    ButtonCell *cell = [self textFieldCellWithTableView:tableView];
-                    if ([writernameExtractArray1 count] <= 2) {
-                        cell.hidden = YES;
-                        return cell;
-                    }
-                    cell.faceBookButton.tag = indexPath.row +11;
-                    NSString *movieWriter = writernameExtractArray1[2];
-                    [cell.faceBookButton setTitle:movieWriter forState:UIControlStateNormal];
-                    cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                    cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                     [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
-                    cell.twitterButton.hidden = YES;
+                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
+                if ([writernameExtractArray1 count] <= 2) {
+                    cell.hidden = YES;
                     return cell;
                 }
+                cell.faceBookButton.tag = indexPath.row +11;
+                NSString *movieWriter = writernameExtractArray1[2];
+                [cell.faceBookButton setTitle:movieWriter forState:UIControlStateNormal];
+                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
+                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+                [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+                cell.twitterButton.hidden = YES;
+                return cell;
+            }
         }break;
         default:
             break;
@@ -383,6 +383,7 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ButtonCell" owner:self options:nil] objectAtIndex:0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
     }
     return cell;
 }
@@ -410,7 +411,7 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
             return 0;
         }
     }
-
+    
     // code for nill index for Movie Type
     if (indexPath.section == 9) {
         if ([movietypenameExtractArray count] <= 1) {
@@ -425,13 +426,13 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
     
     // code for nill index for diractor
     if (indexPath.section == 15) {
-     if ([directrnameExtractArray count] <= 1) {
-          return 0;
+        if ([directrnameExtractArray count] <= 1) {
+            return 0;
         }
-      }
+    }
     if (indexPath.section == 16) {
-      if ([directrnameExtractArray count] <= 2) {
-          return 0;
+        if ([directrnameExtractArray count] <= 2) {
+            return 0;
         }
     }
     
@@ -552,9 +553,9 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
 
 
 -(void)movieResponse:(UIButton*)sender {
- 
+    
     NSInteger abcd = sender.tag;;
-
+    
     NSString *myname;
     
     // Fpr Actor Button Click
@@ -625,33 +626,33 @@ static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice
         
     }
     
-        // NSString *myname = @"EmilioFernándezRomo";
-        NSDictionary *parameters =  @{@"personName":myname};
-        manager = [AFHTTPRequestOperationManager manager];
-        manager.requestSerializer = [AFJSONRequestSerializer serializer];
-        [manager GET:movieSubDetailUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-       
-            NSDictionary *jsonResponseDetails = responseObject;
-      //   NSLog(@"Error: %@", jsonResponseForActorNames);
-            
-            MoviesPersonsDetailView *moviesPersonDetails = [MoviesPersonsDetailView new];
-            moviesPersonDetails.jsonResponsDic = jsonResponseDetails;
-         [self.navigationController pushViewController:moviesPersonDetails animated:YES];
-
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         NSLog(@"Error: %@", error);
-         
-         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"Data is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
-         
-         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-         [alertController addAction:ok];
-         
-         [self presentViewController:alertController animated:YES completion:nil];
-         
-         
-     }];
+    // NSString *myname = @"EmilioFernándezRomo";
+    NSDictionary *parameters =  @{@"personName":myname};
+    manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager GET:movieSubDetailUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        
+        NSDictionary *jsonResponseDetails = responseObject;
+        //   NSLog(@"Error: %@", jsonResponseForActorNames);
+        
+        MoviesPersonsDetailView *moviesPersonDetails = [MoviesPersonsDetailView new];
+        moviesPersonDetails.jsonResponsDic = jsonResponseDetails;
+        [self.navigationController pushViewController:moviesPersonDetails animated:YES];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"Data is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        
+    }];
     
 }
-     
+
 
 @end

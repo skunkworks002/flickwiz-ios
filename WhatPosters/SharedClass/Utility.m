@@ -44,12 +44,12 @@ NSString *venuenameID;
 
 - (NSArray *)getVenueArray {
     NSMutableArray *temArray = [NSMutableArray new];
-//    for (Venue *venue in _venueData) {
-//       venueName = [NSString stringWithFormat:@"%@",venue.name];
-//       venueid = [NSString stringWithFormat:@"%lu",(unsigned long)venue.identifier];
-//       venuenameID = [NSString stringWithFormat:@"%@(%@)",venueName,venueid];
-        //[temArray addObject:venuenameID];
-  //  }
+    //    for (Venue *venue in _venueData) {
+    //       venueName = [NSString stringWithFormat:@"%@",venue.name];
+    //       venueid = [NSString stringWithFormat:@"%lu",(unsigned long)venue.identifier];
+    //       venuenameID = [NSString stringWithFormat:@"%@(%@)",venueName,venueid];
+    //[temArray addObject:venuenameID];
+    //  }
     return temArray;
 }
 
@@ -110,9 +110,9 @@ NSString *venuenameID;
         case 2:
             nameRegex = @"[A-Za-z ]{3,100}";
             break;
-        
+            
         case 3:
-                nameRegex = @"[A-Za_z]{2,2}";
+            nameRegex = @"[A-Za_z]{2,2}";
             break;
             
         default:

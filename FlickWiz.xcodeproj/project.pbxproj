@@ -706,6 +706,7 @@
 				TargetAttributes = {
 					704B8CCB1C082A6F006257E9 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = A43NC5QDPW;
 					};
 					704B8CE41C082A6F006257E9 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -985,11 +986,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhatPosters/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters1;
 				PRODUCT_NAME = FlickWiz;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -997,11 +1001,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhatPosters/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters1;
 				PRODUCT_NAME = FlickWiz;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

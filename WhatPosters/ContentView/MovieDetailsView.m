@@ -10,7 +10,7 @@
 #import <Social/Social.h>
 
 @interface MovieDetailsView () <UITextViewDelegate> {
-
+    
     IBOutlet UILabel *WriterNames;
     IBOutlet UILabel *dirctorName;
     IBOutlet UIImageView *movieImageView;
@@ -45,12 +45,12 @@
     movieWriterName.text = _selectedmoviewriterName;
     
     // Separate String by comma & create Arryay
-   actornameExtractArray = [_selectedmovieMakers componentsSeparatedByString:@","];
-   directrnameExtractArray = [_selectedmoviedirectorName componentsSeparatedByString:@","];
-   writernameExtractArray1 = [_selectedmoviewriterName componentsSeparatedByString:@","];
+    actornameExtractArray = [_selectedmovieMakers componentsSeparatedByString:@","];
+    directrnameExtractArray = [_selectedmoviedirectorName componentsSeparatedByString:@","];
+    writernameExtractArray1 = [_selectedmoviewriterName componentsSeparatedByString:@","];
     movietypenameExtractArray = [_selectedmovieType componentsSeparatedByString:@","];
     
-    // background image 
+    // background image
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
 }
 

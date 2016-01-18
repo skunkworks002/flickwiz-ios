@@ -13,17 +13,17 @@
 #import "TextViewCell.h"
 
 @interface MoviesPersonsDetailView () {
-
+    
     NSInteger index;
     
     AFHTTPRequestOperationManager *manager;
     
     NSDictionary *myJsonResult;
-
+    
     NSArray *personNameDetailArray;
     
     UIImage *imageData;
-
+    
 }
 
 @end
@@ -40,20 +40,17 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
+    
     myJsonResult = jsonResponsDic;
     
     personNameDetailArray = [myJsonResult objectForKey:@"names"];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-
-
 
 #pragma mark - Table view data source
 
@@ -81,20 +78,20 @@
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"PhotoCell" owner:self options:nil] objectAtIndex:0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 
-              NSString *imageUrlString = personNameDetailArray[2];
+                NSString *imageUrlString = personNameDetailArray[2];
                 
                 imageData =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrlString]]];
                 
                 if ([imageData isEqual:@"no image available"] || imageData == nil) {
-
+                    
                     cell.imageViewCell.image = [UIImage imageNamed:@"No_Image_Available.png"];
                 }
                 else {
-                [cell.imageViewCell setImage:imageData];
-
+                    [cell.imageViewCell setImage:imageData];
+                    
                 }
                 
-             //   cell.imageViewCell.image = imageData;
+                //   cell.imageViewCell.image = imageData;
                 return  cell;
             }
             
@@ -114,8 +111,8 @@
                     return cell;
                 }
                 if (indexPath.section == 2) {
-                   NSString *nameString = personNameDetailArray[1];
-
+                    NSString *nameString = personNameDetailArray[1];
+                    
                     cell.customLable.text = nameString;
                     cell.customLable.frame = CGRectMake(30, 0, 270, 30);
                     return cell;
@@ -128,8 +125,7 @@
                 }
                 
                 if (indexPath.section == 4) {
-                   NSString *dateOfBirthString = personNameDetailArray[8];
-                    
+                    NSString *dateOfBirthString = personNameDetailArray[8];
                     cell.customLable.text = dateOfBirthString;
                     cell.customLable.frame = CGRectMake(30, 0, 270, 30);
                     return cell;
@@ -153,18 +149,18 @@
                 if (indexPath.section == 7) {
                     cell.customLable.text =@"Description";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
-                    return cell;
+                    // return cell;
                 }
                 return cell;
             }
-                if (indexPath.section == 8) {
+            if (indexPath.section == 8) {
                 static NSString *CellIdentifier = @"TextViewCell";
                 TextViewCell *cell = (TextViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"TextViewCell"owner:self options:nil] objectAtIndex:0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 //   cell.customTextView.delegate = self;
                 
-               NSString *descriptionString = personNameDetailArray[3];
+                NSString *descriptionString = personNameDetailArray[3];
                 cell.customTextView.text = descriptionString;
                 return cell;
             }
@@ -185,53 +181,53 @@
         return 75;
     }
     /*
-    // code for nill index for Movie Type
-    if (indexPath.section == 5) {
-        if ([actornameExtractArray count] <= 1) {
-            return 0;
-        }
-    }
-    if (indexPath.section == 6) {
-        if ([actornameExtractArray count] <= 2) {
-            return 0;
-        }
-    }
-    
-    // code for nill index for Movie Type
-    if (indexPath.section == 9) {
-        if ([movietypenameExtractArray count] <= 1) {
-            return 0;
-        }
-    }
-    if (indexPath.section == 10) {
-        if ([movietypenameExtractArray count] <= 2) {
-            return 0;
-        }
-    }
-    
-    // code for nill index for diractor
-    if (indexPath.section == 15) {
-        if ([directrnameExtractArray count] <= 1) {
-            return 0;
-        }
-    }
-    if (indexPath.section == 16) {
-        if ([directrnameExtractArray count] <= 2) {
-            return 0;
-        }
-    }
-    
-    // code for nill index for Writer
-    if (indexPath.section == 19) {
-        if ([writernameExtractArray1 count] <= 1) {
-            return 0;
-        }
-    }
-    if (indexPath.section == 20) {
-        if ([writernameExtractArray1 count] <= 2) {
-            return 0;
-        }
-    }*/
+     // code for nill index for Movie Type
+     if (indexPath.section == 5) {
+     if ([actornameExtractArray count] <= 1) {
+     return 0;
+     }
+     }
+     if (indexPath.section == 6) {
+     if ([actornameExtractArray count] <= 2) {
+     return 0;
+     }
+     }
+     
+     // code for nill index for Movie Type
+     if (indexPath.section == 9) {
+     if ([movietypenameExtractArray count] <= 1) {
+     return 0;
+     }
+     }
+     if (indexPath.section == 10) {
+     if ([movietypenameExtractArray count] <= 2) {
+     return 0;
+     }
+     }
+     
+     // code for nill index for diractor
+     if (indexPath.section == 15) {
+     if ([directrnameExtractArray count] <= 1) {
+     return 0;
+     }
+     }
+     if (indexPath.section == 16) {
+     if ([directrnameExtractArray count] <= 2) {
+     return 0;
+     }
+     }
+     
+     // code for nill index for Writer
+     if (indexPath.section == 19) {
+     if ([writernameExtractArray1 count] <= 1) {
+     return 0;
+     }
+     }
+     if (indexPath.section == 20) {
+     if ([writernameExtractArray1 count] <= 2) {
+     return 0;
+     }
+     }*/
     return 40;
 }
 
