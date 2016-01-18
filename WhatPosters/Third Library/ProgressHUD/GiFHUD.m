@@ -17,11 +17,24 @@
 #define GifSpeed        0.3
  */
 
-#define SizeX           231
-#define SizeY           450
+// For Iphone 6
+#define SizeX6          231
+#define SizeY6          450
 
-#define FadeDuration    0.3
-#define GifSpeed        0.3
+
+// for iphone 5 and 5s
+#define SizeX5         232 //176
+#define SizeY5         330
+
+// For iphone 4 and 4s
+#define SizeX4         232
+#define SizeY4         240
+
+
+#define FadeDuration   0.3
+#define GifSpeed       0.3
+
+
 
 #define APPDELEGATE     ((AppDelegate*)[[UIApplication sharedApplication] delegate])
 
@@ -178,29 +191,40 @@ static GiFHUD *instance;
     CGFloat height = [UIScreen mainScreen].bounds.size.height;
     if (width < height) {
 
-        if ((self = [super initWithFrame:CGRectMake(72, 70, SizeX, SizeY)])) {
-        [self setAlpha:0];
-      //  [self setCenter:APPDELEGATE.window.center];
-        [self setClipsToBounds:NO];
-           // [self.layer setBackgroundColor:[[UIColor clearColor]CGColor]];
-            
-        [self.layer setBackgroundColor:[[UIColor colorWithWhite:0 alpha:0.5] CGColor]];
-       // [self.layer setCornerRadius:10];
-        [self.layer setMasksToBounds:YES];
-        
-        self.imageView = [[UIImageView alloc] initWithFrame:CGRectInset(self.bounds, 0, 20)];
-        self.imageView.backgroundColor = [UIColor clearColor];
-        
-       // self.imageView.center = _imageView.superview.center;
-      
-        [self addSubview:self.imageView];
-        [APPDELEGATE.window addSubview:self];
-        
+        // for iphone 4
+        if (height == 480) {
+            if ((self = [super initWithFrame:CGRectMake(44, 83, SizeX4, SizeY4)])) {
+
+            [self PotrateViewSttingForIphons];
+            }
         }
+        
+        // for iphone 5 and 5s
+         else if (height == 568) {
+            // 320 weight 568 hight
+            if ((self = [super initWithFrame:CGRectMake(44, 82, SizeX5, SizeY5)])) {
+                [self PotrateViewSttingForIphons];
+            }
+        }
+        
+        //for iphone 6plus
+         else if (height == 736) {
+             // 320 weight 568 hight
+             if ((self = [super initWithFrame:CGRectMake(92, 82, 231, 500)])) {
+                 [self PotrateViewSttingForIphons];
+             }
+         }
+        
+        //for iphone 6
+         else {
+             if ((self = [super initWithFrame:CGRectMake(72, 70, SizeX6, SizeY6)])) {
+                   [self PotrateViewSttingForIphons];
+               }
+         }
     }
     else {
         
-        if ((self = [super initWithFrame:CGRectMake(220, 50, SizeX, 170)])) {
+        if ((self = [super initWithFrame:CGRectMake(220, 50, SizeX6, 170)])) {
             [self setAlpha:0];
          //   [self setCenter:APPDELEGATE.window.center];
             [self setClipsToBounds:NO];
@@ -225,6 +249,31 @@ static GiFHUD *instance;
 }
 
 #pragma mark HUD
+
+-(void)PotrateViewSttingForIphons {
+
+
+    [self setAlpha:0];
+    //  [self setCenter:APPDELEGATE.window.center];
+    [self setClipsToBounds:NO];
+    // [self.layer setBackgroundColor:[[UIColor clearColor]CGColor]];
+    
+    [self.layer setBackgroundColor:[[UIColor colorWithWhite:0 alpha:0.5] CGColor]];
+    // [self.layer setCornerRadius:10];
+    [self.layer setMasksToBounds:YES];
+    
+    self.imageView = [[UIImageView alloc] initWithFrame:CGRectInset(self.bounds, 0, 20)];
+    self.imageView.backgroundColor = [UIColor clearColor];
+    
+    // self.imageView.center = _imageView.superview.center;
+    
+    [self addSubview:self.imageView];
+    [APPDELEGATE.window addSubview:self];
+
+
+
+
+}
 
 + (void)showWithOverlay {
     [self dismiss:^{

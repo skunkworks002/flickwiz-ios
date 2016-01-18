@@ -37,7 +37,7 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"background.jpg"]]];
     // Do any additional setup after loading the view from its nib.
     
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,14 +49,14 @@
 #pragma mark - Button Action Methodes takeCameraPhoto  -
 
 - (IBAction)takeCameraPhoto:(UIButton *)sender {
-    [self didTakePhoto];
+        [self didTakePhoto];
 }
 
 #pragma mark - Button Action Methodes takeGallaryPhoto -
 
 - (IBAction)takeGallaryPhoto:(UIButton *)sender{
-    UIButton *localButton = (UIButton *)sender;
-    [self selectImageFromLibrary:localButton.frame];
+        UIButton *localButton = (UIButton *)sender;
+        [self selectImageFromLibrary:localButton.frame];
 }
 
 #pragma mark - Photo Methodes -
@@ -76,7 +76,7 @@
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done" message:@"Camera is not available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
         [alert show];
-        
+
     }
 }
 
@@ -127,6 +127,7 @@
         [self presentViewController:picker animated:YES completion:NULL];
     }
 }
+
 
 #pragma mark --- UIImagePickerControllerDelegate Method
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -192,14 +193,16 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+
+
 /*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

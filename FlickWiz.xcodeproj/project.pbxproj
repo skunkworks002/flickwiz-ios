@@ -13,6 +13,8 @@
 		04264CE21C44E6780078FA4D /* MoviesPersonsDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04264CE01C44E6780078FA4D /* MoviesPersonsDetailView.m */; };
 		04264CE31C44E6780078FA4D /* MoviesPersonsDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04264CE11C44E6780078FA4D /* MoviesPersonsDetailView.xib */; };
 		04264CE51C4520980078FA4D /* No_Image_Available.png in Resources */ = {isa = PBXBuildFile; fileRef = 04264CE41C4520980078FA4D /* No_Image_Available.png */; };
+		04ADC0041C4CF0530024AD7B /* MovieTypeDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ADC0021C4CF0530024AD7B /* MovieTypeDetailController.m */; };
+		04ADC0051C4CF0530024AD7B /* MovieTypeDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ADC0031C4CF0530024AD7B /* MovieTypeDetailController.xib */; };
 		04D91C681C217644001DCF32 /* GiFHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D91C671C217644001DCF32 /* GiFHUD.m */; };
 		04D91C6A1C217860001DCF32 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04D91C691C217860001DCF32 /* loading.gif */; };
 		04D91C6C1C219342001DCF32 /* animation_mob.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04D91C6B1C219342001DCF32 /* animation_mob.gif */; };
@@ -134,6 +136,9 @@
 		04264CE01C44E6780078FA4D /* MoviesPersonsDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviesPersonsDetailView.m; sourceTree = "<group>"; };
 		04264CE11C44E6780078FA4D /* MoviesPersonsDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoviesPersonsDetailView.xib; sourceTree = "<group>"; };
 		04264CE41C4520980078FA4D /* No_Image_Available.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = No_Image_Available.png; sourceTree = "<group>"; };
+		04ADC0011C4CF0530024AD7B /* MovieTypeDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTypeDetailController.h; sourceTree = "<group>"; };
+		04ADC0021C4CF0530024AD7B /* MovieTypeDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTypeDetailController.m; sourceTree = "<group>"; };
+		04ADC0031C4CF0530024AD7B /* MovieTypeDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieTypeDetailController.xib; sourceTree = "<group>"; };
 		04D91C661C217644001DCF32 /* GiFHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiFHUD.h; sourceTree = "<group>"; };
 		04D91C671C217644001DCF32 /* GiFHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiFHUD.m; sourceTree = "<group>"; };
 		04D91C691C217860001DCF32 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
@@ -473,6 +478,9 @@
 				04264CDF1C44E6780078FA4D /* MoviesPersonsDetailView.h */,
 				04264CE01C44E6780078FA4D /* MoviesPersonsDetailView.m */,
 				04264CE11C44E6780078FA4D /* MoviesPersonsDetailView.xib */,
+				04ADC0011C4CF0530024AD7B /* MovieTypeDetailController.h */,
+				04ADC0021C4CF0530024AD7B /* MovieTypeDetailController.m */,
+				04ADC0031C4CF0530024AD7B /* MovieTypeDetailController.xib */,
 			);
 			name = ContentView;
 			path = WhatPosters/ContentView;
@@ -706,7 +714,7 @@
 				TargetAttributes = {
 					704B8CCB1C082A6F006257E9 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = A43NC5QDPW;
+						DevelopmentTeam = PXWQXF66ZU;
 					};
 					704B8CE41C082A6F006257E9 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -764,6 +772,7 @@
 				704B8D0D1C082E80006257E9 /* MovieCell.xib in Resources */,
 				70344D0E1C21439700E5AD1A /* background.jpg in Resources */,
 				704B8D231C08315C006257E9 /* Wolverine.jpg in Resources */,
+				04ADC0051C4CF0530024AD7B /* MovieTypeDetailController.xib in Resources */,
 				04D91C6A1C217860001DCF32 /* loading.gif in Resources */,
 				04E043ED1C33BA350042AB88 /* PickLabelCell.xib in Resources */,
 				704B8D211C08315C006257E9 /* Spy.jpg in Resources */,
@@ -826,6 +835,7 @@
 				7047800F1C242DFC0043177E /* SVProgressHUD.m in Sources */,
 				04E044141C33F56F0042AB88 /* SWActionSheet.m in Sources */,
 				704780101C242DFC0043177E /* SVRadialGradientLayer.m in Sources */,
+				04ADC0041C4CF0530024AD7B /* MovieTypeDetailController.m in Sources */,
 				7089C4FE1C0DA4F800B14779 /* AFHTTPRequestOperationManager.m in Sources */,
 				04D91C681C217644001DCF32 /* GiFHUD.m in Sources */,
 				7047800D1C242DFC0043177E /* SVIndefiniteAnimatedView.m in Sources */,
@@ -938,7 +948,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -975,7 +985,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -991,7 +1001,7 @@
 				INFOPLIST_FILE = WhatPosters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters;
 				PRODUCT_NAME = FlickWiz;
 				PROVISIONING_PROFILE = "";
 			};
@@ -1006,7 +1016,7 @@
 				INFOPLIST_FILE = WhatPosters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters;
 				PRODUCT_NAME = FlickWiz;
 				PROVISIONING_PROFILE = "";
 			};
