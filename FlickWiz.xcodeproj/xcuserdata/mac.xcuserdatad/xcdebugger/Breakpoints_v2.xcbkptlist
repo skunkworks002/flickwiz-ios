@@ -90,11 +90,11 @@
                   moduleName = "FlickWiz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/flickwiz-ios/WhatPosters/ContentView/MoviewDetailController.m"
-                  timestampString = "474293483.170997"
+                  timestampString = "474793047.093237"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "641"
-                  endingLineNumber = "641"
+                  startingLineNumber = "642"
+                  endingLineNumber = "642"
                   offsetFromSymbolStart = "1867">
                </Location>
                <Location
@@ -105,11 +105,11 @@
                   moduleName = "FlickWiz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/flickwiz-ios/WhatPosters/ContentView/MoviewDetailController.m"
-                  timestampString = "474293483.171524"
+                  timestampString = "474793047.093807"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "641"
-                  endingLineNumber = "641"
+                  startingLineNumber = "642"
+                  endingLineNumber = "642"
                   offsetFromSymbolStart = "213">
                </Location>
                <Location
@@ -120,7 +120,7 @@
                   moduleName = "FlickWiz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/flickwiz-ios/WhatPosters/ContentView/MoviewDetailController.m"
-                  timestampString = "474293483.172102"
+                  timestampString = "474793047.094301"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -135,11 +135,11 @@
                   moduleName = "FlickWiz"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Documents/flickwiz-ios/WhatPosters/ContentView/MoviewDetailController.m"
-                  timestampString = "474293483.172993"
+                  timestampString = "474793047.095324"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "641"
-                  endingLineNumber = "641"
+                  startingLineNumber = "642"
+                  endingLineNumber = "642"
                   offsetFromSymbolStart = "74">
                </Location>
             </Locations>
