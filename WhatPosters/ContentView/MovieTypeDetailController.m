@@ -9,7 +9,7 @@
 #import "MovieTypeDetailController.h"
 #import "MovieCell.h"
 
-@interface MovieTypeDetailController () {
+@interface MovieTypeDetailController ()<UIAlertViewDelegate> {
 
     // NSStrings
     NSString *datePick;
@@ -78,78 +78,84 @@
     myresult = [jasonRes objectForKey:@"jsonResponseDetails2"];
     
     self.title = @"Movie Type Detail";
-    // image's name & url
     
+    
+    // Movie Type Detail ARRAY
+    MoviewPosterNamesArray = [myresult objectForKey:@"names"];
+    if ([MoviewPosterNamesArray count ]== 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"Data is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
 
-    
-    
-    imagesUrlArray = [myresult objectForKey:@"names"];
-
-    //movienameArray = [imagesUrlArray objectForKey:@"value"];
-    
-    
-    // IMDBDETAIL ARRAY
-    //MoviewPosterNamesArray = [myresult objectForKey:@"imdbdetials"];
-    
-    // use for loop here Movie Detail path Count
+        NSLog(@"no data");
+    }
+    else {
+    // use for loop here Movie type images url's path Count
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         moviedetailpathArray = [MoviewPosterNamesArray objectAtIndex:i];
         moviedetailpathString = [moviedetailpathArray objectAtIndex:0];
         [moviedetailpathListArray addObject:moviedetailpathString];
+        NSLog(@"%@",moviedetailpathListArray);
     }
     
-    // use for loop here Movie Date Count
-    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
-        dateArray = [MoviewPosterNamesArray objectAtIndex:i];
-        Datestring2 = [dateArray objectAtIndex:3];
-        [moviedateArray addObject:Datestring2];
-    }
-    
-    // movie Type loop
+    // use for loop here Movie Type Name's Count
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         movietypeArray = [MoviewPosterNamesArray objectAtIndex:i];
-        movietypestring = [movietypeArray objectAtIndex:5];
+        movietypestring = [movietypeArray objectAtIndex:1];
         [movietypeListArray addObject:movietypestring];
-    }
-    
-    /// movie director name
-    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
-        moviedirctorArray = [MoviewPosterNamesArray objectAtIndex:i];
-        moviedirectorString = [moviedirctorArray objectAtIndex:6];
-        [moviedirectorListArray addObject:moviedirectorString];
-        
-    }
-    
-    /// movie writers name
-    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
-        moviewriterArray = [MoviewPosterNamesArray objectAtIndex:i];
-        moviewriterString = [moviewriterArray objectAtIndex:7];
-        [moviewriterListArray addObject:moviewriterString];
-        
-    }
-    
-    // movie Maker's loop
-    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
-        moviemakerArray = [MoviewPosterNamesArray objectAtIndex:i];
-        moviemakerString = [moviemakerArray objectAtIndex:8];
-        [moviemakerListArray addObject:moviemakerString];
-        
-    }
-    
-    // movie Description loop
-    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
-        moviedecripArray = [MoviewPosterNamesArray objectAtIndex:i];
-        movieDescString = [moviedecripArray objectAtIndex:9];
-        [moviedecListArray addObject:movieDescString];
-    }
-    
-    // movie raking loop
-    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
-        movierakingArray = [MoviewPosterNamesArray objectAtIndex:i];
-        movierakingString = [movierakingArray objectAtIndex:10];
-        [movierakingListArray addObject:movierakingString];
+        NSLog(@"%@",movietypeListArray);
+
     }
 
+    // movie Type Realease Date loop
+    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
+        dateArray = [MoviewPosterNamesArray objectAtIndex:i];
+        Datestring2 = [dateArray objectAtIndex:2];
+        [moviedateArray addObject:Datestring2];
+        NSLog(@"%@",moviedateArray);
+
+    }}
+    
+    
+//    /// movie director name
+//    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
+//        moviedirctorArray = [MoviewPosterNamesArray objectAtIndex:i];
+//        moviedirectorString = [moviedirctorArray objectAtIndex:6];
+//        [moviedirectorListArray addObject:moviedirectorString];
+//        
+//    }
+//    
+//    /// movie writers name
+//    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
+//        moviewriterArray = [MoviewPosterNamesArray objectAtIndex:i];
+//        moviewriterString = [moviewriterArray objectAtIndex:7];
+//        [moviewriterListArray addObject:moviewriterString];
+//        
+//    }
+//    
+//    // movie Maker's loop
+//    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
+//        moviemakerArray = [MoviewPosterNamesArray objectAtIndex:i];
+//        moviemakerString = [moviemakerArray objectAtIndex:8];
+//        [moviemakerListArray addObject:moviemakerString];
+//        
+//    }
+//    
+//    // movie Description loop
+//    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
+//        moviedecripArray = [MoviewPosterNamesArray objectAtIndex:i];
+//        movieDescString = [moviedecripArray objectAtIndex:9];
+//        [moviedecListArray addObject:movieDescString];
+//    }
+//    
+//    // movie raking loop
+//    for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
+//        movierakingArray = [MoviewPosterNamesArray objectAtIndex:i];
+//        movierakingString = [movierakingArray objectAtIndex:10];
+//        [movierakingListArray addObject:movierakingString];
+//    }
+//
 }
 
 - (void)didReceiveMemoryWarning {
@@ -164,7 +170,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [imagesUrlArray count];
+    return [moviedetailpathListArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -174,9 +180,9 @@
         NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"MovieCell" owner:self options:nil];
         cell = [nibArray objectAtIndex:0];
     }
-    imagesData =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[imagesUrlArray objectAtIndex:indexPath.row]]]];
+    imagesData =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[moviedetailpathListArray objectAtIndex:indexPath.row]]]];
     [cell.movieImages setImage:imagesData];
-    cell.movienameLabel.text = [movienameArray objectAtIndex:indexPath.row];
+    cell.movienameLabel.text = [movietypeListArray objectAtIndex:indexPath.row];
     cell.movieDateLabel.text = [moviedateArray objectAtIndex:indexPath.row];
     cell.movieImages.layer.backgroundColor=[[UIColor clearColor] CGColor];
     //    cell.movieImages.layer.cornerRadius=20;

@@ -576,14 +576,17 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/myser
     [manager GET:movietypeSubDetailUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
         NSDictionary *jsonResponseDetails2 = responseObject;
-        //   NSLog(@"Error: %@", jsonResponseForActorNames);
         
-        
+        if ([jsonResponseDetails2 count]  < 1) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"Data is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+            [alertController addAction:ok];
+
+        }
         NSUserDefaults *jasonRes = [NSUserDefaults standardUserDefaults];
         [jasonRes setObject:jsonResponseDetails2 forKey:@"jsonResponseDetails2"];
-//
         MovieTypeDetailController *moviesTypeDetails = [MovieTypeDetailController new];
-       // moviesTypeDetails.myResponsJson = jsonResponseDetails2;
         [self.navigationController pushViewController:moviesTypeDetails animated:YES];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -678,5 +681,9 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/myser
          [self presentViewController:alertController animated:YES completion:nil];
     }];
 }
+
+
+
+
 
 @end

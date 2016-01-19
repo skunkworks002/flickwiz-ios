@@ -104,6 +104,9 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
      [SVProgressHUD showErrorWithStatus:@"Error"];
+        [SVProgressHUD showErrorWithStatus:@"Error"];
+        [GiFHUD dismiss];
+
     }];
 }
 
