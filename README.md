@@ -4,5 +4,7 @@ FlickWiz IOS Application
 
 
 *This app is allow user to check the detail of best five matche’s of movie from list.
+
 *In detail view user can check detail of movie (Actor,Director,Writer,Genera).
+
 *If user want to share picture & link of movie poster on (FB & Twitter) is also avilabel.
