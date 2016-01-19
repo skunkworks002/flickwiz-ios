@@ -1,6 +1,6 @@
 # flickwiz-ios
 FlickWiz IOS Application
-
+==========================
 * Flick Viz app is allow user to take picture of movie poster through camera OR select picture from phone gallery and send     for processing.After image processing it’s will return a best five matche’s of movie list related of poster picture.
 
 
