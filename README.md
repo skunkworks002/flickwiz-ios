@@ -17,3 +17,9 @@ Introduction About Flick Viz
 * In detail view user can check detail of movie (Actor,Director,Writer,Genera).
 
 * If user want to share picture & link of movie poster on (FB & Twitter) is also avilabel.
+
+
+License
+==========================
+
+* The code is licensed under the Orbit Software Solution
