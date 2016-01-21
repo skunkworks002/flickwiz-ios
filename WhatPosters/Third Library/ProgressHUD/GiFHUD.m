@@ -215,6 +215,14 @@ static GiFHUD *instance;
              }
          }
         
+        //for iphone 6s
+         else if (height == 667) {
+             // 320 weight 568 hight
+             if ((self = [super initWithFrame:CGRectMake(72, 82, 231, 428)])) {
+                 [self PotrateViewSttingForIphons];
+             }
+         }
+
         //for iphone 6
          else {
              if ((self = [super initWithFrame:CGRectMake(72, 70, SizeX6, SizeY6)])) {

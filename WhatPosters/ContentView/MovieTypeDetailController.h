@@ -10,7 +10,4 @@
 
 @interface MovieTypeDetailController : UITableViewController
 
-@property (weak, nonatomic) NSDictionary *myResponsJson;
-
-
 @end

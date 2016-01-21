@@ -11,7 +11,6 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <QuartzCore/QuartzCore.h>
 
-
 @interface MainViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate >
 {
     UIImage *selectedImage;
@@ -22,7 +21,7 @@
     NSString *imageExentionString;
     NSUserDefaults *imageDef;
 }
-@property (nonatomic, retain) SearchViewController *secondView;
+//@property (nonatomic, retain) SearchViewController *searchViewController;
 @property (nonatomic, retain) UIImage *theImage;
 @property (strong, nonatomic) IBOutlet UIButton *takeCameraPhoto;
 @property (strong, nonatomic) IBOutlet UIButton *takeGallaryPhoto;
@@ -30,14 +29,13 @@
 @end
 
 @implementation MainViewController
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Main View";
     //background image on view
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"background.jpg"]]];
     // Do any additional setup after loading the view from its nib.
-    
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -76,7 +74,6 @@
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done" message:@"Camera is not available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
         [alert show];
-
     }
 }
 
@@ -89,8 +86,6 @@
     return [self cameraSupportsMedia:(__bridge NSString *)kUTTypeImage
                           sourceType:UIImagePickerControllerSourceTypeCamera];
 }
-
-
 
 - (BOOL)cameraSupportsMedia:(NSString *)paramMediaType
                  sourceType:(UIImagePickerControllerSourceType)paramSourceType {
@@ -113,10 +108,8 @@
              *stop= YES;
          }
      }];
-    
     return result;
 }
-
 
 -(void) selectImageFromLibrary:(CGRect)frameRect {
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
@@ -128,10 +121,10 @@
     }
 }
 
-
 #pragma mark --- UIImagePickerControllerDelegate Method
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
+    SearchViewController *searchController = [SearchViewController new];
+
     NSLog(@"%@", info);
     NSString *mediaType = info[UIImagePickerControllerMediaType];
     if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeMovie]){
@@ -144,13 +137,11 @@
         imagenameExtractArray = [selectednameString componentsSeparatedByString:@"."];
         actulimageNameString = [imagenameExtractArray objectAtIndex:0];
         imageExentionString = [imagenameExtractArray objectAtIndex:1];
-        imageDef = [NSUserDefaults standardUserDefaults];
-        [imageDef setObject:actulimageNameString forKey:@"actulimageName"];
-        [imageDef setObject:imageExentionString forKey:@"imageExention"];
+        searchController.imageName = actulimageNameString;
+        searchController.imageExt = imageExentionString;
         UIImage *theImageOriginal = info[UIImagePickerControllerOriginalImage];
         UIImage *theImageEdit = info[UIImagePickerControllerEditedImage];
         [picker dismissViewControllerAnimated:YES completion:nil];
-        
         if (theImageEdit) {
             selectedImage = theImageEdit;
             UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
@@ -160,20 +151,12 @@
                 UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
             }
         }
-        
         if (theImageOriginal || theImageEdit) {
-            SearchViewController *nextView = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:[NSBundle mainBundle]];
-            self.secondView = nextView;
-            nextView.theImage = selectedImage;
+            searchController.theImage = selectedImage;
         }
-        
     }
-    
-    [self.navigationController pushViewController:_secondView animated:YES];
-    
+    [self.navigationController pushViewController:searchController animated:YES];
 }
-
-
 
 - (void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
@@ -188,12 +171,9 @@
     }
 }
 
-
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissModalViewControllerAnimated:YES];
 }
-
-
 
 /*
 #pragma mark - Navigation

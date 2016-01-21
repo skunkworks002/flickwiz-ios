@@ -12,5 +12,4 @@
 
 @property (strong, nonatomic) NSDictionary *jsonResponsDic;
 
-
 @end

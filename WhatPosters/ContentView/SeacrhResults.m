@@ -1,20 +1,18 @@
 //
-//  Seacrh Results.m
+//SeacrhResults.m
 //  WhatPosters
 //
 //  Created by Qazi on 27/11/2015.
 //  Copyright © 2015 Qazi. All rights reserved.
 //
 
-#import "Seacrh Results.h"
+#import "SeacrhResults.h"
 #import "MovieCell.h"
 //#import "MovieDetailsView.h"
-#import "Venue.h"
-#import "Utility.h"
 
 #import "MoviewDetailController.h"
 
-@interface Seacrh_Results () {
+@interface SeacrhResults () {
     // NSStrings
     NSString *datePick;
     NSString *Datestring2;
@@ -57,7 +55,7 @@
 }
 @end
 
-@implementation Seacrh_Results
+@implementation SeacrhResults
 @synthesize jsonResponsDic;
 
 - (void)viewDidLoad {
@@ -175,6 +173,8 @@
 //    cell.movieImages.layer.borderWidth=2.0;
     cell.movieImages.layer.masksToBounds = YES;
     cell.movieImages.layer.borderColor=[[UIColor grayColor] CGColor];
+    
+   // cell.backgroundColor = [UIColor magentaColor];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

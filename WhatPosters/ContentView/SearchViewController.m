@@ -8,13 +8,11 @@
 
 #import "SearchViewController.h"
 #import "MainViewController.h"
-#import "Seacrh Results.h"
+#import "SeacrhResults.h"
 #import "SVProgressHUD.h"
 #import "GiFHUD.h"
-#import "Utility.h"
 #import "AFNetworking.h"
 #import "AppDelegate.h"
-#import "Venue.h"
 #import "Base64.h"
 
 /// service
@@ -31,8 +29,6 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
     NSArray *imagesUrlArray;
     NSMutableDictionary *responseJsonResult;
     NSString *imagerefUrl;
-    NSString *imageName;
-    NSString *imageExt;
     NSData *imageData;
     NSUInteger imageSize;
     NSString *imagesizeString;
@@ -48,37 +44,24 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
 @end
 
 @implementation SearchViewController
+@synthesize imageName;
+@synthesize imageExt;
+@synthesize imageView;
+@synthesize theImage;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [GiFHUD setGifWithImageName:@"animation_mob.gif"];
-    
-//    WeatherHTTPClient *sampleProtocol = (WeatherHTTPClient *)[[WeatherHTTPClient alloc]init];
-//    sampleProtocol.delegate = self;
-    
     //View Tittle
     self.title = @"SearchView";
     
-    //  SET BACKGROUNG IMAGE OF VIEW
-//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
-    self.imageView.image = _theImage;
+    imageView.image = theImage;
     
-    NSUserDefaults *imageDef = [NSUserDefaults standardUserDefaults];
-    imageName = [imageDef objectForKey:@"actulimageName"];
-    imageExt = [imageDef objectForKey:@"imageExention"];
-    
-    //image animation
-//    _imageView.layer.cornerRadius = 60.0f;
-//    _imageView.layer.borderWidth = 2.0f;
-//    _imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//    _imageView.clipsToBounds = YES;    
+    [GiFHUD setGifWithImageName:@"animation_mob.gif"];
 }
 
 #pragma mark NewPhotoButton
 
 - (IBAction)newPhotoButton:(id)sender{
-
     MainViewController *nextView = [[MainViewController alloc] initWithNibName:@"MainViewController"bundle:[NSBundle mainBundle]];
         [self.navigationController pushViewController:nextView animated:YES];
 }
@@ -88,7 +71,7 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
 - (IBAction)searchButton:(id)sender {
     
     [GiFHUD show];
-    imageData = UIImageJPEGRepresentation(_theImage, 1.0);
+    imageData = UIImageJPEGRepresentation(theImage, 1.0);
     imageSize   = imageData.length;
     imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
     strEncoded = [Base64 encode:imageData];
@@ -97,7 +80,7 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager POST:movieimagesUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         responseJsonResult = responseObject;
-        Seacrh_Results *searchViewResult = [Seacrh_Results new];
+        SeacrhResults *searchViewResult = [SeacrhResults new];
         searchViewResult.jsonResponsDic = responseJsonResult;
         [self.navigationController pushViewController:searchViewResult animated:YES];
           [GiFHUD dismiss];
@@ -106,7 +89,6 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
      [SVProgressHUD showErrorWithStatus:@"Error"];
         [SVProgressHUD showErrorWithStatus:@"Error"];
         [GiFHUD dismiss];
-
     }];
 }
 

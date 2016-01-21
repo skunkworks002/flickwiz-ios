@@ -13,10 +13,6 @@
 #import "LableCell.h"
 #import "PhotoCell.h"
 #import "TextViewCell.h"
-#import "PickLabelCell.h"
-#import "ActionSheetPicker.h"
-#import "ActionSheetPicker.h"
-#import "ActionSheetDatePicker.h"
 #import "ASAlertView.h"
 #import "ButtonCell.h"
 #import "AFNetworking.h"
@@ -25,7 +21,6 @@
 
 static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/myservice/persondetail";
 static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/myservice/genredetail";
-
 
 @interface MoviewDetailController () <UINavigationControllerDelegate, UITextViewDelegate,UIAlertViewDelegate> {
     
@@ -45,7 +40,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/myser
     
     AFHTTPRequestOperationManager *manager;
 }
-@property (nonatomic, strong) AbstractActionSheetPicker *actionSheetPicker;
 @end
 
 @implementation MoviewDetailController
@@ -56,9 +50,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/myser
     [super viewDidLoad];
     self.title = @"Movie Details";
     index = 0;
-    
-    // self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ImageUploadedByModMyi1342057019.344337.jpg"]]];
-    
     // Separate String by comma & create Array for picker
     actornameExtractArray = [_selectedmovieMakers componentsSeparatedByString:@","];
     directrnameExtractArray = [_selectedmoviedirectorName componentsSeparatedByString:@","];
@@ -358,14 +349,14 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/myser
                         cell.hidden = YES;
                         return cell;
                     }
-                    cell.faceBookButton.tag = indexPath.row +11;
-                    NSString *movieWriter = writernameExtractArray1[2];
-                    [cell.faceBookButton setTitle:movieWriter forState:UIControlStateNormal];
-                    cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                    cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                     [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
-                    cell.twitterButton.hidden = YES;
-                    return cell;
+                cell.faceBookButton.tag = indexPath.row +11;
+                NSString *movieWriter = writernameExtractArray1[2];
+                [cell.faceBookButton setTitle:movieWriter forState:UIControlStateNormal];
+                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
+                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+                [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+                cell.twitterButton.hidden = YES;
+                return cell;
                 }
         }break;
         default:
@@ -447,68 +438,8 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/myser
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    /*
-     switch (index) {
-     case 0: {
-     if (indexPath.section == 2) {
-     [self showActorNameFunction];
-     }
-     else if (indexPath.section == 3){
-     [self typeNameFunction];
-     }
-     else if(indexPath.section == 5){
-     [self directorNameFunction];
-     }
-     else if (indexPath.section == 6){
-     [self writerNameFunction];
-     }
-     }break;
-     default:
-     break;
-     }
-     */
 }
 
-/*
- - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
- NSString *result = nil;
- switch (index) {
- case 0: {
- switch (section) {
- case 1:
- result = @"Name of Movie";
- break;
- case 2:
- result = @"Actor Name Picker";
- break;
- case 3:
- result = @"Movie Type Picker";
- break;
- case 4:
- result = @"Ranking";
- break;
- case 5:
- result = @"Diractor Name Picker";
- break;
- case 6:
- result = @"Writer Name Picker";
- break;
- case 7:
- result = @"Descripton";
- break;
- case 8:
- result = @"Sharing Option";
- break;
- default:
- break;
- }
- }break;
- default:
- break;
- }
- return result;
- }
- */
 
 #pragma Mark Share To FaceBook and Twitter
 
@@ -557,53 +488,33 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/myser
     if (abcd1 == 3){
         NSString *actor2 = movietypenameExtractArray[0];
         mymovienametype = actor2;
-        
     }
     else if (abcd1 == 4){
         NSString *actor2 = movietypenameExtractArray[1];
         mymovienametype = actor2;
-        
     }
     else if (abcd1 == 5){
         NSString *actor2 = movietypenameExtractArray[2];
         mymovienametype = actor2;
-        
     }
     
     NSDictionary *parameters =  @{@"genre":mymovienametype};
     manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager GET:movietypeSubDetailUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSDictionary *jsonResponseDetails2 = responseObject;
-        
-        if ([jsonResponseDetails2 count]  < 1) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"Data is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-            [alertController addAction:ok];
-
-        }
+       NSMutableDictionary *responsJsonDic = responseObject;
+        MovieTypeDetailController *jsonResponseDetails2 = [MovieTypeDetailController new];
         NSUserDefaults *jasonRes = [NSUserDefaults standardUserDefaults];
-        [jasonRes setObject:jsonResponseDetails2 forKey:@"jsonResponseDetails2"];
-        MovieTypeDetailController *moviesTypeDetails = [MovieTypeDetailController new];
-        [self.navigationController pushViewController:moviesTypeDetails animated:YES];
-        
+        [jasonRes setObject:responsJsonDic forKey:@"responsJsonDic"];
+        [self.navigationController pushViewController:jsonResponseDetails2 animated:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-        
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"Data is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
-        
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
-        
         [self presentViewController:alertController animated:YES completion:nil];
-        
-        
     }];
-    
 }
-
 
 -(void)movieResponse:(UIButton*)sender {
     NSInteger abcd = sender.tag;;
@@ -622,20 +533,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/myser
         NSString *actor2 = actornameExtractArray[2];
         myname = actor2;
     }
-    
-//    // Movie Type Button Click
-//    else if (abcd == 3){
-//        NSString *actor2 = movietypenameExtractArray[0];
-//        myname = actor2;
-//    }
-//    else if (abcd == 4){
-//        NSString *actor2 = movietypenameExtractArray[1];
-//        myname = actor2;
-//    }
-//    else if (abcd == 5){
-//        NSString *actor2 = movietypenameExtractArray[2];
-//        myname = actor2;
-//    }
     
     // Diractor Name Button Click
     else if (abcd == 6){
@@ -681,9 +578,5 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/myser
          [self presentViewController:alertController animated:YES completion:nil];
     }];
 }
-
-
-
-
 
 @end

@@ -10,7 +10,9 @@
 
 @interface SearchViewController : UIViewController
 
-//@property (assign, nonatomic) id<GetmovieimagesnameArray> delegateMC;
-@property (nonatomic, retain) UIImage *theImage;
+@property (nonatomic, weak) UIImage *theImage;
+
+@property (nonatomic, weak) NSString *imageName;
+@property (nonatomic, weak) NSString *imageExt;
 
 @end
