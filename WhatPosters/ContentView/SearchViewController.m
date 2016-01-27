@@ -118,15 +118,15 @@ static NSString *const  tesmovieimagesUrl2 = @"http://52.5.222.145:9000/myservic
     }
     [self.view addSubview:imageView];
     imageView.image = theImage;
-    [self.webViewBG.layer setBackgroundColor:[[UIColor colorWithWhite:0 alpha:0.5] CGColor]];
-    self.webViewBG.scalesPageToFit = YES;
-    self.webViewBG.delegate = self;
-    [self.webViewBG setOpaque:NO];
-    [self.view addSubview:self.webViewBG];
+    [webViewBG.layer setBackgroundColor:[[UIColor colorWithWhite:0 alpha:0.5] CGColor]];
+    webViewBG.scalesPageToFit = YES;
+    webViewBG.delegate = self;
+    [webViewBG setOpaque:NO];
+    [self.view addSubview:webViewBG];
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"animation_mob" ofType:@"gif"];
     NSData *gif1 = [NSData dataWithContentsOfFile:filePath];
-    [self.webViewBG loadData:gif1 MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
-    self.webViewBG.hidden = YES;
+    [webViewBG loadData:gif1 MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
+    webViewBG.hidden = YES;
 }
 
 #pragma mark NewPhotoButton
