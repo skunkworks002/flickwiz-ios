@@ -21,7 +21,6 @@
     NSString *imageExentionString;
     NSUserDefaults *imageDef;
 }
-//@property (nonatomic, retain) SearchViewController *searchViewController;
 @property (nonatomic, retain) UIImage *theImage;
 @property (strong, nonatomic) IBOutlet UIButton *takeCameraPhoto;
 @property (strong, nonatomic) IBOutlet UIButton *takeGallaryPhoto;
@@ -32,29 +31,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = @"Main View";
+    
     //background image on view
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"background.jpg"]]];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
 #pragma mark - Button Action Methodes takeCameraPhoto  -
 
 - (IBAction)takeCameraPhoto:(UIButton *)sender {
-        [self didTakePhoto];
+    [self didTakePhoto];
 }
 
 #pragma mark - Button Action Methodes takeGallaryPhoto -
 
 - (IBAction)takeGallaryPhoto:(UIButton *)sender{
-        UIButton *localButton = (UIButton *)sender;
-        [self selectImageFromLibrary:localButton.frame];
+    UIButton *localButton = (UIButton *)sender;
+    [self selectImageFromLibrary:localButton.frame];
 }
 
 #pragma mark - Photo Methodes -
@@ -124,7 +123,7 @@
 #pragma mark --- UIImagePickerControllerDelegate Method
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     SearchViewController *searchController = [SearchViewController new];
-
+    
     NSLog(@"%@", info);
     NSString *mediaType = info[UIImagePickerControllerMediaType];
     if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeMovie]){
@@ -145,12 +144,12 @@
         searchController.imageHight = imageHightB;
         searchController.imageWeight = imageWeightB;
         [picker dismissViewControllerAnimated:YES completion:nil];
-            selectedImage = theImageOriginal;
-            if (picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
-                UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
+        selectedImage = theImageOriginal;
+        if (picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
+            UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
         }
         if (theImageOriginal) {
-        searchController.theImage = selectedImage;
+            searchController.theImage = selectedImage;
         }
     }
     [self.navigationController pushViewController:searchController animated:YES];
@@ -173,14 +172,5 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -56,6 +56,8 @@
 		704B8D361C087BA5006257E9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704B8D331C087BA5006257E9 /* MainViewController.xib */; };
 		704B8D371C087BA5006257E9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8D341C087BA5006257E9 /* SearchViewController.m */; };
 		704B8D3A1C087BB1006257E9 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704B8D391C087BB1006257E9 /* SearchViewController.xib */; };
+		7073140A1C58C88300480294 /* fw.png in Resources */ = {isa = PBXBuildFile; fileRef = 707314091C58C88300480294 /* fw.png */; };
+		7073140C1C58CB4C00480294 /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7073140B1C58CB4C00480294 /* 180x180.png */; };
 		7089C4FD1C0DA4F800B14779 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089C4DB1C0DA4F800B14779 /* AFHTTPRequestOperation.m */; };
 		7089C4FE1C0DA4F800B14779 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089C4DD1C0DA4F800B14779 /* AFHTTPRequestOperationManager.m */; };
 		7089C4FF1C0DA4F800B14779 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089C4DF1C0DA4F800B14779 /* AFHTTPSessionManager.m */; };
@@ -169,6 +171,8 @@
 		704B8D341C087BA5006257E9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		704B8D381C087BB1006257E9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		704B8D391C087BB1006257E9 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		707314091C58C88300480294 /* fw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fw.png; sourceTree = "<group>"; };
+		7073140B1C58CB4C00480294 /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180x180.png; sourceTree = "<group>"; };
 		7089C4DA1C0DA4F800B14779 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		7089C4DB1C0DA4F800B14779 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		7089C4DC1C0DA4F800B14779 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -473,6 +477,8 @@
 		7094B1131C0EC87000BF2AAF /* images */ = {
 			isa = PBXGroup;
 			children = (
+				7073140B1C58CB4C00480294 /* 180x180.png */,
+				707314091C58C88300480294 /* fw.png */,
 				04264CE41C4520980078FA4D /* No_Image_Available.png */,
 				04D91C6B1C219342001DCF32 /* animation_mob.gif */,
 				70344D191C216B3300E5AD1A /* logo_update.png */,
@@ -556,7 +562,7 @@
 				TargetAttributes = {
 					704B8CCB1C082A6F006257E9 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = PXWQXF66ZU;
+						DevelopmentTeam = A43NC5QDPW;
 					};
 					704B8CE41C082A6F006257E9 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -593,6 +599,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7073140A1C58C88300480294 /* fw.png in Resources */,
 				70344D181C21668800E5AD1A /* 2.png in Resources */,
 				70344D121C21464D00E5AD1A /* lc.png in Resources */,
 				70344D131C21464D00E5AD1A /* logo.png in Resources */,
@@ -608,6 +615,7 @@
 				04E043DA1C33AFF80042AB88 /* LableCell.xib in Resources */,
 				70344D141C21464D00E5AD1A /* ph.png in Resources */,
 				704B8D0D1C082E80006257E9 /* MovieCell.xib in Resources */,
+				7073140C1C58CB4C00480294 /* 180x180.png in Resources */,
 				70344D0E1C21439700E5AD1A /* background.jpg in Resources */,
 				04ADC0051C4CF0530024AD7B /* MovieTypeDetailController.xib in Resources */,
 				7094B1171C0ECAA500BF2AAF /* ImageUploadedByModMyi1342057019.344337.jpg in Resources */,
@@ -812,7 +820,7 @@
 				INFOPLIST_FILE = WhatPosters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters1;
 				PRODUCT_NAME = FlickWiz;
 				PROVISIONING_PROFILE = "";
 			};
@@ -827,7 +835,7 @@
 				INFOPLIST_FILE = WhatPosters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters;
+				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters1;
 				PRODUCT_NAME = FlickWiz;
 				PROVISIONING_PROFILE = "";
 			};

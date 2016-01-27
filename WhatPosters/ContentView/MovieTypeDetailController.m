@@ -10,7 +10,7 @@
 #import "MovieCell.h"
 
 @interface MovieTypeDetailController ()<UIAlertViewDelegate> {
-
+    
     // NSStrings
     NSString *movieNameString;
     NSString *movieTypeImageString;
@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Movie Type Detail";
-
+    
     // Array init
     movieDateListArray = [NSMutableArray array];
     dateReleaseArray = [NSMutableArray array];
@@ -46,19 +46,12 @@
     movieTypeImageListArray = [NSMutableArray array];
     
     // json result
-    
     NSUserDefaults *jasonRes = [NSUserDefaults standardUserDefaults];
     myresult = [jasonRes objectForKey:@"responsJsonDic"];
     
     // Movie Type Detail Main ARRAY
     mainJsonArray = [myresult objectForKey:@"names"];
-    if ([mainJsonArray count ]== 0) {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"Data is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
-        [alertController addAction:ok];
-        NSLog(@"no data");
-    }
-    else {
+    
     // use for loop here Movie type images url's path Count
     for (NSInteger i=0; i<[mainJsonArray count]; i++) {
         movieTypeImageArray = [mainJsonArray objectAtIndex:i];
@@ -77,7 +70,7 @@
         DateReleaseString = [dateReleaseArray objectAtIndex:2];
         [movieDateListArray addObject:DateReleaseString];
     }}
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -119,7 +112,7 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
- 
+    
     //[self.navigationController pushViewController:moviedetailView animated:YES];
 }
 
