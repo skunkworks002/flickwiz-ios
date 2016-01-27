@@ -13,7 +13,7 @@
 #import "TextViewCell.h"
 
 @interface MoviesPersonsDetailView () {
-
+    
     NSInteger index;
     AFHTTPRequestOperationManager *manager;
     NSDictionary *myJsonResult;
@@ -28,7 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
+    //Main json result
     myJsonResult = jsonResponsDic;
     personNameDetailArray = [myJsonResult objectForKey:@"names"];
 }
@@ -57,6 +58,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (index) {
+            
         case 0: {
             if (indexPath.section == 0) {
                 static NSString *CellIdentifier = @"PhotoCell";
@@ -71,8 +73,8 @@
                     cell.imageViewCell.image = [UIImage imageNamed:@"No_Image_Available.png"];
                 }
                 else {
-                [cell.imageViewCell setImage:imageData];
-
+                    [cell.imageViewCell setImage:imageData];
+                    
                 }
                 return  cell;
             }
@@ -92,7 +94,7 @@
                     return cell;
                 }
                 if (indexPath.section == 2) {
-                   NSString *nameString = personNameDetailArray[1];
+                    NSString *nameString = personNameDetailArray[1];
                     cell.customLable.text = nameString;
                     cell.customLable.frame = CGRectMake(30, 0, 270, 30);
                     return cell;
@@ -105,7 +107,7 @@
                 }
                 
                 if (indexPath.section == 4) {
-                   NSString *dateOfBirthString = personNameDetailArray[8];
+                    NSString *dateOfBirthString = personNameDetailArray[8];
                     cell.customLable.text = dateOfBirthString;
                     cell.customLable.frame = CGRectMake(30, 0, 270, 30);
                     return cell;
@@ -133,12 +135,12 @@
                 }
                 return cell;
             }
-                if (indexPath.section == 8) {
+            if (indexPath.section == 8) {
                 static NSString *CellIdentifier = @"TextViewCell";
                 TextViewCell *cell = (TextViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"TextViewCell"owner:self options:nil] objectAtIndex:0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-               NSString *descriptionString = personNameDetailArray[3];
+                NSString *descriptionString = personNameDetailArray[3];
                 cell.customTextView.text = descriptionString;
                 return cell;
             }

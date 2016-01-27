@@ -24,7 +24,7 @@
     NSString *moviedirectorString;
     NSString *moviewriterString;
     NSString *moviedetailpathString;
-
+    
     //  Arrays
     NSArray *MoviewPosterNamesArray;
     NSArray *imagearray;
@@ -46,9 +46,9 @@
     NSMutableArray *moviedirectorListArray;
     NSMutableArray *moviewriterListArray;
     NSMutableArray *moviedetailpathListArray;
-
+    
     NSMutableDictionary *myresult;
-
+    
     UIImage *imagesData;
     UIImage *myImage;
     NSData *imageDate;
@@ -76,9 +76,9 @@
     
     self.title = @"Best Matches";
     // image's name & url
-     imagesUrlArray = [myresult objectForKey:@"urls"];
-     movienameArray = [myresult objectForKey:@"names"];
-
+    imagesUrlArray = [myresult objectForKey:@"urls"];
+    movienameArray = [myresult objectForKey:@"names"];
+    
     // IMDBDETAIL ARRAY
     MoviewPosterNamesArray = [myresult objectForKey:@"imdbdetials"];
     
@@ -126,7 +126,7 @@
         [moviemakerListArray addObject:moviemakerString];
         
     }
-
+    
     // movie Description loop
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         moviedecripArray = [MoviewPosterNamesArray objectAtIndex:i];
@@ -134,7 +134,7 @@
         [moviedecListArray addObject:movieDescString];
     }
     
-     // movie raking loop
+    // movie raking loop
     for (NSInteger i=0; i<[MoviewPosterNamesArray count]; i++) {
         movierakingArray = [MoviewPosterNamesArray objectAtIndex:i];
         movierakingString = [movierakingArray objectAtIndex:10];
@@ -171,6 +171,8 @@
     cell.movieImages.layer.backgroundColor=[[UIColor clearColor] CGColor];
     cell.movieImages.layer.masksToBounds = YES;
     cell.movieImages.layer.borderColor=[[UIColor grayColor] CGColor];
+    
+
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -182,9 +184,9 @@
 // In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-   
-   MoviewDetailController *moviedetailView = [MoviewDetailController new];
-  // first access the cell
+    
+    MoviewDetailController *moviedetailView = [MoviewDetailController new];
+    // first access the cell
     static NSString *simpleTableIdentifier = @"Cell";
     MovieCell *cell = (MovieCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil) {
