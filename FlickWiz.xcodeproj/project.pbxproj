@@ -15,7 +15,6 @@
 		04264CE51C4520980078FA4D /* No_Image_Available.png in Resources */ = {isa = PBXBuildFile; fileRef = 04264CE41C4520980078FA4D /* No_Image_Available.png */; };
 		04ADC0041C4CF0530024AD7B /* MovieTypeDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ADC0021C4CF0530024AD7B /* MovieTypeDetailController.m */; };
 		04ADC0051C4CF0530024AD7B /* MovieTypeDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04ADC0031C4CF0530024AD7B /* MovieTypeDetailController.xib */; };
-		04D91C681C217644001DCF32 /* GiFHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D91C671C217644001DCF32 /* GiFHUD.m */; };
 		04D91C6C1C219342001DCF32 /* animation_mob.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04D91C6B1C219342001DCF32 /* animation_mob.gif */; };
 		04E043CE1C33AEC00042AB88 /* MoviewDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E043CC1C33AEC00042AB88 /* MoviewDetailController.m */; };
 		04E043CF1C33AEC00042AB88 /* MoviewDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E043CD1C33AEC00042AB88 /* MoviewDetailController.xib */; };
@@ -109,8 +108,6 @@
 		04ADC0011C4CF0530024AD7B /* MovieTypeDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieTypeDetailController.h; sourceTree = "<group>"; };
 		04ADC0021C4CF0530024AD7B /* MovieTypeDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieTypeDetailController.m; sourceTree = "<group>"; };
 		04ADC0031C4CF0530024AD7B /* MovieTypeDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieTypeDetailController.xib; sourceTree = "<group>"; };
-		04D91C661C217644001DCF32 /* GiFHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiFHUD.h; sourceTree = "<group>"; };
-		04D91C671C217644001DCF32 /* GiFHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiFHUD.m; sourceTree = "<group>"; };
 		04D91C6B1C219342001DCF32 /* animation_mob.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animation_mob.gif; sourceTree = "<group>"; };
 		04E043CB1C33AEC00042AB88 /* MoviewDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviewDetailController.h; sourceTree = "<group>"; };
 		04E043CC1C33AEC00042AB88 /* MoviewDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviewDetailController.m; sourceTree = "<group>"; };
@@ -248,15 +245,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		04D91C651C217644001DCF32 /* ProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				04D91C661C217644001DCF32 /* GiFHUD.h */,
-				04D91C671C217644001DCF32 /* GiFHUD.m */,
-			);
-			path = ProgressHUD;
-			sourceTree = "<group>";
-		};
 		704780041C242DFC0043177E /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -397,7 +385,6 @@
 			isa = PBXGroup;
 			children = (
 				704780041C242DFC0043177E /* SVProgressHUD */,
-				04D91C651C217644001DCF32 /* ProgressHUD */,
 				7089C5231C0DA56100B14779 /* ImageCompress */,
 				7089C4D81C0DA4F800B14779 /* AFNetworking */,
 			);
@@ -672,7 +659,6 @@
 				704780101C242DFC0043177E /* SVRadialGradientLayer.m in Sources */,
 				04ADC0041C4CF0530024AD7B /* MovieTypeDetailController.m in Sources */,
 				7089C4FE1C0DA4F800B14779 /* AFHTTPRequestOperationManager.m in Sources */,
-				04D91C681C217644001DCF32 /* GiFHUD.m in Sources */,
 				7047800D1C242DFC0043177E /* SVIndefiniteAnimatedView.m in Sources */,
 				7089C50C1C0DA4F800B14779 /* UIWebView+AFNetworking.m in Sources */,
 				7089C5091C0DA4F800B14779 /* UIButton+AFNetworking.m in Sources */,

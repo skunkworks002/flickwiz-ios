@@ -15,4 +15,9 @@
 @property (nonatomic, weak) NSString *imageName;
 @property (nonatomic, weak) NSString *imageExt;
 
+
+@property (nonatomic, readwrite) double imageHight;
+@property (nonatomic, readwrite) double imageWeight;
+
+
 @end

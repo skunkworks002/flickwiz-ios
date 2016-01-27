@@ -169,12 +169,8 @@
     cell.movienameLabel.text = [movienameArray objectAtIndex:indexPath.row];
     cell.movieDateLabel.text = [moviedateArray objectAtIndex:indexPath.row];
     cell.movieImages.layer.backgroundColor=[[UIColor clearColor] CGColor];
-//    cell.movieImages.layer.cornerRadius=20;
-//    cell.movieImages.layer.borderWidth=2.0;
     cell.movieImages.layer.masksToBounds = YES;
     cell.movieImages.layer.borderColor=[[UIColor grayColor] CGColor];
-    
-   // cell.backgroundColor = [UIColor magentaColor];
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
