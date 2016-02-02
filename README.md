@@ -11,7 +11,7 @@ Prerequisites
 
 Introduction About Flick Wiz
 ==========================
-* Flick Wiz app is allow user to take picture of movie poster through camera OR select picture from phone gallery and send     for processing.After image processing it’s will return a best five matche’s of movie list related of poster picture.
+* Flick Wiz app is allow user to take picture of movie poster through camera OR select picture from phone gallery and send     for processing.After processing it’s will return a best five matche’s of movie list related of poster picture.
 
 * This app is allow user to check the detail of best five matche’s of movie from list.
 
