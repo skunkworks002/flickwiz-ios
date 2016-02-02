@@ -183,8 +183,8 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 ButtonCell *cell = [self textFieldCellWithTableView:tableView];
                 [cell.faceBookButton addTarget:self action:@selector(facebookPostBtFunction) forControlEvents:UIControlEventTouchUpInside];
                 [cell.twitterButton addTarget:self action:@selector(twitterPostButtonFunction) forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.backgroundColor = [UIColor grayColor];
-                cell.faceBookButton.backgroundColor = [UIColor grayColor];
+//                cell.twitterButton.backgroundColor = [UIColor grayColor];
+//                cell.faceBookButton.backgroundColor = [UIColor grayColor];
                 return cell;
             }
             
@@ -197,6 +197,7 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell11.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell11.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell11.faceBookButton addTarget:self action:@selector(movieResponse:) forControlEvents:UIControlEventTouchUpInside];
+
                 cell11.twitterButton.hidden = YES;
                 return cell11;
             }
@@ -212,6 +213,7 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell2.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell2.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell2.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+
                 cell2.twitterButton.hidden = YES;
                 return cell2;
             }
@@ -227,6 +229,7 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+
                 cell.twitterButton.hidden = YES;
                 return cell;
             }
@@ -240,6 +243,8 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell.faceBookButton addTarget:self action:@selector(movietypeResponse:)forControlEvents:UIControlEventTouchUpInside];
+
+
                 cell.twitterButton.hidden = YES;
                 return cell;
             }
@@ -255,6 +260,8 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell.faceBookButton addTarget:self action:@selector(movietypeResponse:)forControlEvents:UIControlEventTouchUpInside];
+
+
                 cell.twitterButton.hidden = YES;
                 return cell;
             }
@@ -270,6 +277,8 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell.faceBookButton addTarget:self action:@selector(movietypeResponse:)forControlEvents:UIControlEventTouchUpInside];
+
+
                 cell.twitterButton.hidden = YES;
                 return cell;
             }
@@ -283,6 +292,8 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+
+
                 cell.twitterButton.hidden = YES;
                 return cell;
             }
@@ -298,6 +309,8 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+
+
                 cell.twitterButton.hidden = YES;
                 return cell;
             }
@@ -313,6 +326,8 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+
+
                 cell.twitterButton.hidden = YES;
                 return cell;
             }
@@ -326,6 +341,8 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+
+
                 cell.twitterButton.hidden = YES;
                 return cell;
             }
@@ -341,6 +358,8 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+
+
                 cell.twitterButton.hidden = YES;
                 return cell;
             }
@@ -356,6 +375,8 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
                 cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
                 [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+
+
                 cell.twitterButton.hidden = YES;
                 return cell;
             }

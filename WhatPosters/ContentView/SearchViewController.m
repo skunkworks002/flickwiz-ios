@@ -50,8 +50,11 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //View Tittle
     
     self.title = @"SearchView";
+    
+    
     
     //Size's of imageView's diffetrnts ios screens
     NSInteger imageHightA = imageHight;
@@ -105,21 +108,20 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
             }
         }
         //for iphone 4 4s
+        else if (imageHightA <= 350 ) {
+            CGRect rect = CGRectMake(50,50,220,imageHightA);
+            imageView =[[UIImageView alloc] initWithFrame:rect];
+            imageView.contentMode = UIViewContentModeCenter;
+            webViewBG = [[UIWebView alloc] initWithFrame:rect];
+        }
         else {
-            if (imageHightA <= 350 ) {
-                CGRect rect = CGRectMake(50,80,220,imageHightA);
-                imageView =[[UIImageView alloc] initWithFrame:rect];
-                imageView.contentMode = UIViewContentModeCenter;
-                webViewBG = [[UIWebView alloc] initWithFrame:rect];
-            }
-            else {
-                CGRect rect = CGRectMake(50,100,200,200);
-                imageView =[[UIImageView alloc] initWithFrame:rect];
-                imageView.contentMode = UIViewContentModeScaleAspectFit;
-                webViewBG = [[UIWebView alloc] initWithFrame:rect];
-            }
+            CGRect rect = CGRectMake(50,100,200,200);
+            imageView =[[UIImageView alloc] initWithFrame:rect];
+            imageView.contentMode = UIViewContentModeScaleAspectFit;
+            webViewBG = [[UIWebView alloc] initWithFrame:rect];
         }
     }
+    
     [self.view addSubview:imageView];
     imageView.image = theImage;
     [webViewBG.layer setBackgroundColor:[[UIColor colorWithWhite:0 alpha:0.5] CGColor]];
@@ -141,10 +143,6 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
     //    WeatherHTTPClient *sampleProtocol = (WeatherHTTPClient *)[[WeatherHTTPClient alloc]init];
     //    sampleProtocol.delegate = self;
     
-    //View Tittle
-    self.title = @"SearchView";
-    
-    self->imageView.image = theImage;
     
     
 >>>>>>> origin/master
@@ -162,7 +160,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 
 - (IBAction)searchButton:(id)sender {
     webViewBG.hidden = NO;
-    imageData = UIImageJPEGRepresentation(theImage, 1.0);
+    imageData = UIImageJPEGRepresentation(theImage, 0.1);
     imageSize   = imageData.length;
     imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
     strEncoded = [Base64 encode:imageData];
@@ -171,6 +169,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager POST:movieimagesUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         responseJsonResult = responseObject;
+        NSLog(@"%@",responseJsonResult);
         SeacrhResults *searchViewResult = [SeacrhResults new];
         searchViewResult.jsonResponsDic = responseJsonResult;
         [self.navigationController pushViewController:searchViewResult animated:YES];

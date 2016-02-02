@@ -8,7 +8,6 @@
 
 #import "SeacrhResults.h"
 #import "MovieCell.h"
-//#import "MovieDetailsView.h"
 
 #import "MoviewDetailController.h"
 
@@ -78,7 +77,7 @@
     // image's name & url
     imagesUrlArray = [myresult objectForKey:@"urls"];
     movienameArray = [myresult objectForKey:@"names"];
-    
+    NSLog(@"%@",movienameArray);
     // IMDBDETAIL ARRAY
     MoviewPosterNamesArray = [myresult objectForKey:@"imdbdetials"];
     
