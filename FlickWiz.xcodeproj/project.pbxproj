@@ -562,7 +562,10 @@
 				TargetAttributes = {
 					704B8CCB1C082A6F006257E9 = {
 						CreatedOnToolsVersion = 7.1.1;
+<<<<<<< Updated upstream
 						DevelopmentTeam = 7KJQC6223W;
+=======
+>>>>>>> Stashed changes
 					};
 					704B8CE41C082A6F006257E9 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -820,7 +823,7 @@
 				INFOPLIST_FILE = WhatPosters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters1;
+				PRODUCT_BUNDLE_IDENTIFIER = FlickWiz;
 				PRODUCT_NAME = FlickWiz;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -836,7 +839,7 @@
 				INFOPLIST_FILE = WhatPosters/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.WhatPosters1;
+				PRODUCT_BUNDLE_IDENTIFIER = FlickWiz;
 				PRODUCT_NAME = FlickWiz;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;

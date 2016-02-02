@@ -59,7 +59,6 @@
 #pragma mark - Photo Methodes -
 
 - (void)didTakePhoto {
-    
     if ([self isCameraAvailable] && [self doesCameraSupportTakingPhotos]) {
         UIImagePickerController *controller = [[UIImagePickerController alloc] init];
         controller.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -70,7 +69,6 @@
         controller.delegate = self;
         [self presentViewController:controller animated:YES completion:nil];
     } else {
-        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done" message:@"Camera is not available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
         [alert show];
     }
@@ -88,7 +86,6 @@
 
 - (BOOL)cameraSupportsMedia:(NSString *)paramMediaType
                  sourceType:(UIImagePickerControllerSourceType)paramSourceType {
-    
     __block BOOL result = NO;
     if ([paramMediaType length] == 0){
         NSLog(@"Media type is empty.");
@@ -97,10 +94,8 @@
     NSArray *availableMediaTypes =
     [UIImagePickerController
      availableMediaTypesForSourceType:paramSourceType];
-    
     [availableMediaTypes enumerateObjectsUsingBlock:
      ^(id obj, NSUInteger idx, BOOL *stop) {
-         
          NSString *mediaType = (NSString *)obj;
          if ([mediaType isEqualToString:paramMediaType]){
              result = YES;
@@ -138,7 +133,9 @@
         imageExentionString = [imagenameExtractArray objectAtIndex:1];
         searchController.imageName = actulimageNameString;
         searchController.imageExt = imageExentionString;
+        
         UIImage *theImageOriginal = info[UIImagePickerControllerOriginalImage];
+
         CGFloat imageHightB = theImageOriginal.size.height;
         CGFloat imageWeightB = theImageOriginal.size.width;
         searchController.imageHight = imageHightB;
@@ -146,6 +143,7 @@
         [picker dismissViewControllerAnimated:YES completion:nil];
         UIImage *theImageEdit = info[UIImagePickerControllerEditedImage];
         selectedImage = theImageOriginal;
+<<<<<<< Updated upstream
         
         if (theImageEdit) {
             selectedImage = theImageEdit;
@@ -159,6 +157,9 @@
             }
         }
         if (theImageOriginal || theImageEdit) {
+=======
+        if (theImageOriginal) {
+>>>>>>> Stashed changes
             searchController.theImage = selectedImage;
         }
         }
@@ -181,8 +182,7 @@
     }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
-
 
 @end
