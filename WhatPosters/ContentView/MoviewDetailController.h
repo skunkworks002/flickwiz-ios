@@ -24,5 +24,7 @@
 @property (weak, nonatomic) NSString *selectedmoviedetailpathString;
 
 
+-(void)twitterPostButtonFunction;
+-(void)facebookPostBtFunction;
 
 @end

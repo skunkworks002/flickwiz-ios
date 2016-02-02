@@ -45,11 +45,8 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //View Tittle
     
     self.title = @"SearchView";
-    
-    
     
     //Size's of imageView's diffetrnts ios screens
     NSInteger imageHightA = imageHight;
@@ -111,19 +108,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
             }
         }
         //for iphone 4 4s
-        else if (imageHightA <= 350 ) {
-            CGRect rect = CGRectMake(50,50,220,imageHightA);
-            imageView =[[UIImageView alloc] initWithFrame:rect];
-            imageView.contentMode = UIViewContentModeCenter;
-            webViewBG = [[UIWebView alloc] initWithFrame:rect];
-        }
         else {
-<<<<<<< Updated upstream
-            CGRect rect = CGRectMake(50,100,200,200);
-            imageView =[[UIImageView alloc] initWithFrame:rect];
-            imageView.contentMode = UIViewContentModeScaleAspectFit;
-            webViewBG = [[UIWebView alloc] initWithFrame:rect];
-=======
             if (imageHightA <= 350 ) {
                 CGRect rect = CGRectMake(50,80,220,imageHightA);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
@@ -138,7 +123,6 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
                 webViewBG = [[UIWebView alloc] initWithFrame:rect];
                 [self compressImage];
             }
->>>>>>> Stashed changes
         }
     }
     
@@ -153,21 +137,6 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
     NSData *gif1 = [NSData dataWithContentsOfFile:filePath];
     [webViewBG loadData:gif1 MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
     webViewBG.hidden = YES;
-<<<<<<< Updated upstream
-=======
-    [self.webViewBG loadData:gif1 MIMEType:@"image/gif" textEncodingName:nil baseURL:NULL];
-    self.webViewBG.hidden = YES;
-    
-    
-    
-    //    WeatherHTTPClient *sampleProtocol = (WeatherHTTPClient *)[[WeatherHTTPClient alloc]init];
-    //    sampleProtocol.delegate = self;
-    
-    
-    
->>>>>>> origin/master
-=======
->>>>>>> Stashed changes
 }
 
 #pragma mark NewPhotoButton
@@ -181,13 +150,8 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 
 - (IBAction)searchButton:(id)sender {
     webViewBG.hidden = NO;
-<<<<<<< Updated upstream
-    imageData = UIImageJPEGRepresentation(theImage, 0.1);
-    imageSize   = imageData.length;
-=======
     imageData = UIImageJPEGRepresentation(theImage, 1.0);
     imageSize = imageData.length;
->>>>>>> Stashed changes
     imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
     strEncoded = [Base64 encode:imageData];
     parameters = @{@"name":imageName, @"ext":imageExt, @"size":imagesizeString,@"base64Code":strEncoded};
@@ -195,7 +159,6 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager POST:movieimagesUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         responseJsonResult = responseObject;
-        NSLog(@"%@",responseJsonResult);
         SeacrhResults *searchViewResult = [SeacrhResults new];
         searchViewResult.jsonResponsDic = responseJsonResult;
         [self.navigationController pushViewController:searchViewResult animated:YES];

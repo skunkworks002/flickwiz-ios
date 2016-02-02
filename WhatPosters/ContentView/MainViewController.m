@@ -141,45 +141,26 @@
         searchController.imageHight = imageHightB;
         searchController.imageWeight = imageWeightB;
         [picker dismissViewControllerAnimated:YES completion:nil];
-        UIImage *theImageEdit = info[UIImagePickerControllerEditedImage];
         selectedImage = theImageOriginal;
-<<<<<<< Updated upstream
-        
-        if (theImageEdit) {
-            selectedImage = theImageEdit;
-            UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
-        }
-
-        else  {
-            selectedImage = theImageOriginal;
-            if (picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
-                UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
-            }
-        }
-        if (theImageOriginal || theImageEdit) {
-=======
         if (theImageOriginal) {
->>>>>>> Stashed changes
             searchController.theImage = selectedImage;
         }
-        }
-            [self.navigationController pushViewController:searchController animated:YES];
-
     }
-
+    [self.navigationController pushViewController:searchController animated:YES];
+}
 
 - (void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-    {
-        if (error) {
-            UIAlertView *alert = [[UIAlertView alloc]
-                                  initWithTitle: @"Save failed"
-                                  message: @"Failed to save image"
-                                  delegate: nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-            [alert show];
-        }
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
     }
+}
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];
