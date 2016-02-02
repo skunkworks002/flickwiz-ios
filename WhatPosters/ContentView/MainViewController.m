@@ -23,8 +23,10 @@
     NSString *imageExentionString;
     NSUserDefaults *imageDef;
     UIBarButtonItem *editButton;
+    
+    NSDictionary *imageInfo;
 }
-@property (nonatomic, retain) UIImage *theImage;
+@property (nonatomic, retain) UIImage *theImageTake;
 @property (strong, nonatomic) IBOutlet UIButton *takeCameraPhoto;
 @property (strong, nonatomic) IBOutlet UIButton *takeGallaryPhoto;
 @property (nonatomic) UIPopoverController *popover;
@@ -54,11 +56,64 @@
 
 - (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage transform:(CGAffineTransform)transform cropRect:(CGRect)cropRect
 {
-    [controller dismissViewControllerAnimated:YES completion:NULL];
-    self.theImage = croppedImage;
+    self.theImageTake = croppedImage;
+    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [self updateEditButtonEnabled];
     }
+    
+    
+    
+       SearchViewController *searchController = [SearchViewController new];
+    //
+      //  NSLog(@"%@", imageInfo);
+        NSString *mediaType = imageInfo[UIImagePickerControllerMediaType];
+    //    if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeMovie]){
+    //        NSURL *urlOfVideo = info[UIImagePickerControllerMediaURL];
+    //        NSLog(@"Video URL = %@", urlOfVideo);
+    //    }
+        if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeImage]){
+            /* Let's get the metadata. This is only for images. Not videos */
+            selectednameString = (__bridge NSString *)kUTTypeImage;
+            imagenameExtractArray = [selectednameString componentsSeparatedByString:@"."];
+            actulimageNameString = [imagenameExtractArray objectAtIndex:0];
+            imageExentionString = [imagenameExtractArray objectAtIndex:1];
+            searchController.imageName = actulimageNameString;
+            searchController.imageExt = imageExentionString;
+    //        UIImage *theImageOriginal = imageInfo[UIImagePickerControllerOriginalImage];
+    
+    UIImage *myResultImage = self.theImageTake;
+    
+            CGFloat imageHightB = myResultImage.size.height;
+            CGFloat imageWeightB = myResultImage.size.width;
+            searchController.imageHight = imageHightB;
+            searchController.imageWeight = imageWeightB;
+    //        [picker dismissViewControllerAnimated:YES completion:nil];
+    //        UIImage *theImageEdit = info[UIImagePickerControllerEditedImage];
+    //        selectedImage = theImageOriginal;
+    //
+    //        if (theImageEdit) {
+    //            selectedImage = theImageEdit;
+    //        }
+    //
+    //        else  {
+    //            selectedImage = theImageOriginal;
+    //        }
+    //        if (theImageOriginal || theImageEdit) {
+                searchController.theImage = myResultImage;
+        
+ 
+        [self.navigationController pushViewController:searchController animated:YES];
+        }
+    
+    
+    [controller dismissViewControllerAnimated:YES completion:NULL];
+
+
+    
+    
+    
+    
 }
 
 - (void)cropViewControllerDidCancel:(PECropViewController *)controller
@@ -76,9 +131,9 @@
 {
     PECropViewController *controller = [[PECropViewController alloc] init];
     controller.delegate = self;
-    controller.image = self.theImage;
+    controller.image = self.theImageTake;
     
-    UIImage *image = self.theImage;
+    UIImage *image = self.theImageTake;
     CGFloat width = image.size.width;
     CGFloat height = image.size.height;
     CGFloat length = MIN(width, height);
@@ -99,7 +154,7 @@
 
 - (void)updateEditButtonEnabled
 {
-    self.editButton.enabled = !!self.theImage;
+    self.editButton.enabled = !!self.theImageTake;
 }
 
 #pragma mark - Button Action Methodes takeCameraPhoto  -
@@ -178,7 +233,8 @@
 #pragma mark --- UIImagePickerControllerDelegate Method
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    self.theImage = image;
+    self.theImageTake = image;
+    imageInfo = info;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if (self.popover.isPopoverVisible) {

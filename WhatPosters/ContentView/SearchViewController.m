@@ -83,7 +83,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
                 imageView.image = theImage;
             }
             else {
-                CGRect rect = CGRectMake(58,150,200,200);
+                CGRect rect = CGRectMake(58,100,200,300);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeScaleAspectFit;
                 webViewBG = [[UIWebView alloc] initWithFrame:rect];
