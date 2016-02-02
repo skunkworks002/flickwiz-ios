@@ -149,9 +149,6 @@
         
         else  {
             selectedImage = theImageOriginal;
-            if (picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
-                UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
-            }
         }
         if (theImageOriginal || theImageEdit) {
             searchController.theImage = selectedImage;
