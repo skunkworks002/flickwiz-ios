@@ -67,6 +67,7 @@
                                  initWithObjects:requiredMediaType, nil];
         controller.allowsEditing = YES;
         controller.delegate = self;
+
         [self presentViewController:controller animated:YES completion:nil];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done" message:@"Camera is not available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
@@ -144,7 +145,6 @@
         
         if (theImageEdit) {
             selectedImage = theImageEdit;
-            UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
         }
         
         else  {
@@ -152,6 +152,8 @@
         }
         if (theImageOriginal || theImageEdit) {
             searchController.theImage = selectedImage;
+           
+
         }
     }
     [self.navigationController pushViewController:searchController animated:YES];
