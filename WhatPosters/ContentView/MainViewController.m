@@ -10,8 +10,10 @@
 #import "SearchViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <QuartzCore/QuartzCore.h>
+#import "PECropViewController.h"
 
-@interface MainViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate >
+
+@interface MainViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate,PECropViewControllerDelegate >
 {
     UIImage *selectedImage;
     NSString *selectedImageUrl;
@@ -20,10 +22,13 @@
     NSString *actulimageNameString;
     NSString *imageExentionString;
     NSUserDefaults *imageDef;
+    UIBarButtonItem *editButton;
 }
 @property (nonatomic, retain) UIImage *theImage;
 @property (strong, nonatomic) IBOutlet UIButton *takeCameraPhoto;
 @property (strong, nonatomic) IBOutlet UIButton *takeGallaryPhoto;
+@property (nonatomic) UIPopoverController *popover;
+@property (nonatomic, weak) UIBarButtonItem *editButton;
 
 @end
 
@@ -34,6 +39,9 @@
     
     self.title = @"Main View";
     
+    editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(openEditor:)];
+    self.navigationItem.rightBarButtonItem.enabled=NO;
+    
     //background image on view
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"background.jpg"]]];
 }
@@ -42,6 +50,57 @@
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark - PECropViewControllerDelegate methods
+
+- (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage transform:(CGAffineTransform)transform cropRect:(CGRect)cropRect
+{
+    [controller dismissViewControllerAnimated:YES completion:NULL];
+    self.theImage = croppedImage;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [self updateEditButtonEnabled];
+    }
+}
+
+- (void)cropViewControllerDidCancel:(PECropViewController *)controller
+{
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [self updateEditButtonEnabled];
+    }
+    
+    [controller dismissViewControllerAnimated:YES completion:NULL];
+}
+
+#pragma mark - Action methods
+
+- (void)openEditor:(id)sender
+{
+    PECropViewController *controller = [[PECropViewController alloc] init];
+    controller.delegate = self;
+    controller.image = self.theImage;
+    
+    UIImage *image = self.theImage;
+    CGFloat width = image.size.width;
+    CGFloat height = image.size.height;
+    CGFloat length = MIN(width, height);
+    controller.imageCropRect = CGRectMake((width - length) / 2,
+                                          (height - length) / 2,
+                                          length,
+                                          length);
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
+    }
+    
+    [self presentViewController:navigationController animated:YES completion:NULL];
+}
+
+
+- (void)updateEditButtonEnabled
+{
+    self.editButton.enabled = !!self.theImage;
+}
 
 #pragma mark - Button Action Methodes takeCameraPhoto  -
 
@@ -67,7 +126,7 @@
                                  initWithObjects:requiredMediaType, nil];
         controller.allowsEditing = YES;
         controller.delegate = self;
-
+        
         [self presentViewController:controller animated:YES completion:nil];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done" message:@"Camera is not available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
@@ -118,47 +177,65 @@
 
 #pragma mark --- UIImagePickerControllerDelegate Method
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    SearchViewController *searchController = [SearchViewController new];
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    self.theImage = image;
     
-    NSLog(@"%@", info);
-    NSString *mediaType = info[UIImagePickerControllerMediaType];
-    if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeMovie]){
-        NSURL *urlOfVideo = info[UIImagePickerControllerMediaURL];
-        NSLog(@"Video URL = %@", urlOfVideo);
-    }
-    else if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeImage]){
-        /* Let's get the metadata. This is only for images. Not videos */
-        selectednameString = (__bridge NSString *)kUTTypeImage;
-        imagenameExtractArray = [selectednameString componentsSeparatedByString:@"."];
-        actulimageNameString = [imagenameExtractArray objectAtIndex:0];
-        imageExentionString = [imagenameExtractArray objectAtIndex:1];
-        searchController.imageName = actulimageNameString;
-        searchController.imageExt = imageExentionString;
-        UIImage *theImageOriginal = info[UIImagePickerControllerOriginalImage];
-        CGFloat imageHightB = theImageOriginal.size.height;
-        CGFloat imageWeightB = theImageOriginal.size.width;
-        searchController.imageHight = imageHightB;
-        searchController.imageWeight = imageWeightB;
-        [picker dismissViewControllerAnimated:YES completion:nil];
-        UIImage *theImageEdit = info[UIImagePickerControllerEditedImage];
-        selectedImage = theImageOriginal;
-        
-        if (theImageEdit) {
-            selectedImage = theImageEdit;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if (self.popover.isPopoverVisible) {
+            [self.popover dismissPopoverAnimated:NO];
         }
         
-        else  {
-            selectedImage = theImageOriginal;
-        }
-        if (theImageOriginal || theImageEdit) {
-            searchController.theImage = selectedImage;
-           
-
-        }
+        [self updateEditButtonEnabled];
+        
+        [self openEditor:nil];
+    } else {
+        [picker dismissViewControllerAnimated:YES completion:^{
+            [self openEditor:nil];
+        }];
     }
-    [self.navigationController pushViewController:searchController animated:YES];
-    
 }
+
+//    SearchViewController *searchController = [SearchViewController new];
+//
+//    NSLog(@"%@", info);
+//    NSString *mediaType = info[UIImagePickerControllerMediaType];
+//    if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeMovie]){
+//        NSURL *urlOfVideo = info[UIImagePickerControllerMediaURL];
+//        NSLog(@"Video URL = %@", urlOfVideo);
+//    }
+//    else if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeImage]){
+//        /* Let's get the metadata. This is only for images. Not videos */
+//        selectednameString = (__bridge NSString *)kUTTypeImage;
+//        imagenameExtractArray = [selectednameString componentsSeparatedByString:@"."];
+//        actulimageNameString = [imagenameExtractArray objectAtIndex:0];
+//        imageExentionString = [imagenameExtractArray objectAtIndex:1];
+//        searchController.imageName = actulimageNameString;
+//        searchController.imageExt = imageExentionString;
+//        UIImage *theImageOriginal = info[UIImagePickerControllerOriginalImage];
+//        CGFloat imageHightB = theImageOriginal.size.height;
+//        CGFloat imageWeightB = theImageOriginal.size.width;
+//        searchController.imageHight = imageHightB;
+//        searchController.imageWeight = imageWeightB;
+//        [picker dismissViewControllerAnimated:YES completion:nil];
+//        UIImage *theImageEdit = info[UIImagePickerControllerEditedImage];
+//        selectedImage = theImageOriginal;
+//
+//        if (theImageEdit) {
+//            selectedImage = theImageEdit;
+//        }
+//
+//        else  {
+//            selectedImage = theImageOriginal;
+//        }
+//        if (theImageOriginal || theImageEdit) {
+//            searchController.theImage = selectedImage;
+//
+//
+//        }
+//    }
+//    [self.navigationController pushViewController:searchController animated:YES];
+
+
 
 
 - (void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo

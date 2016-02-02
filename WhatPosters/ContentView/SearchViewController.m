@@ -159,6 +159,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager POST:movieimagesUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         responseJsonResult = responseObject;
+        NSLog(@"%@",responseJsonResult);
         SeacrhResults *searchViewResult = [SeacrhResults new];
         searchViewResult.jsonResponsDic = responseJsonResult;
         [self.navigationController pushViewController:searchViewResult animated:YES];
