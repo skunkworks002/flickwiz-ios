@@ -133,21 +133,34 @@
         imageExentionString = [imagenameExtractArray objectAtIndex:1];
         searchController.imageName = actulimageNameString;
         searchController.imageExt = imageExentionString;
-        
         UIImage *theImageOriginal = info[UIImagePickerControllerOriginalImage];
-
         CGFloat imageHightB = theImageOriginal.size.height;
         CGFloat imageWeightB = theImageOriginal.size.width;
         searchController.imageHight = imageHightB;
         searchController.imageWeight = imageWeightB;
         [picker dismissViewControllerAnimated:YES completion:nil];
+        UIImage *theImageEdit = info[UIImagePickerControllerEditedImage];
         selectedImage = theImageOriginal;
-        if (theImageOriginal) {
+        
+        if (theImageEdit) {
+            selectedImage = theImageEdit;
+            UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
+        }
+        
+        else  {
+            selectedImage = theImageOriginal;
+            if (picker.sourceType != UIImagePickerControllerSourceTypeSavedPhotosAlbum) {
+                UIImageWriteToSavedPhotosAlbum(selectedImage, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
+            }
+        }
+        if (theImageOriginal || theImageEdit) {
             searchController.theImage = selectedImage;
         }
     }
     [self.navigationController pushViewController:searchController animated:YES];
+    
 }
+
 
 - (void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
