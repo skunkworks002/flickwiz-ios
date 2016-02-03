@@ -19,5 +19,4 @@
 @property (nonatomic, readwrite) double imageHight;
 @property (nonatomic, readwrite) double imageWeight;
 
-
 @end

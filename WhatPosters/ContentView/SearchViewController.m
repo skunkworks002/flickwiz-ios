@@ -17,6 +17,7 @@
 static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/uploadImage";
 
 @interface SearchViewController () <UIWebViewDelegate>
+
 {
     dispatch_queue_t backgroundqueee;
     NSArray *imagesUrlArray;
@@ -30,6 +31,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
     AFHTTPRequestOperationManager *manager;
     UIImageView *imageView;
 }
+
 @property (strong, nonatomic) IBOutlet UIButton *searchButton;
 @property (strong, nonatomic) IBOutlet UIButton *captureNewPhoto;
 @property (nonatomic, retain) UIWebView *webViewBG;
@@ -127,7 +129,6 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
     }
     
     [self.view addSubview:imageView];
- //   imageView.image = theImage;
     [webViewBG.layer setBackgroundColor:[[UIColor colorWithWhite:0 alpha:0.5] CGColor]];
     webViewBG.scalesPageToFit = YES;
     webViewBG.delegate = self;
@@ -150,7 +151,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 
 - (IBAction)searchButton:(id)sender {
     webViewBG.hidden = NO;
-    imageData = UIImageJPEGRepresentation(theImage, 1.0);
+    imageData = UIImageJPEGRepresentation(imageView.image, 1.0);
     imageSize = imageData.length;
     imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
     strEncoded = [Base64 encode:imageData];
@@ -173,7 +174,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 
 // function For Larg image Compress
 - (UIImage *)compressImage {
-    CGSize newSize = CGSizeMake(200, 300);
+    CGSize newSize = CGSizeMake(300, 500);
     UIGraphicsBeginImageContext(newSize);// a CGSize that has the size you want
     [theImage drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
     //image is the original UIImage
@@ -187,8 +188,18 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
     [super didReceiveMemoryWarning];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+- (BOOL)shouldAutorotate
+{
+    //	(iOS 6)
+    //	No auto rotating
     return NO;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    //	(iOS 6)
+    //	Only allow rotation to portrait
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end

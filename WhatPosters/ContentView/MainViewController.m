@@ -12,7 +12,6 @@
 #import <QuartzCore/QuartzCore.h>
 #import "PECropViewController.h"
 
-
 @interface MainViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate,PECropViewControllerDelegate >
 {
     UIImage *selectedImage;
@@ -22,7 +21,6 @@
     NSString *actulimageNameString;
     NSString *imageExentionString;
     NSUserDefaults *imageDef;
-    UIBarButtonItem *editButton;
     
     NSDictionary *imageInfo;
 }
@@ -30,11 +28,12 @@
 @property (strong, nonatomic) IBOutlet UIButton *takeCameraPhoto;
 @property (strong, nonatomic) IBOutlet UIButton *takeGallaryPhoto;
 @property (nonatomic) UIPopoverController *popover;
-@property (nonatomic, weak) UIBarButtonItem *editButton;
+@property (nonatomic, strong) UIBarButtonItem *editButton;
 
 @end
 
 @implementation MainViewController
+@synthesize editButton,takeCameraPhoto,takeGallaryPhoto,theImageTake,popover;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -56,7 +55,7 @@
 
 - (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage transform:(CGAffineTransform)transform cropRect:(CGRect)cropRect
 {
-    self.theImageTake = croppedImage;
+    theImageTake = croppedImage;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [self updateEditButtonEnabled];
@@ -82,7 +81,7 @@
             searchController.imageExt = imageExentionString;
     //        UIImage *theImageOriginal = imageInfo[UIImagePickerControllerOriginalImage];
     
-    UIImage *myResultImage = self.theImageTake;
+    UIImage *myResultImage = theImageTake;
     
             CGFloat imageHightB = myResultImage.size.height;
             CGFloat imageWeightB = myResultImage.size.width;
@@ -108,11 +107,6 @@
     
     
     [controller dismissViewControllerAnimated:YES completion:NULL];
-
-
-    
-    
-    
     
 }
 
@@ -131,9 +125,9 @@
 {
     PECropViewController *controller = [[PECropViewController alloc] init];
     controller.delegate = self;
-    controller.image = self.theImageTake;
+    controller.image = theImageTake;
     
-    UIImage *image = self.theImageTake;
+    UIImage *image = theImageTake;
     CGFloat width = image.size.width;
     CGFloat height = image.size.height;
     CGFloat length = MIN(width, height);
@@ -154,7 +148,7 @@
 
 - (void)updateEditButtonEnabled
 {
-    self.editButton.enabled = !!self.theImageTake;
+    editButton.enabled = !!theImageTake;
 }
 
 #pragma mark - Button Action Methodes takeCameraPhoto  -
@@ -181,6 +175,10 @@
                                  initWithObjects:requiredMediaType, nil];
         controller.allowsEditing = YES;
         controller.delegate = self;
+        
+        
+        
+        
         
         [self presentViewController:controller animated:YES completion:nil];
     } else {
@@ -233,12 +231,12 @@
 #pragma mark --- UIImagePickerControllerDelegate Method
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    self.theImageTake = image;
+    theImageTake = image;
     imageInfo = info;
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        if (self.popover.isPopoverVisible) {
-            [self.popover dismissPopoverAnimated:NO];
+        if (popover.isPopoverVisible) {
+            [popover dismissPopoverAnimated:NO];
         }
         
         [self updateEditButtonEnabled];

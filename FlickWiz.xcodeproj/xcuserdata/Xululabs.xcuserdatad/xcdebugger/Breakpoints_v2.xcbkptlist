@@ -42,28 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "WhatPosters/ContentView/MainViewController.m"
-            timestampString = "476108706.005546"
+            timestampString = "476172119.77631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
-            landmarkName = "@implementation MainViewController"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "WhatPosters/ContentView/MainViewController.m"
-            timestampString = "476108706.005546"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-cropViewController:didFinishCroppingImage:transform:cropRect:"
+            startingLineNumber = "295"
+            endingLineNumber = "295"
+            landmarkName = "-image:finishedSavingWithError:contextInfo:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WhatPosters/ContentView/SearchViewController.m"
-            timestampString = "476111348.887748"
+            filePath = "WhatPosters/ContentView/MainViewController.m"
+            timestampString = "476172119.77631"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
+            landmarkName = "-cameraSupportsMedia:sourceType:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

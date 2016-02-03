@@ -8,13 +8,12 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "SearchViewController.h"
 
 @interface AppDelegate ()
 
-
 @end
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
@@ -27,6 +26,11 @@
     
     // Override point for customization after application launch.
     return YES;
+}
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
+{
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
