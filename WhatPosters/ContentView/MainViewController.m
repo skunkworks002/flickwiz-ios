@@ -29,7 +29,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *takeGallaryPhoto;
 @property (nonatomic) UIPopoverController *popover;
 @property (nonatomic, strong) UIBarButtonItem *editButton;
-
 @end
 
 @implementation MainViewController
@@ -42,7 +41,7 @@
     
     editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(openEditor:)];
     self.navigationItem.rightBarButtonItem.enabled=NO;
-    
+
     //background image on view
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"background.jpg"]]];
 }
@@ -56,77 +55,51 @@
 - (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage transform:(CGAffineTransform)transform cropRect:(CGRect)cropRect
 {
     theImageTake = croppedImage;
-    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [self updateEditButtonEnabled];
     }
-    
-    
-    
-       SearchViewController *searchController = [SearchViewController new];
-    //
-      //  NSLog(@"%@", imageInfo);
-        NSString *mediaType = imageInfo[UIImagePickerControllerMediaType];
-    //    if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeMovie]){
-    //        NSURL *urlOfVideo = info[UIImagePickerControllerMediaURL];
-    //        NSLog(@"Video URL = %@", urlOfVideo);
-    //    }
-        if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeImage]){
-            /* Let's get the metadata. This is only for images. Not videos */
-            selectednameString = (__bridge NSString *)kUTTypeImage;
-            imagenameExtractArray = [selectednameString componentsSeparatedByString:@"."];
-            actulimageNameString = [imagenameExtractArray objectAtIndex:0];
-            imageExentionString = [imagenameExtractArray objectAtIndex:1];
-            searchController.imageName = actulimageNameString;
-            searchController.imageExt = imageExentionString;
-    //        UIImage *theImageOriginal = imageInfo[UIImagePickerControllerOriginalImage];
-    
-    UIImage *myResultImage = theImageTake;
-    
-            CGFloat imageHightB = myResultImage.size.height;
-            CGFloat imageWeightB = myResultImage.size.width;
-            searchController.imageHight = imageHightB;
-            searchController.imageWeight = imageWeightB;
-    //        [picker dismissViewControllerAnimated:YES completion:nil];
-    //        UIImage *theImageEdit = info[UIImagePickerControllerEditedImage];
-    //        selectedImage = theImageOriginal;
-    //
-    //        if (theImageEdit) {
-    //            selectedImage = theImageEdit;
-    //        }
-    //
-    //        else  {
-    //            selectedImage = theImageOriginal;
-    //        }
-    //        if (theImageOriginal || theImageEdit) {
-                searchController.theImage = myResultImage;
-        
- 
-        [self.navigationController pushViewController:searchController animated:YES];
-        }
-    
-    
-    [controller dismissViewControllerAnimated:YES completion:NULL];
-    
+         [self pusingFunctionToSearchView];
+        [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (void)cropViewControllerDidCancel:(PECropViewController *)controller
-{
+-(void)pusingFunctionToSearchView {
+
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [self updateEditButtonEnabled];
     }
-    
+    SearchViewController *searchController = [SearchViewController new];
+    NSString *mediaType = imageInfo[UIImagePickerControllerMediaType];
+    if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeImage]){
+        /* Let's get the metadata. This is only for images. Not videos */
+        selectednameString = (__bridge NSString *)kUTTypeImage;
+        imagenameExtractArray = [selectednameString componentsSeparatedByString:@"."];
+        actulimageNameString = [imagenameExtractArray objectAtIndex:0];
+        imageExentionString = [imagenameExtractArray objectAtIndex:1];
+        searchController.imageName = actulimageNameString;
+        searchController.imageExt = imageExentionString;
+        UIImage *myResultImage = theImageTake;
+        CGFloat imageHightB = myResultImage.size.height;
+        CGFloat imageWeightB = myResultImage.size.width;
+        searchController.imageHight = imageHightB;
+        searchController.imageWeight = imageWeightB;
+        searchController.theImage = myResultImage;    
+    }
+    return [self.navigationController pushViewController:searchController animated:YES];
+}
+- (void)cropViewControllerDidCancel:(PECropViewController *)controller {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [self updateEditButtonEnabled];
+    }
     [controller dismissViewControllerAnimated:YES completion:NULL];
+    [self pusingFunctionToSearchView];
 }
 
 #pragma mark - Action methods
 
-- (void)openEditor:(id)sender
-{
+- (void)openEditor:(id)sender {
     PECropViewController *controller = [[PECropViewController alloc] init];
     controller.delegate = self;
     controller.image = theImageTake;
-    
     UIImage *image = theImageTake;
     CGFloat width = image.size.width;
     CGFloat height = image.size.height;
@@ -135,16 +108,12 @@
                                           (height - length) / 2,
                                           length,
                                           length);
-    
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
     }
-    
     [self presentViewController:navigationController animated:YES completion:NULL];
 }
-
 
 - (void)updateEditButtonEnabled
 {
@@ -175,11 +144,6 @@
                                  initWithObjects:requiredMediaType, nil];
         controller.allowsEditing = YES;
         controller.delegate = self;
-        
-        
-        
-        
-        
         [self presentViewController:controller animated:YES completion:nil];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done" message:@"Camera is not available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
@@ -233,14 +197,11 @@
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     theImageTake = image;
     imageInfo = info;
-    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         if (popover.isPopoverVisible) {
             [popover dismissPopoverAnimated:NO];
         }
-        
         [self updateEditButtonEnabled];
-        
         [self openEditor:nil];
     } else {
         [picker dismissViewControllerAnimated:YES completion:^{
@@ -248,49 +209,6 @@
         }];
     }
 }
-
-//    SearchViewController *searchController = [SearchViewController new];
-//
-//    NSLog(@"%@", info);
-//    NSString *mediaType = info[UIImagePickerControllerMediaType];
-//    if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeMovie]){
-//        NSURL *urlOfVideo = info[UIImagePickerControllerMediaURL];
-//        NSLog(@"Video URL = %@", urlOfVideo);
-//    }
-//    else if ([mediaType isEqualToString:(__bridge NSString *)kUTTypeImage]){
-//        /* Let's get the metadata. This is only for images. Not videos */
-//        selectednameString = (__bridge NSString *)kUTTypeImage;
-//        imagenameExtractArray = [selectednameString componentsSeparatedByString:@"."];
-//        actulimageNameString = [imagenameExtractArray objectAtIndex:0];
-//        imageExentionString = [imagenameExtractArray objectAtIndex:1];
-//        searchController.imageName = actulimageNameString;
-//        searchController.imageExt = imageExentionString;
-//        UIImage *theImageOriginal = info[UIImagePickerControllerOriginalImage];
-//        CGFloat imageHightB = theImageOriginal.size.height;
-//        CGFloat imageWeightB = theImageOriginal.size.width;
-//        searchController.imageHight = imageHightB;
-//        searchController.imageWeight = imageWeightB;
-//        [picker dismissViewControllerAnimated:YES completion:nil];
-//        UIImage *theImageEdit = info[UIImagePickerControllerEditedImage];
-//        selectedImage = theImageOriginal;
-//
-//        if (theImageEdit) {
-//            selectedImage = theImageEdit;
-//        }
-//
-//        else  {
-//            selectedImage = theImageOriginal;
-//        }
-//        if (theImageOriginal || theImageEdit) {
-//            searchController.theImage = selectedImage;
-//
-//
-//        }
-//    }
-//    [self.navigationController pushViewController:searchController animated:YES];
-
-
-
 
 - (void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {

@@ -759,7 +759,6 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
     }
 }
 
-
 #pragma mark - Master show/dismiss methods
 
 - (void)showProgress:(float)progress status:(NSString*)string{
@@ -1072,10 +1071,8 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
     slice.lineCap = kCALineCapRound;
     slice.lineJoin = kCALineJoinBevel;
     slice.path = smoothedPath.CGPath;
-    
     return slice;
 }
-
 
 #pragma mark - Utilities
 
@@ -1149,6 +1146,7 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
         _hudView.layer.masksToBounds = YES;
         _hudView.autoresizingMask = UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin;
     }
+   // self.hudView.backgroundColor = [UIColor clearColor];
     _hudView.backgroundColor = self.backgroundColorForStyle;
     
     if(!_hudView.superview){
@@ -1181,6 +1179,8 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
     }
     if(!_imageView.superview){
         [self.hudView addSubview:_imageView];
+        //_imageView.backgroundColor = [UIColor clearColor];
+
     }
     return _imageView;
 }

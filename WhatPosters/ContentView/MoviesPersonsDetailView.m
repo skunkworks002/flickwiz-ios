@@ -13,14 +13,12 @@
 #import "TextViewCell.h"
 
 @interface MoviesPersonsDetailView () {
-    
     NSInteger index;
     AFHTTPRequestOperationManager *manager;
     NSDictionary *myJsonResult;
     NSArray *personNameDetailArray;
     UIImage *imageData;
 }
-
 @end
 
 @implementation MoviesPersonsDetailView
@@ -28,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableView.backgroundColor = [UIColor colorWithRed:44.0 / 255.0 green:42.f / 255.f blue:54.f / 255.f alpha:1];
     //Main json result
     myJsonResult = jsonResponsDic;
     personNameDetailArray = [myJsonResult objectForKey:@"names"];
@@ -58,35 +56,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     switch (index) {
-            
         case 0: {
             if (indexPath.section == 0) {
                 static NSString *CellIdentifier = @"PhotoCell";
                 PhotoCell *cell = (PhotoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"PhotoCell" owner:self options:nil] objectAtIndex:0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                
                 NSString *imageUrlString = personNameDetailArray[2];
                 imageData =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrlString]]];
-                
                 if ([imageData isEqual:@"no image available"] || imageData == nil) {
                     cell.imageViewCell.image = [UIImage imageNamed:@"No_Image_Available.png"];
                 }
                 else {
                     [cell.imageViewCell setImage:imageData];
-                    
                 }
                 return  cell;
             }
             
             // For Lable Show
             if ((indexPath.section == 1) || (indexPath.section == 2) || (indexPath.section == 3) || (indexPath.section == 4) || (indexPath.section == 5) || (indexPath.section == 6) || (indexPath.section == 7)) {
-                
                 static NSString *CellIdentifier = @"LableCell";
                 LableCell *cell = (LableCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"LableCell" owner:self options:nil] objectAtIndex:0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                
                 // Movie Person Name + details
                 if (indexPath.section == 1) {
                     cell.customLable.text = @"Name";
@@ -99,34 +91,28 @@
                     cell.customLable.frame = CGRectMake(30, 0, 270, 30);
                     return cell;
                 }
-                
                 if (indexPath.section == 3) {
                     cell.customLable.text =@"Date Of Birth";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
                     return cell;
                 }
-                
                 if (indexPath.section == 4) {
                     NSString *dateOfBirthString = personNameDetailArray[8];
                     cell.customLable.text = dateOfBirthString;
                     cell.customLable.frame = CGRectMake(30, 0, 270, 30);
                     return cell;
                 }
-                
                 if (indexPath.section == 5) {
                     cell.customLable.text =@"Place Of Birth";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
                     return cell;
                 }
-                
                 if (indexPath.section == 6) {
                     NSString *placeOfBirthString = personNameDetailArray[10];
-                    
                     cell.customLable.text = placeOfBirthString;
                     cell.customLable.frame = CGRectMake(30, 0, 270, 30);
                     return cell;
                 }
-                
                 // Description
                 if (indexPath.section == 7) {
                     cell.customLable.text =@"Description";

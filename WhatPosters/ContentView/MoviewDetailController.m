@@ -18,6 +18,9 @@
 #import "AFNetworking.h"
 #import "MoviesPersonsDetailView.h"
 #import "MovieTypeDetailController.h"
+#import "SVProgressHUD.h"
+
+#import "CustomButtonCell.h"
 
 static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/flickwiz/persondetail";
 static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flickwiz/genredetail";
@@ -31,13 +34,11 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
     NSString *typeNameString;
     NSString *diractorNameString;
     NSString *writerNameString;
-    
     // array separation
     NSArray *actornameExtractArray;
     NSArray *directrnameExtractArray;
     NSArray *writernameExtractArray1;
     NSArray *movietypenameExtractArray;
-    
     AFHTTPRequestOperationManager *manager;
 }
 @end
@@ -50,12 +51,12 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
     [super viewDidLoad];
     self.title = @"Movie Details";
     index = 0;
-    
     // Separate String by comma & create Array
     actornameExtractArray = [_selectedmovieMakers componentsSeparatedByString:@","];
     directrnameExtractArray = [_selectedmoviedirectorName componentsSeparatedByString:@","];
     writernameExtractArray1 = [_selectedmoviewriterName componentsSeparatedByString:@","];
     movietypenameExtractArray = [_selectedmovieType componentsSeparatedByString:@","];
+    self.tableView.backgroundColor = [UIColor colorWithRed:44.0 / 255.0 green:42.f / 255.f blue:54.f / 255.f alpha:1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,7 +65,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     switch (index) {
         case 0:
@@ -93,12 +93,10 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
             }
             // For Lable Show
             if ((indexPath.section == 1) || (indexPath.section == 2) || (indexPath.section == 3) || (indexPath.section == 7) || (indexPath.section == 11) || (indexPath.section == 12) || (indexPath.section == 13) || (indexPath.section == 17) || (indexPath.section == 21) || (indexPath.section == 23)) {
-                
                 static NSString *CellIdentifier = @"LableCell";
                 LableCell *cell = (LableCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"LableCell" owner:self options:nil] objectAtIndex:0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                
                 // Movie Name
                 if (indexPath.section == 1) {
                     cell.customLable.text = @"Movie Name";
@@ -110,21 +108,18 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                     cell.customLable.frame = CGRectMake(30, 0, 270, 30);
                     return cell;
                 }
-                
                 // Actor Names
                 if (indexPath.section == 3) {
                     cell.customLable.text =@"Actor Name";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
                     return cell;
                 }
-                
                 // Movie Types
                 if (indexPath.section == 7) {
                     cell.customLable.text = @"Movie Type";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
                     return cell;
                 }
-                
                 // Movie Ranking
                 if (indexPath.section == 11) {
                     cell.customLable.text = @"Movie Ranking";
@@ -133,33 +128,27 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 }
                 if (indexPath.section == 12) {
                     cell.customLable.text = _selectedmovieRaking;
-                    
                     cell.customLable.frame = CGRectMake(30, 0, 270, 30);
-                    
                     return cell;
                 }
-                
                 // Diractor Names
                 if (indexPath.section == 13) {
                     cell.customLable.text =@"Diractor Name";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
                     return cell;
                 }
-                
                 // Writer Names
                 if (indexPath.section == 17) {
                     cell.customLable.text =@"Writer Name";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
                     return cell;
                 }
-                
                 // Description
                 if (indexPath.section == 21) {
                     cell.customLable.text =@"Movie Description";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
                     return cell;
                 }
-                
                 // Share Options
                 if (indexPath.section == 23) {
                     cell.customLable.text =@"Share Options";
@@ -168,195 +157,138 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 }
                 return cell;
             }
-            
             if (indexPath.section == 22) {
                 static NSString *CellIdentifier = @"TextViewCell";
                 TextViewCell *cell = (TextViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"TextViewCell"owner:self options:nil] objectAtIndex:0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
-                //   cell.customTextView.delegate = self;
                 cell.customTextView.text = _selectedmovieDescrption;
                 return cell;
             }
-            
             if (indexPath.section == 24) {
-                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
+                ButtonCell *cell = [self facebookAndTwitterButtonFunction:tableView];
                 [cell.faceBookButton addTarget:self action:@selector(facebookPostBtFunction) forControlEvents:UIControlEventTouchUpInside];
                 [cell.twitterButton addTarget:self action:@selector(twitterPostButtonFunction) forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.backgroundColor = [UIColor grayColor];
-                cell.faceBookButton.backgroundColor = [UIColor grayColor];
                 return cell;
             }
-            
-            // Actor Names Buttons + actions
+            // Actor Names Buttons
             if (indexPath.section == 4) {
-                ButtonCell *cell11 = [self textFieldCellWithTableView:tableView];
-                cell11.faceBookButton.tag = indexPath.row;
+                CustomButtonCell *cell11 = [self customButtonFunction:tableView];
+                cell11.customButton.tag = indexPath.row;
                 NSString *actor1 = actornameExtractArray[0];
-                [cell11.faceBookButton setTitle:actor1 forState:UIControlStateNormal];
-                cell11.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell11.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell11.faceBookButton addTarget:self action:@selector(movieResponse:) forControlEvents:UIControlEventTouchUpInside];
-                cell11.twitterButton.hidden = YES;
+                [cell11.customButton setTitle:actor1 forState:UIControlStateNormal];
                 return cell11;
             }
             if (indexPath.section == 5) {
-                ButtonCell *cell2 = [self textFieldCellWithTableView:tableView];
+                CustomButtonCell *cell2 = [self customButtonFunction:tableView];
                 if ([actornameExtractArray count] <= 1) {
                     cell2.hidden = YES;
                     return cell2;
                 }
-                cell2.faceBookButton.tag = indexPath.row +1;
+                cell2.customButton.tag = indexPath.row +1;
                 NSString *actor2 = actornameExtractArray[1];
-                [cell2.faceBookButton setTitle:actor2 forState:UIControlStateNormal];
-                cell2.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell2.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell2.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
-                cell2.twitterButton.hidden = YES;
+                [cell2.customButton setTitle:actor2 forState:UIControlStateNormal];
                 return cell2;
             }
             if (indexPath.section == 6) {
-                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
+                CustomButtonCell *cell = [self customButtonFunction:tableView];
                 if ([actornameExtractArray count] <= 2) {
                     cell.hidden = YES;
                     return cell;
                 }
-                cell.faceBookButton.tag = indexPath.row +2;
+                cell.customButton.tag = indexPath.row +2;
                 NSString *actor3 = actornameExtractArray[2];
-                [cell.faceBookButton setTitle:actor3 forState:UIControlStateNormal];
-                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.hidden = YES;
+                [cell.customButton setTitle:actor3 forState:UIControlStateNormal];
                 return cell;
             }
-            
             // Movie Type Button + Actions
             if (indexPath.section == 8) {
-                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
-                cell.faceBookButton.tag = indexPath.row +3;
+                CustomButtonCell *cell = [self movieTpeButtonFunction:tableView];
+                cell.customButton.tag = indexPath.row +3;
                 NSString *movieType = movietypenameExtractArray[0];
-                [cell.faceBookButton setTitle:movieType forState:UIControlStateNormal];
-                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell.faceBookButton addTarget:self action:@selector(movietypeResponse:)forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.hidden = YES;
+                [cell.customButton setTitle:movieType forState:UIControlStateNormal];
                 return cell;
             }
             if (indexPath.section == 9) {
-                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
+                CustomButtonCell *cell = [self movieTpeButtonFunction:tableView];
                 if ([movietypenameExtractArray count] <= 1){
                     cell.hidden = YES;
                     return cell;
                 }
-                cell.faceBookButton.tag = indexPath.row +4;
+                cell.customButton.tag = indexPath.row +4;
                 NSString *movieType = movietypenameExtractArray[1];
-                [cell.faceBookButton setTitle:movieType forState:UIControlStateNormal];
-                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell.faceBookButton addTarget:self action:@selector(movietypeResponse:)forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.hidden = YES;
+                [cell.customButton setTitle:movieType forState:UIControlStateNormal];
                 return cell;
             }
             if (indexPath.section == 10) {
-                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
+                CustomButtonCell *cell = [self movieTpeButtonFunction:tableView];
                 if ([movietypenameExtractArray count] <= 2) {
                     cell.hidden = YES;
                     return cell;
                 }
-                cell.faceBookButton.tag = indexPath.row +5;
+                cell.customButton.tag = indexPath.row +5;
                 NSString *movieType = movietypenameExtractArray[2];
-                [cell.faceBookButton setTitle:movieType forState:UIControlStateNormal];
-                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell.faceBookButton addTarget:self action:@selector(movietypeResponse:)forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.hidden = YES;
+                [cell.customButton setTitle:movieType forState:UIControlStateNormal];
                 return cell;
             }
-            
             // Diractor Names Buttons + Actions
             if (indexPath.section == 14) {
-                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
-                cell.faceBookButton.tag = indexPath.row +6;
+                CustomButtonCell *cell = [self customButtonFunction:tableView];
+                cell.customButton.tag = indexPath.row +6;
                 NSString *movieDiractor = directrnameExtractArray[0];
-                [cell.faceBookButton setTitle:movieDiractor forState:UIControlStateNormal];
-                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.hidden = YES;
+                [cell.customButton setTitle:movieDiractor forState:UIControlStateNormal];
                 return cell;
             }
             if (indexPath.section == 15) {
-                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
+                CustomButtonCell *cell = [self customButtonFunction:tableView];
                 if ([directrnameExtractArray count] <= 1) {
                     cell.hidden = YES;
                     return cell;
                 }
-                cell.faceBookButton.tag = indexPath.row +7;
+                cell.customButton.tag = indexPath.row +7;
                 NSString *movieDiractor = directrnameExtractArray[1];
-                [cell.faceBookButton setTitle:movieDiractor forState:UIControlStateNormal];
-                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.hidden = YES;
+                [cell.customButton setTitle:movieDiractor forState:UIControlStateNormal];
                 return cell;
             }
             if (indexPath.section == 16) {
-                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
+                CustomButtonCell *cell = [self customButtonFunction:tableView];
                 if ([directrnameExtractArray count] <= 2) {
                     cell.hidden = YES;
                     return cell;
                 }
-                cell.faceBookButton.tag = indexPath.row +8;
+                cell.customButton.tag = indexPath.row +8;
                 NSString *movieDiractor = directrnameExtractArray[2];
-                [cell.faceBookButton setTitle:movieDiractor forState:UIControlStateNormal];
-                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.hidden = YES;
+                [cell.customButton setTitle:movieDiractor forState:UIControlStateNormal];
                 return cell;
             }
-            
             // Writer Names Button + Actions
             if (indexPath.section == 18) {
-                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
-                cell.faceBookButton.tag = indexPath.row +9;
+                CustomButtonCell *cell = [self customButtonFunction:tableView];
+                cell.customButton.tag = indexPath.row +9;
                 NSString *movieWriter = writernameExtractArray1[0];
-                [cell.faceBookButton setTitle:movieWriter forState:UIControlStateNormal];
-                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.hidden = YES;
+                [cell.customButton setTitle:movieWriter forState:UIControlStateNormal];
                 return cell;
             }
             if (indexPath.section == 19) {
-                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
+                CustomButtonCell *cell = [self customButtonFunction:tableView];
                 if ([writernameExtractArray1 count] <= 1) {
                     cell.hidden = YES;
                     return cell;
                 }
-                cell.faceBookButton.tag = indexPath.row +10;
+                cell.customButton.tag = indexPath.row +10;
                 NSString *movieWriter = writernameExtractArray1[1];
-                [cell.faceBookButton setTitle:movieWriter forState:UIControlStateNormal];
-                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.hidden = YES;
+                [cell.customButton setTitle:movieWriter forState:UIControlStateNormal];
                 return cell;
             }
             if (indexPath.section == 20) {
-                ButtonCell *cell = [self textFieldCellWithTableView:tableView];
+                CustomButtonCell *cell = [self customButtonFunction:tableView];
                 if ([writernameExtractArray1 count] <= 2) {
                     cell.hidden = YES;
                     return cell;
                 }
-                cell.faceBookButton.tag = indexPath.row +11;
+                cell.customButton.tag = indexPath.row +11;
                 NSString *movieWriter = writernameExtractArray1[2];
-                [cell.faceBookButton setTitle:movieWriter forState:UIControlStateNormal];
-                cell.faceBookButton.frame = CGRectMake(30, 0, 270, 30);
-                cell.faceBookButton.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-                [cell.faceBookButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
-                cell.twitterButton.hidden = YES;
+                [cell.customButton setTitle:movieWriter forState:UIControlStateNormal];
                 return cell;
             }
         }break;
@@ -366,13 +298,31 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
     return nil;
 }
 
-- (ButtonCell *)textFieldCellWithTableView:(UITableView *)tableView {
+- (ButtonCell *)facebookAndTwitterButtonFunction:(UITableView *)tableView {
     static NSString *CellIdentifier = @"ButtonCell";
     ButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"ButtonCell" owner:self options:nil] objectAtIndex:0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    return cell;
+}
+
+- (CustomButtonCell *)customButtonFunction:(UITableView *)tableView {
+    static NSString *CellIdentifier = @"CustomButtonCell";
+    CustomButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"CustomButtonCell" owner:self options:nil] objectAtIndex:0];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.customButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+    return cell;
+}
+
+- (CustomButtonCell *)movieTpeButtonFunction:(UITableView *)tableView {
+    static NSString *CellIdentifier = @"CustomButtonCell";
+    CustomButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    cell = [[[NSBundle mainBundle] loadNibNamed:@"CustomButtonCell" owner:self options:nil] objectAtIndex:0];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    [cell.customButton addTarget:self action:@selector(movietypeResponse:)forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
@@ -386,7 +336,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
     if(indexPath.section == 24){
         return 50;
     }
-    
     // code for nill index for Movie Type
     if (indexPath.section == 5) {
         if ([actornameExtractArray count] <= 1) {
@@ -398,7 +347,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
             return 0;
         }
     }
-    
     // code for nill index for Movie Type
     if (indexPath.section == 9) {
         if ([movietypenameExtractArray count] <= 1) {
@@ -410,7 +358,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
             return 0;
         }
     }
-    
     // code for nill index for diractor
     if (indexPath.section == 15) {
         if ([directrnameExtractArray count] <= 1) {
@@ -422,7 +369,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
             return 0;
         }
     }
-    
     // code for nill index for Writer
     if (indexPath.section == 19) {
         if ([writernameExtractArray1 count] <= 1) {
@@ -440,7 +386,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-
 
 #pragma Mark Share Twitter Button
 
@@ -480,14 +425,10 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
     }
 }
 
-
 #pragma movietypeResponse
-
-- (void)movietypeResponse :(UIButton *)sender {
-    
+- (void)movietypeResponse:(UIButton *)sender {
     NSInteger abcd1 = sender.tag;;
     NSString *mymovienametype;
-    
     // Movie Type Button Click
     if (abcd1 == 3){
         NSString *actor2 = movietypenameExtractArray[0];
@@ -501,32 +442,40 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
         NSString *actor2 = movietypenameExtractArray[2];
         mymovienametype = actor2;
     }
-    
     NSDictionary *parameters =  @{@"genre":mymovienametype};
     manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [SVProgressHUD show];
     [manager GET:movietypeSubDetailUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSMutableDictionary *responsJsonDic = responseObject;
+        NSMutableArray *listSearch = [responsJsonDic objectForKey:@"names"];
+        if ([listSearch count] == 0) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"List is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        }        
         MovieTypeDetailController *jsonResponseDetails2 = [MovieTypeDetailController new];
         NSUserDefaults *jasonRes = [NSUserDefaults standardUserDefaults];
         [jasonRes setObject:responsJsonDic forKey:@"responsJsonDic"];
         [self.navigationController pushViewController:jsonResponseDetails2 animated:YES];
+        [SVProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"Data is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
+        [SVProgressHUD dismiss];
     }];
 }
-
 
 #pragma mark MovieMainResponse
 
 -(void)movieResponse:(UIButton*)sender {
     NSInteger abcd = sender.tag;;
     NSString *myname;
-    
     // For Actor Button Click
     if (abcd == 0) {
         NSString *actor1 = actornameExtractArray[0];
@@ -540,7 +489,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
         NSString *actor2 = actornameExtractArray[2];
         myname = actor2;
     }
-    
     // Diractor Name Button Click
     else if (abcd == 6){
         NSString *actor2 = directrnameExtractArray[0];
@@ -554,7 +502,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
         NSString *actor2 = directrnameExtractArray[2];
         myname = actor2;
     }
-    
     // Writer Names Button Click
     else if (abcd == 9){
         NSString *actor2 = writernameExtractArray1[0];
@@ -572,17 +519,20 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
     NSDictionary *parameters =  @{@"personName":myname};
     manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager GET:movieSubDetailUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD show];
+        [manager GET:movieSubDetailUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *jsonResponseDetails = responseObject;
         MoviesPersonsDetailView *moviesPersonDetails = [MoviesPersonsDetailView new];
         moviesPersonDetails.jsonResponsDic = jsonResponseDetails;
         [self.navigationController pushViewController:moviesPersonDetails animated:YES];
+        [SVProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"Data is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
         [alertController addAction:ok];
         [self presentViewController:alertController animated:YES completion:nil];
+        [SVProgressHUD dismiss];
     }];
 }
 

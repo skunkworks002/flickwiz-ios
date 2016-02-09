@@ -10,12 +10,10 @@
 #import "MovieCell.h"
 
 @interface MovieTypeDetailController ()<UIAlertViewDelegate> {
-    
     // NSStrings
     NSString *movieNameString;
     NSString *movieTypeImageString;
     NSString *DateReleaseString;
-    
     //  Arrays
     NSArray *mainJsonArray;
     NSMutableArray *movieTypeImageArray;
@@ -25,12 +23,11 @@
     NSMutableArray *dateReleaseArray;
     NSMutableArray *movieDateListArray;
     NSMutableDictionary *myresult;
-    
+    // image Data
     UIImage *imagesData;
     UIImage *myImage;
     NSData *imageDate;
 }
-
 @end
 
 @implementation MovieTypeDetailController
@@ -38,39 +35,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Movie Type Detail";
-    
     // Array init
     movieDateListArray = [NSMutableArray array];
     dateReleaseArray = [NSMutableArray array];
     movieNameListArray = [NSMutableArray array];
     movieTypeImageListArray = [NSMutableArray array];
-    
-    // json result
-    NSUserDefaults *jasonRes = [NSUserDefaults standardUserDefaults];
-    myresult = [jasonRes objectForKey:@"responsJsonDic"];
-    
-    // Movie Type Detail Main ARRAY
-    mainJsonArray = [myresult objectForKey:@"names"];
-    
-    // use for loop here Movie type images url's path Count
-    for (NSInteger i=0; i<[mainJsonArray count]; i++) {
-        movieTypeImageArray = [mainJsonArray objectAtIndex:i];
-        movieTypeImageString = [movieTypeImageArray objectAtIndex:0];
-        [movieTypeImageListArray addObject:movieTypeImageString];
-    }
-    // use for loop here Movie Type Name's Count
-    for (NSInteger i=0; i<[mainJsonArray count]; i++) {
-        movieNameArray = [mainJsonArray objectAtIndex:i];
-        movieNameString = [movieNameArray objectAtIndex:1];
-        [movieNameListArray addObject:movieNameString];
-    }
-    // movie Type Realease Date loop
-    for (NSInteger i=0; i<[mainJsonArray count]; i++) {
-        dateReleaseArray = [mainJsonArray objectAtIndex:i];
-        DateReleaseString = [dateReleaseArray objectAtIndex:2];
-        [movieDateListArray addObject:DateReleaseString];
-    }}
-
+    [self responseFuncton];
+    self.tableView.backgroundColor = [UIColor colorWithRed:44.0 / 255.0 green:42.f / 255.f blue:54.f / 255.f alpha:1];
+    self.tableView.separatorColor = [UIColor clearColor];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -109,11 +82,33 @@
 
 #pragma mark - Table view delegate
 
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    //[self.navigationController pushViewController:moviedetailView animated:YES];
+}
+
+-(void)responseFuncton {
+    // json result
+    NSUserDefaults *jasonRes = [NSUserDefaults standardUserDefaults];
+    myresult = [jasonRes objectForKey:@"responsJsonDic"];
+    // Movie Type Detail Main ARRAY
+    mainJsonArray = [myresult objectForKey:@"names"];
+    // use for loop here Movie type images url's path Count
+    for (NSInteger i=0; i<[mainJsonArray count]; i++) {
+        movieTypeImageArray = [mainJsonArray objectAtIndex:i];
+        movieTypeImageString = [movieTypeImageArray objectAtIndex:0];
+        [movieTypeImageListArray addObject:movieTypeImageString];
+    }
+    // use for loop here Movie Type Name's Count
+    for (NSInteger i=0; i<[mainJsonArray count]; i++) {
+        movieNameArray = [mainJsonArray objectAtIndex:i];
+        movieNameString = [movieNameArray objectAtIndex:1];
+        [movieNameListArray addObject:movieNameString];
+    }
+    // movie Type Realease Date loop
+    for (NSInteger i=0; i<[mainJsonArray count]; i++) {
+        dateReleaseArray = [mainJsonArray objectAtIndex:i];
+        DateReleaseString = [dateReleaseArray objectAtIndex:2];
+        [movieDateListArray addObject:DateReleaseString];
+    }
 }
 
 @end

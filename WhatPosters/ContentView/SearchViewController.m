@@ -12,7 +12,7 @@
 #import "AFNetworking.h"
 #import "AppDelegate.h"
 #import "Base64.h"
-
+#import "IndicatorView.h"
 // service
 static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/uploadImage";
 
@@ -31,25 +31,24 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
     AFHTTPRequestOperationManager *manager;
     UIImageView *imageView;
 }
-
+@property (nonatomic,strong) IndicatorView *indicator;
 @property (strong, nonatomic) IBOutlet UIButton *searchButton;
 @property (strong, nonatomic) IBOutlet UIButton *captureNewPhoto;
-@property (nonatomic, retain) UIWebView *webViewBG;
 @end
 
-@implementation SearchViewController //(animatedGIF)
+@implementation SearchViewController
 @synthesize imageName;
 @synthesize imageExt;
 @synthesize theImage;
 @synthesize imageHight;
 @synthesize imageWeight;
-@synthesize webViewBG;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.title = @"SearchView";
-    
+    self.view.backgroundColor = [UIColor colorWithRed:44.0 / 255.0 green:42.f / 255.f blue:54.f / 255.f alpha:1];
+
     //Size's of imageView's diffetrnts ios screens
     NSInteger imageHightA = imageHight;
     NSInteger imageWeightA = imageWeight;
@@ -61,17 +60,13 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
             if (imageHightA <= 400 && imageWeightA <= 220) {
                 CGRect rect = CGRectMake(75.0f,120.0f,220,imageHightA);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
-                webViewBG = [[UIWebView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeCenter;
                 imageView.image = theImage;
             }
             else {
                 CGRect rect = CGRectMake(75,150,220,300);
-
-                //CGRect rect = CGRectMake(75,120,220,300);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeScaleAspectFit;
-                webViewBG = [[UIWebView alloc] initWithFrame:rect];
                 [self compressImage];
             }
         }
@@ -81,14 +76,12 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
                 CGRect rect = CGRectMake(48,100,220,imageHightA);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeCenter;
-                webViewBG = [[UIWebView alloc] initWithFrame:rect];
                 imageView.image = theImage;
             }
             else {
-                CGRect rect = CGRectMake(58,100,200,300);
+                CGRect rect = CGRectMake(50,100,220,300);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
-                imageView.contentMode = UIViewContentModeScaleAspectFit;
-                webViewBG = [[UIWebView alloc] initWithFrame:rect];
+                imageView.contentMode = UIViewContentModeScaleToFill;
                 [self compressImage];
             }
         }
@@ -98,14 +91,12 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
                 CGRect rect = CGRectMake(90,150,231,imageHightA);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeCenter;
-                webViewBG = [[UIWebView alloc] initWithFrame:rect];
                 imageView.image = theImage;
             }
             else {
                 CGRect rect = CGRectMake(90,200,220,220);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeScaleAspectFit;
-                webViewBG = [[UIWebView alloc] initWithFrame:rect];
                 [self compressImage];
             }
         }
@@ -115,29 +106,17 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
                 CGRect rect = CGRectMake(50,80,220,imageHightA);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeCenter;
-                webViewBG = [[UIWebView alloc] initWithFrame:rect];
                 imageView.image = theImage;
             }
             else {
                 CGRect rect = CGRectMake(50,100,200,200);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeScaleAspectFit;
-                webViewBG = [[UIWebView alloc] initWithFrame:rect];
                 [self compressImage];
             }
         }
     }
-    
     [self.view addSubview:imageView];
-    [webViewBG.layer setBackgroundColor:[[UIColor colorWithWhite:0 alpha:0.5] CGColor]];
-    webViewBG.scalesPageToFit = YES;
-    webViewBG.delegate = self;
-    [webViewBG setOpaque:NO];
-    [self.view addSubview:webViewBG];
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"animation_mob" ofType:@"gif"];
-    NSData *gif1 = [NSData dataWithContentsOfFile:filePath];
-    [webViewBG loadData:gif1 MIMEType:@"image/gif" textEncodingName:nil baseURL:nil];
-    webViewBG.hidden = YES;
 }
 
 #pragma mark NewPhotoButton
@@ -150,7 +129,15 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 #pragma mark Search Poster Button
 
 - (IBAction)searchButton:(id)sender {
-    webViewBG.hidden = NO;
+    _indicator = [[IndicatorView alloc]initWithTarget:self.view.window
+                                           userEnable:YES
+                                              message:@"Processing"
+                                      backgroundColor:[UIColor colorWithRed:0.0/255.0
+                                                                      green:0.0/255.0
+                                                                       blue:0.0/255.0 alpha:0]
+                                            fontColor:[UIColor whiteColor]];
+    // start
+    [_indicator start];
     imageData = UIImageJPEGRepresentation(imageView.image, 1.0);
     imageSize = imageData.length;
     imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
@@ -160,15 +147,14 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     [manager POST:movieimagesUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         responseJsonResult = responseObject;
-        NSLog(@"%@",responseJsonResult);
         SeacrhResults *searchViewResult = [SeacrhResults new];
         searchViewResult.jsonResponsDic = responseJsonResult;
         [self.navigationController pushViewController:searchViewResult animated:YES];
-        webViewBG.hidden = YES;
+        [_indicator stop];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         [SVProgressHUD showErrorWithStatus:@"Error"];
-        webViewBG.hidden = YES;
+        [_indicator stop];
     }];
 }
 
@@ -190,15 +176,11 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 
 - (BOOL)shouldAutorotate
 {
-    //	(iOS 6)
-    //	No auto rotating
     return NO;
 }
 
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations
 {
-    //	(iOS 6)
-    //	Only allow rotation to portrait
     return UIInterfaceOrientationMaskPortrait;
 }
 
