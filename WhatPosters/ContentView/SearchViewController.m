@@ -153,7 +153,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 
 #pragma mark function For Larg image Compress
 - (UIImage *)compressImage {
-    CGSize newSize = CGSizeMake(300, 500);
+    CGSize newSize = CGSizeMake(600, 800);
     UIGraphicsBeginImageContext(newSize);// a CGSize that has the size you want
     [theImage drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
     //image is the original UIImage

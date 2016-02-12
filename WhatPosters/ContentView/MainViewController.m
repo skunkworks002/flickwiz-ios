@@ -16,6 +16,8 @@
 
 @interface MainViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate,PECropViewControllerDelegate >
 {
+    int buttonTag;
+    int squareImageStartY;
     UIImage *selectedImage;
     NSString *selectedImageUrl;
     NSString *selectednameString;
@@ -23,7 +25,10 @@
     NSString *actulimageNameString;
     NSString *imageExentionString;
     NSUserDefaults *imageDef;
+<<<<<<< Updated upstream
     UIBarButtonItem *editButton;
+=======
+>>>>>>> Stashed changes
     NSDictionary *imageInfo;
 }
 @property (nonatomic, retain) UIImage *theImageTake;
@@ -43,6 +48,11 @@
     
     editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(openEditor:)];
     self.navigationItem.rightBarButtonItem.enabled=NO;
+<<<<<<< Updated upstream
+=======
+    //background image on view
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"background.jpg"]]];
+>>>>>>> Stashed changes
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -121,6 +131,8 @@
 #pragma mark - Button Action Methodes takeCameraPhoto  -
 
 - (IBAction)takeCameraPhoto:(UIButton *)sender {
+    UIButton *localButton = (UIButton *)sender;
+    buttonTag = localButton.tag;
     [self didTakePhoto];
 }
 
@@ -128,12 +140,14 @@
 
 - (IBAction)takeGallaryPhoto:(UIButton *)sender{
     UIButton *localButton = (UIButton *)sender;
+    buttonTag = localButton.tag;
     [self selectImageFromLibrary:localButton.frame];
 }
 
 #pragma mark - Photo Methodes -
 
 - (void)didTakePhoto {
+<<<<<<< Updated upstream
     
     if ([self isCameraAvailable] && [self doesCameraSupportTakingPhotos]) {
         
@@ -150,6 +164,53 @@
         
     } else {
         [self cameralertview];
+=======
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        UIImagePickerController *controller = [[UIImagePickerController alloc] init];
+        controller.delegate = self;
+        controller.sourceType = UIImagePickerControllerSourceTypeCamera;
+        controller.showsCameraControls = NO;
+        squareImageStartY = 400 - 320;
+        // Top View In Camera
+        UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, squareImageStartY)];
+        UIImageView  *logoImage = [[UIImageView alloc] initWithFrame:CGRectMake(20, 10, 280, 60)];
+        logoImage.image = [UIImage imageNamed:@"logoo.png"];
+        logoImage.contentMode = UIViewContentModeScaleToFill;
+        [topView addSubview:logoImage];
+        [controller.cameraOverlayView addSubview:topView];
+        topView.backgroundColor = [UIColor blackColor];
+        int y = topView.frame.origin.y +topView.frame.size.height + 320;
+        // Bottom View In Camera
+        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, y, 320, [UIScreen mainScreen].bounds.size.height - y)];
+        bottomView.backgroundColor = [UIColor blackColor];
+        [controller.cameraOverlayView addSubview:bottomView];
+        CGRect rect = CGRectMake(0.0f,80.0f,320,320);
+        UIImageView  *overlayView = [[UIImageView alloc] initWithFrame:rect];
+        UIImage *image = [UIImage imageNamed:@"overlaygraphic.png"];
+        overlayView.image = image;
+        overlayView.contentMode = UIViewContentModeScaleToFill;
+        overlayView.autoresizingMask =
+        UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        overlayView.alpha = 0.5;
+        [controller.cameraOverlayView addSubview:overlayView];
+        // cancelCameraButton
+        UIButton *cancelCameraBut = [[UIButton alloc] initWithFrame:CGRectMake(160-120,bottomView.frame.size.height/2 - 10, 30, 30)];
+        [cancelCameraBut setBackgroundImage:[UIImage imageNamed:@"CameraClose.png"] forState:UIControlStateNormal];
+        [cancelCameraBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [cancelCameraBut addTarget:controller action:@selector(dismissModalViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
+        [bottomView addSubview:cancelCameraBut];
+        // TakePhotoButton
+        UIButton *takePhotoBut = [[UIButton alloc] initWithFrame:CGRectMake(160-40,bottomView.frame.size.height/2 - 25, 80, 80)];
+        [takePhotoBut setBackgroundImage:[UIImage imageNamed:@"CameraShot.png"] forState:UIControlStateNormal];
+        [takePhotoBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [takePhotoBut addTarget:controller action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
+        [bottomView addSubview:takePhotoBut];
+        [self presentViewController:controller animated:YES completion:nil];
+        }
+        else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done" message:@"Camera is not available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
+        [alert show];
+>>>>>>> Stashed changes
     }
 }
 
@@ -196,20 +257,46 @@
 }
 
 #pragma mark --- UIImagePickerControllerDelegate Method
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    UIImage *image = info[UIImagePickerControllerOriginalImage];
-    theImageTake = image;
-    imageInfo = info;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        if (popover.isPopoverVisible) {
-            [popover dismissPopoverAnimated:NO];
-        }
-        [self updateEditButtonEnabled];
-        [self openEditor:nil];
-    } else {
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    imageInfo= info;
+    
+    // originalImage's ratio is 3:4, size is 2448 * 3264
+    UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    if (buttonTag == 100) {
+        theImageTake = originalImage;
         [picker dismissViewControllerAnimated:YES completion:^{
             [self openEditor:nil];
         }];
+    }
+    else {
+    [picker dismissViewControllerAnimated:YES completion:^{
+        CGImageRef imageRef = nil;
+        if([UIScreen mainScreen].bounds.size.height > 480)
+        {
+            UIGraphicsBeginImageContext(CGSizeMake(640, 852));
+            [originalImage drawInRect: CGRectMake(0, 0, 640, 852)];
+            UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            int y = squareImageStartY*2;
+            CGRect cropRect = CGRectMake(0, y, 640, 640);
+            imageRef = CGImageCreateWithImageInRect([smallImage CGImage], cropRect);
+        }
+        else
+        {
+            UIGraphicsBeginImageContext(CGSizeMake(720, 960));
+            [originalImage drawInRect: CGRectMake(0, 0, 720, 960)];
+            UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
+            int y = squareImageStartY*2;
+            CGRect cropRect = CGRectMake(40, y, 640, 640);
+            imageRef = CGImageCreateWithImageInRect([smallImage CGImage], cropRect);
+            
+        }
+        theImageTake = [UIImage imageWithCGImage:imageRef];
+        [self pusingFunctionToSearchView];
+     }];
     }
 }
 
