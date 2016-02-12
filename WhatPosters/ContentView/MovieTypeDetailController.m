@@ -8,6 +8,8 @@
 
 #import "MovieTypeDetailController.h"
 #import "MovieCell.h"
+static const CGFloat cellHeight = 90;
+static const CGFloat cellSpacing = 20;
 
 @interface MovieTypeDetailController ()<UIAlertViewDelegate> {
     // NSStrings
@@ -34,14 +36,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Movie Type Detail";
+    self.title = @"Movie Type List";
     // Array init
     movieDateListArray = [NSMutableArray array];
     dateReleaseArray = [NSMutableArray array];
     movieNameListArray = [NSMutableArray array];
     movieTypeImageListArray = [NSMutableArray array];
     [self responseFuncton];
-    self.tableView.backgroundColor = [UIColor colorWithRed:44.0 / 255.0 green:42.f / 255.f blue:54.f / 255.f alpha:1];
+    self.tableView.backgroundColor = [UIColor lightGrayColor];
     self.tableView.separatorColor = [UIColor clearColor];
 }
 
@@ -71,19 +73,29 @@
     [cell.movieImages setImage:imagesData];
     cell.movienameLabel.text = [movieNameListArray objectAtIndex:indexPath.row];
     cell.movieDateLabel.text = [movieDateListArray objectAtIndex:indexPath.row];
-    cell.movieImages.layer.backgroundColor=[[UIColor clearColor] CGColor];
+    cell.movieImages.backgroundColor=[UIColor whiteColor];
     cell.movieImages.layer.masksToBounds = YES;
-    cell.movieImages.layer.borderColor=[[UIColor grayColor] CGColor];
+    cell.selectionStyle = UITableViewCellAccessoryNone;
     return cell;
 }
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 91;
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return cellHeight;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return cellSpacing;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    view.tintColor = [UIColor clearColor];
 }
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-}
+//- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//}
 
 -(void)responseFuncton {
     // json result

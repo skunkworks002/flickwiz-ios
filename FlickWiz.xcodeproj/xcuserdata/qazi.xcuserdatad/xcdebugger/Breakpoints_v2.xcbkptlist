@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WhatPosters/ContentView/SearchViewController.m"
-            timestampString = "476098466.984878"
+            filePath = "../MY Dumnet Data/pData/FlickWiz versions/flickwiz-ios1.7/WhatPosters/ContentView/CutomCameraViewController.m"
+            timestampString = "476801215.178209"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "161"
-            endingLineNumber = "161"
-            landmarkName = "-searchButton:"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-captureButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WhatPosters/ContentView/SearchViewController.m"
-            timestampString = "476098443.005367"
+            filePath = "../MY Dumnet Data/pData/FlickWiz versions/flickwiz-ios1.7/WhatPosters/ContentView/CutomCameraViewController.m"
+            timestampString = "476801216.493991"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "-searchButton:"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "-captureButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WhatPosters/ContentView/MainViewController.m"
-            timestampString = "476104363.231737"
+            filePath = "../MY Dumnet Data/pData/FlickWiz versions/flickwiz-ios1.7/WhatPosters/ContentView/CutomCameraViewController.m"
+            timestampString = "476801220.032762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-updateEditButtonEnabled"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "-captureButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WhatPosters/ContentView/MainViewController.m"
-            timestampString = "476104363.231737"
+            filePath = "WhatPosters/ContentView/CutomCameraViewController.m"
+            timestampString = "476814826.939111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "-openEditor:"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "-captureButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WhatPosters/ContentView/MainViewController.m"
-            timestampString = "476104363.231737"
+            filePath = "WhatPosters/ContentView/CutomCameraViewController.m"
+            timestampString = "476814826.939111"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-cropViewController:didFinishCroppingImage:transform:cropRect:"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-captureButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +89,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WhatPosters/ContentView/MainViewController.m"
-            timestampString = "476104363.231737"
+            filePath = "WhatPosters/ContentView/CutomCameraViewController.m"
+            timestampString = "476815914.593951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-captureButton:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,13 +105,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WhatPosters/ContentView/MainViewController.m"
-            timestampString = "476104363.231737"
+            filePath = "WhatPosters/ContentView/MoviewDetailController.m"
+            timestampString = "476953430.124247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
+            startingLineNumber = "457"
+            endingLineNumber = "457"
+            landmarkName = "-movietypeResponse:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -121,13 +121,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WhatPosters/ContentView/MainViewController.m"
-            timestampString = "476104363.231737"
+            filePath = "WhatPosters/ContentView/MoviewDetailController.m"
+            timestampString = "476953430.124247"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "-cropViewControllerDidCancel:"
+            startingLineNumber = "458"
+            endingLineNumber = "458"
+            landmarkName = "-movietypeResponse:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WhatPosters/ContentView/MoviewDetailController.m"
+            timestampString = "476952307.50095"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "403"
+            endingLineNumber = "403"
+            landmarkName = "-twitterPostButtonFunction"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
