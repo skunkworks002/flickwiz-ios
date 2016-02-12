@@ -5,12 +5,14 @@
 //  Created by mac on 11/27/15.
 //  Copyright © 2015 Xululabs. All rights reserved.
 //
+#define ApplicationTitle @"Flick Wiz"
 
 #import "MainViewController.h"
 #import "SearchViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <QuartzCore/QuartzCore.h>
 #import "PECropViewController.h"
+#import "ASAlertView.h"
 
 @interface MainViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate,PECropViewControllerDelegate >
 {
@@ -23,6 +25,7 @@
     NSString *actulimageNameString;
     NSString *imageExentionString;
     NSUserDefaults *imageDef;
+    UIBarButtonItem *editButton;
     NSDictionary *imageInfo;
 }
 @property (nonatomic, retain) UIImage *theImageTake;
@@ -42,10 +45,7 @@
     
     editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(openEditor:)];
     self.navigationItem.rightBarButtonItem.enabled=NO;
-    //background image on view
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"background.jpg"]]];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -58,12 +58,12 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [self updateEditButtonEnabled];
     }
-         [self pusingFunctionToSearchView];
-        [controller dismissViewControllerAnimated:YES completion:NULL];
+    [self pusingFunctionToSearchView];
+    [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
 -(void)pusingFunctionToSearchView {
-
+    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [self updateEditButtonEnabled];
     }
@@ -82,9 +82,9 @@
         CGFloat imageWeightB = myResultImage.size.width;
         searchController.imageHight = imageHightB;
         searchController.imageWeight = imageWeightB;
-        searchController.theImage = myResultImage;    
+        searchController.theImage = myResultImage;
     }
-    return [self.navigationController pushViewController:searchController animated:YES];
+    [self.navigationController pushViewController:searchController animated:YES];
 }
 - (void)cropViewControllerDidCancel:(PECropViewController *)controller {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -138,6 +138,7 @@
 
 #pragma mark - Photo Methodes -
 
+
 - (void)didTakePhoto {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIImagePickerController *controller = [[UIImagePickerController alloc] init];
@@ -148,7 +149,7 @@
         // Top View In Camera
         UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, squareImageStartY)];
         UIImageView  *logoImage = [[UIImageView alloc] initWithFrame:CGRectMake(20, 10, 280, 60)];
-        logoImage.image = [UIImage imageNamed:@"logoo.png"];
+        logoImage.image = [UIImage imageNamed:@"logo.png"];
         logoImage.contentMode = UIViewContentModeScaleToFill;
         [topView addSubview:logoImage];
         [controller.cameraOverlayView addSubview:topView];
@@ -180,8 +181,8 @@
         [takePhotoBut addTarget:controller action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
         [bottomView addSubview:takePhotoBut];
         [self presentViewController:controller animated:YES completion:nil];
-        }
-        else {
+    }
+    else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done" message:@"Camera is not available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
         [alert show];
     }
@@ -190,6 +191,7 @@
 - (BOOL)isCameraAvailable {
     return [UIImagePickerController isSourceTypeAvailable:
             UIImagePickerControllerSourceTypeCamera];
+    
 }
 
 - (BOOL)doesCameraSupportTakingPhotos {
@@ -201,7 +203,6 @@
                  sourceType:(UIImagePickerControllerSourceType)paramSourceType {
     __block BOOL result = NO;
     if ([paramMediaType length] == 0){
-        NSLog(@"Media type is empty.");
         return NO;
     }
     NSArray *availableMediaTypes =
@@ -213,6 +214,7 @@
          if ([mediaType isEqualToString:paramMediaType]){
              result = YES;
              *stop= YES;
+             
          }
      }];
     return result;
@@ -227,6 +229,7 @@
         [self presentViewController:picker animated:YES completion:NULL];
     }
 }
+
 
 #pragma mark --- UIImagePickerControllerDelegate Method
 
@@ -243,50 +246,57 @@
         }];
     }
     else {
-    [picker dismissViewControllerAnimated:YES completion:^{
-        CGImageRef imageRef = nil;
-        if([UIScreen mainScreen].bounds.size.height > 480)
-        {
-            UIGraphicsBeginImageContext(CGSizeMake(640, 852));
-            [originalImage drawInRect: CGRectMake(0, 0, 640, 852)];
-            UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
-            int y = squareImageStartY*2;
-            CGRect cropRect = CGRectMake(0, y, 640, 640);
-            imageRef = CGImageCreateWithImageInRect([smallImage CGImage], cropRect);
-        }
-        else
-        {
-            UIGraphicsBeginImageContext(CGSizeMake(720, 960));
-            [originalImage drawInRect: CGRectMake(0, 0, 720, 960)];
-            UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-            UIGraphicsEndImageContext();
-            int y = squareImageStartY*2;
-            CGRect cropRect = CGRectMake(40, y, 640, 640);
-            imageRef = CGImageCreateWithImageInRect([smallImage CGImage], cropRect);
-            
-        }
-        theImageTake = [UIImage imageWithCGImage:imageRef];
-        [self pusingFunctionToSearchView];
-     }];
-    }
-}
-
-- (void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
-{
-    if (error) {
-        UIAlertView *alert = [[UIAlertView alloc]
-                              initWithTitle: @"Save failed"
-                              message: @"Failed to save image"
-                              delegate: nil
-                              cancelButtonTitle:@"OK"
-                              otherButtonTitles:nil];
-        [alert show];
+        [picker dismissViewControllerAnimated:YES completion:^{
+            CGImageRef imageRef = nil;
+            if([UIScreen mainScreen].bounds.size.height > 480)
+            {
+                UIGraphicsBeginImageContext(CGSizeMake(640, 852));
+                [originalImage drawInRect: CGRectMake(0, 0, 640, 852)];
+                UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                int y = squareImageStartY*2;
+                CGRect cropRect = CGRectMake(0, y, 640, 640);
+                imageRef = CGImageCreateWithImageInRect([smallImage CGImage], cropRect);
+            }
+            else
+            {
+                UIGraphicsBeginImageContext(CGSizeMake(720, 960));
+                [originalImage drawInRect: CGRectMake(0, 0, 720, 960)];
+                UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+                UIGraphicsEndImageContext();
+                int y = squareImageStartY*2;
+                CGRect cropRect = CGRectMake(40, y, 640, 640);
+                imageRef = CGImageCreateWithImageInRect([smallImage CGImage], cropRect);
+                
+            }
+            theImageTake = [UIImage imageWithCGImage:imageRef];
+            [self pusingFunctionToSearchView];
+        }];
     }
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+
+- (void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        [self imagesavealertView];
+    }
+}
+
+#pragma mark AlerView
+
+- (void)cameralertview {
+    [ASAlertView alertWithTitle:ApplicationTitle message:@"Camera is not available..."];
+}
+- (void)imagesavealertView {
+    
+    [ASAlertView alertWithTitle:ApplicationTitle message:@"Failed to save image..."];
+    
 }
 
 @end

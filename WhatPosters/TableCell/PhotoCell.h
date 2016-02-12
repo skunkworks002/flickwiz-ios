@@ -1,4 +1,4 @@
-//
+ //
 //  PhotoCell.h
 //  Scorefolio
 //
@@ -11,5 +11,6 @@
 @interface PhotoCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageViewCell;
+@property (strong, nonatomic) IBOutlet UILabel *rankingLabel;
 
 @end
