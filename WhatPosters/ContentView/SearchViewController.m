@@ -46,9 +46,9 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"Search";
-    
-    
+    self.title = @"SearchView";
+    self.view.backgroundColor = [UIColor colorWithRed:44.0 / 255.0 green:42.f / 255.f blue:54.f / 255.f alpha:1];
+
     //Size's of imageView's diffetrnts ios screens
     NSInteger imageHightA = imageHight;
     NSInteger imageWeightA = imageWeight;
@@ -103,7 +103,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
         //for iphone 4 4s
         else {
             if (imageHightA <= 350 ) {
-                CGRect rect = CGRectMake(50,100,240,imageHightA);
+                CGRect rect = CGRectMake(50,80,220,imageHightA);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeCenter;
                 imageView.image = theImage;
@@ -117,6 +117,13 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
         }
     }
     [self.view addSubview:imageView];
+}
+
+#pragma mark NewPhotoButton
+
+- (IBAction)newPhotoButton:(id)sender{
+    MainViewController *nextView = [[MainViewController alloc] initWithNibName:@"MainViewController"bundle:[NSBundle mainBundle]];
+    [self.navigationController pushViewController:nextView animated:YES];
 }
 
 #pragma mark Search Poster Button
@@ -151,7 +158,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
     }];
 }
 
-#pragma mark function For Larg image Compress
+// function For Larg image Compress
 - (UIImage *)compressImage {
     CGSize newSize = CGSizeMake(600, 800);
     UIGraphicsBeginImageContext(newSize);// a CGSize that has the size you want

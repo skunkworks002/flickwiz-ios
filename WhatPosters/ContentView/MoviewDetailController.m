@@ -5,7 +5,6 @@
 //  Created by mac on 12/30/15.
 //  Copyright © 2015 Qazi. All rights reserved.
 //
-#define ApplicationTitle @"Flick Wiz"
 
 #import <UIKit/UIKit.h>
 #import <Social/Social.h>
@@ -20,9 +19,8 @@
 #import "MoviesPersonsDetailView.h"
 #import "MovieTypeDetailController.h"
 #import "SVProgressHUD.h"
-#import "CustomButtonCell.h"
 
-static const CGFloat cellSpacing = 20;
+#import "CustomButtonCell.h"
 
 static NSString *const  movieSubDetailUrl = @"http://52.5.222.145:9000/flickwiz/persondetail";
 static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flickwiz/genredetail";
@@ -51,14 +49,14 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Details";
+    self.title = @"Movie Details";
     index = 0;
     // Separate String by comma & create Array
     actornameExtractArray = [_selectedmovieMakers componentsSeparatedByString:@","];
     directrnameExtractArray = [_selectedmoviedirectorName componentsSeparatedByString:@","];
     writernameExtractArray1 = [_selectedmoviewriterName componentsSeparatedByString:@","];
     movietypenameExtractArray = [_selectedmovieType componentsSeparatedByString:@","];
-    self.tableView.backgroundColor = [UIColor whiteColor];
+    self.tableView.backgroundColor = [UIColor colorWithRed:44.0 / 255.0 green:42.f / 255.f blue:54.f / 255.f alpha:1];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,7 +68,7 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     switch (index) {
         case 0:
-            return 23;
+            return 25;
             break;
         default:
             break;
@@ -91,11 +89,10 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"PhotoCell" owner:self options:nil] objectAtIndex:0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.imageViewCell.image = selectedImage;
-                cell.rankingLabel.text = _selectedmovieRaking;
                 return  cell;
             }
             // For Lable Show
-            if ((indexPath.section == 1) || (indexPath.section == 2) || (indexPath.section == 3) || (indexPath.section == 7) || (indexPath.section == 11) ||  (indexPath.section == 15) || (indexPath.section == 19) || (indexPath.section == 21)) {
+            if ((indexPath.section == 1) || (indexPath.section == 2) || (indexPath.section == 3) || (indexPath.section == 7) || (indexPath.section == 11) || (indexPath.section == 12) || (indexPath.section == 13) || (indexPath.section == 17) || (indexPath.section == 21) || (indexPath.section == 23)) {
                 static NSString *CellIdentifier = @"LableCell";
                 LableCell *cell = (LableCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"LableCell" owner:self options:nil] objectAtIndex:0];
@@ -108,7 +105,7 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 }
                 if (indexPath.section == 2) {
                     cell.customLable.text = selectedMovieName;
-                    cell.customLable.frame = CGRectMake(20, 0, 270, 30);
+                    cell.customLable.frame = CGRectMake(30, 0, 270, 30);
                     return cell;
                 }
                 // Actor Names
@@ -125,31 +122,42 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 }
                 // Movie Ranking
                 if (indexPath.section == 11) {
-                    cell.customLable.text = @"Director Name";
+                    cell.customLable.text = @"Movie Ranking";
+                    [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
+                    return cell;
+                }
+                if (indexPath.section == 12) {
+                    cell.customLable.text = _selectedmovieRaking;
+                    cell.customLable.frame = CGRectMake(30, 0, 270, 30);
+                    return cell;
+                }
+                // Diractor Names
+                if (indexPath.section == 13) {
+                    cell.customLable.text =@"Diractor Name";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
                     return cell;
                 }
                 // Writer Names
-                if (indexPath.section == 15) {
+                if (indexPath.section == 17) {
                     cell.customLable.text =@"Writer Name";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
                     return cell;
                 }
                 // Description
-                if (indexPath.section == 19) {
+                if (indexPath.section == 21) {
                     cell.customLable.text =@"Movie Description";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
                     return cell;
                 }
                 // Share Options
-                if (indexPath.section == 21) {
+                if (indexPath.section == 23) {
                     cell.customLable.text =@"Share Options";
                     [cell.customLable setFont:[UIFont boldSystemFontOfSize:17]];
                     return cell;
                 }
                 return cell;
             }
-            if (indexPath.section == 20) {
+            if (indexPath.section == 22) {
                 static NSString *CellIdentifier = @"TextViewCell";
                 TextViewCell *cell = (TextViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"TextViewCell"owner:self options:nil] objectAtIndex:0];
@@ -157,7 +165,7 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.customTextView.text = _selectedmovieDescrption;
                 return cell;
             }
-            if (indexPath.section == 22) {
+            if (indexPath.section == 24) {
                 ButtonCell *cell = [self facebookAndTwitterButtonFunction:tableView];
                 [cell.faceBookButton addTarget:self action:@selector(facebookPostBtFunction) forControlEvents:UIControlEventTouchUpInside];
                 [cell.twitterButton addTarget:self action:@selector(twitterPostButtonFunction) forControlEvents:UIControlEventTouchUpInside];
@@ -169,7 +177,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell11.customButton.tag = indexPath.row;
                 NSString *actor1 = actornameExtractArray[0];
                 [cell11.customButton setTitle:actor1 forState:UIControlStateNormal];
-                
                 return cell11;
             }
             if (indexPath.section == 5) {
@@ -181,7 +188,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell2.customButton.tag = indexPath.row +1;
                 NSString *actor2 = actornameExtractArray[1];
                 [cell2.customButton setTitle:actor2 forState:UIControlStateNormal];
-                
                 return cell2;
             }
             if (indexPath.section == 6) {
@@ -193,7 +199,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.customButton.tag = indexPath.row +2;
                 NSString *actor3 = actornameExtractArray[2];
                 [cell.customButton setTitle:actor3 forState:UIControlStateNormal];
-                self.tableView.separatorColor = [UIColor lightGrayColor];
                 return cell;
             }
             // Movie Type Button + Actions
@@ -202,7 +207,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.customButton.tag = indexPath.row +3;
                 NSString *movieType = movietypenameExtractArray[0];
                 [cell.customButton setTitle:movieType forState:UIControlStateNormal];
-                
                 return cell;
             }
             if (indexPath.section == 9) {
@@ -214,7 +218,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 cell.customButton.tag = indexPath.row +4;
                 NSString *movieType = movietypenameExtractArray[1];
                 [cell.customButton setTitle:movieType forState:UIControlStateNormal];
-                
                 return cell;
             }
             if (indexPath.section == 10) {
@@ -229,15 +232,14 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 return cell;
             }
             // Diractor Names Buttons + Actions
-            if (indexPath.section == 12) {
+            if (indexPath.section == 14) {
                 CustomButtonCell *cell = [self customButtonFunction:tableView];
                 cell.customButton.tag = indexPath.row +6;
                 NSString *movieDiractor = directrnameExtractArray[0];
                 [cell.customButton setTitle:movieDiractor forState:UIControlStateNormal];
-                
                 return cell;
             }
-            if (indexPath.section == 13) {
+            if (indexPath.section == 15) {
                 CustomButtonCell *cell = [self customButtonFunction:tableView];
                 if ([directrnameExtractArray count] <= 1) {
                     cell.hidden = YES;
@@ -248,7 +250,7 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 [cell.customButton setTitle:movieDiractor forState:UIControlStateNormal];
                 return cell;
             }
-            if (indexPath.section == 14) {
+            if (indexPath.section == 16) {
                 CustomButtonCell *cell = [self customButtonFunction:tableView];
                 if ([directrnameExtractArray count] <= 2) {
                     cell.hidden = YES;
@@ -260,14 +262,14 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 return cell;
             }
             // Writer Names Button + Actions
-            if (indexPath.section == 16) {
+            if (indexPath.section == 18) {
                 CustomButtonCell *cell = [self customButtonFunction:tableView];
                 cell.customButton.tag = indexPath.row +9;
                 NSString *movieWriter = writernameExtractArray1[0];
                 [cell.customButton setTitle:movieWriter forState:UIControlStateNormal];
                 return cell;
             }
-            if (indexPath.section == 17) {
+            if (indexPath.section == 19) {
                 CustomButtonCell *cell = [self customButtonFunction:tableView];
                 if ([writernameExtractArray1 count] <= 1) {
                     cell.hidden = YES;
@@ -278,7 +280,7 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
                 [cell.customButton setTitle:movieWriter forState:UIControlStateNormal];
                 return cell;
             }
-            if (indexPath.section == 18) {
+            if (indexPath.section == 20) {
                 CustomButtonCell *cell = [self customButtonFunction:tableView];
                 if ([writernameExtractArray1 count] <= 2) {
                     cell.hidden = YES;
@@ -296,19 +298,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
     return nil;
 }
 
-
--(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return cellSpacing;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
-{
-    view.tintColor = [UIColor clearColor];
-}
-
-
-
 - (ButtonCell *)facebookAndTwitterButtonFunction:(UITableView *)tableView {
     static NSString *CellIdentifier = @"ButtonCell";
     ButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -322,9 +311,9 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
 - (CustomButtonCell *)customButtonFunction:(UITableView *)tableView {
     static NSString *CellIdentifier = @"CustomButtonCell";
     CustomButtonCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell = [[[NSBundle mainBundle] loadNibNamed:@"CustomButtonCell" owner:self options:nil] objectAtIndex:0];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    [cell.customButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"CustomButtonCell" owner:self options:nil] objectAtIndex:0];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.customButton addTarget:self action:@selector(movieResponse:)forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 
@@ -341,10 +330,10 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
     if (indexPath.section == 0) {
         return 250;
     }
-    if (indexPath.section == 20) {
+    if (indexPath.section == 22) {
         return 75;
     }
-    if(indexPath.section == 22){
+    if(indexPath.section == 24){
         return 50;
     }
     // code for nill index for Movie Type
@@ -370,23 +359,23 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
         }
     }
     // code for nill index for diractor
-    if (indexPath.section == 13) {
+    if (indexPath.section == 15) {
         if ([directrnameExtractArray count] <= 1) {
             return 0;
         }
     }
-    if (indexPath.section == 14) {
+    if (indexPath.section == 16) {
         if ([directrnameExtractArray count] <= 2) {
             return 0;
         }
     }
     // code for nill index for Writer
-    if (indexPath.section == 17) {
+    if (indexPath.section == 19) {
         if ([writernameExtractArray1 count] <= 1) {
             return 0;
         }
     }
-    if (indexPath.section == 18) {
+    if (indexPath.section == 20) {
         if ([writernameExtractArray1 count] <= 2) {
             return 0;
         }
@@ -410,7 +399,10 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
         [self presentViewController:tweetSheet animated:YES completion:nil];
     }
     else {
-        [self twitterAlertView];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Twitter" message:@"A Twitter account must be set up on your device. login within your device setting twitter account.." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 
@@ -426,7 +418,10 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
         [self presentViewController:fbookSheet animated:YES completion:nil];
     }
     else {
-        [self facebookAlertView];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FaceBook" message:@"A FaceBook account must be set up on your device. login within your device setting FaceBook account.." preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
     }
 }
 
@@ -455,18 +450,23 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
         NSMutableDictionary *responsJsonDic = responseObject;
         NSMutableArray *listSearch = [responsJsonDic objectForKey:@"names"];
         if ([listSearch count] == 0) {
-            [self alertView];
-            [SVProgressHUD dismiss];
-        }else {
-            MovieTypeDetailController *jsonResponseDetails2 = [MovieTypeDetailController new];
-            NSUserDefaults *jasonRes = [NSUserDefaults standardUserDefaults];
-            [jasonRes setObject:responsJsonDic forKey:@"responsJsonDic"];
-            [self.navigationController pushViewController:jsonResponseDetails2 animated:YES];
-            [SVProgressHUD dismiss];
-        }
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"List is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+        }        
+        MovieTypeDetailController *jsonResponseDetails2 = [MovieTypeDetailController new];
+        NSUserDefaults *jasonRes = [NSUserDefaults standardUserDefaults];
+        [jasonRes setObject:responsJsonDic forKey:@"responsJsonDic"];
+        [self.navigationController pushViewController:jsonResponseDetails2 animated:YES];
+        [SVProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-        [self alertView];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"Data is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
         [SVProgressHUD dismiss];
     }];
 }
@@ -515,11 +515,12 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
         NSString *actor2 = writernameExtractArray1[2];
         myname = actor2;
     }
+    // NSString *myname = @"EmilioFernándezRomo";
     NSDictionary *parameters =  @{@"personName":myname};
     manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [SVProgressHUD show];
-    [manager GET:movieSubDetailUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [SVProgressHUD show];
+        [manager GET:movieSubDetailUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *jsonResponseDetails = responseObject;
         MoviesPersonsDetailView *moviesPersonDetails = [MoviesPersonsDetailView new];
         moviesPersonDetails.jsonResponsDic = jsonResponseDetails;
@@ -527,28 +528,12 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
         [SVProgressHUD dismiss];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
-        [self alertView];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"FlickWiz" message:@"Data is not Avilable" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController animated:YES completion:nil];
         [SVProgressHUD dismiss];
     }];
 }
 
-
-
-#pragma mark AlertView
-
-- (void)alertView {
-    [ASAlertView alertWithTitle:ApplicationTitle message:@"Data is not available..."];
-}
-
-- (void)facebookAlertView {
-    
-    [ASAlertView alertWithTitle:ApplicationTitle message:@"A FaceBook account must be set up on your device. login within your device setting FaceBook account.."];
-    
-}
-
-- (void)twitterAlertView {
-    
-    [ASAlertView alertWithTitle:ApplicationTitle message:@"A Twitter account must be set up on your device. login within your device setting twitter account.."];
-    
-}
 @end

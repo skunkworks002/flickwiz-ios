@@ -59,7 +59,7 @@ static const CGFloat cellSpacing = 20;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Matches";
+    self.title = @"Best Matches";
     // Array init
     moviedateArray = [NSMutableArray array];
     movietypeListArray = [NSMutableArray array];
@@ -70,7 +70,9 @@ static const CGFloat cellSpacing = 20;
     moviedirectorListArray = [NSMutableArray array];
     moviedetailpathListArray = [NSMutableArray array];
     [self callingFunctionAllLoops];
-    self.tableView.backgroundColor = [UIColor lightGrayColor];
+
+   self.tableView.backgroundColor = [UIColor colorWithRed:44.0 / 255.0 green:42.f / 255.f blue:54.f / 255.f alpha:1];
+    self.tableView.separatorColor = [UIColor clearColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,7 +83,7 @@ static const CGFloat cellSpacing = 20;
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // return [imagesUrlArray count];
+   // return [imagesUrlArray count];
     return 1;
 }
 
@@ -100,8 +102,9 @@ static const CGFloat cellSpacing = 20;
     [cell.movieImages setImage:imagesData];
     cell.movienameLabel.text = [movienameArray objectAtIndex:indexPath.row];
     cell.movieDateLabel.text = [moviedateArray objectAtIndex:indexPath.row];
-    cell.movieImages.backgroundColor=[UIColor whiteColor];
+    cell.movieImages.layer.backgroundColor=[[UIColor clearColor] CGColor];
     cell.movieImages.layer.masksToBounds = YES;
+    cell.movieImages.layer.borderColor=[[UIColor grayColor] CGColor];
     return cell;
 }
 

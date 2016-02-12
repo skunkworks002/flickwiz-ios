@@ -5,14 +5,12 @@
 //  Created by mac on 11/27/15.
 //  Copyright © 2015 Xululabs. All rights reserved.
 //
-#define ApplicationTitle @"Flick Wiz"
 
 #import "MainViewController.h"
 #import "SearchViewController.h"
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <QuartzCore/QuartzCore.h>
 #import "PECropViewController.h"
-#import "ASAlertView.h"
 
 @interface MainViewController () < UIImagePickerControllerDelegate, UINavigationControllerDelegate,PECropViewControllerDelegate >
 {
@@ -25,10 +23,6 @@
     NSString *actulimageNameString;
     NSString *imageExentionString;
     NSUserDefaults *imageDef;
-<<<<<<< Updated upstream
-    UIBarButtonItem *editButton;
-=======
->>>>>>> Stashed changes
     NSDictionary *imageInfo;
 }
 @property (nonatomic, retain) UIImage *theImageTake;
@@ -48,12 +42,10 @@
     
     editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(openEditor:)];
     self.navigationItem.rightBarButtonItem.enabled=NO;
-<<<<<<< Updated upstream
-=======
     //background image on view
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"background.jpg"]]];
->>>>>>> Stashed changes
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -66,12 +58,12 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [self updateEditButtonEnabled];
     }
-    [self pusingFunctionToSearchView];
-    [controller dismissViewControllerAnimated:YES completion:NULL];
+         [self pusingFunctionToSearchView];
+        [controller dismissViewControllerAnimated:YES completion:NULL];
 }
 
 -(void)pusingFunctionToSearchView {
-    
+
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [self updateEditButtonEnabled];
     }
@@ -90,9 +82,9 @@
         CGFloat imageWeightB = myResultImage.size.width;
         searchController.imageHight = imageHightB;
         searchController.imageWeight = imageWeightB;
-        searchController.theImage = myResultImage;
+        searchController.theImage = myResultImage;    
     }
-    [self.navigationController pushViewController:searchController animated:YES];
+    return [self.navigationController pushViewController:searchController animated:YES];
 }
 - (void)cropViewControllerDidCancel:(PECropViewController *)controller {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -147,24 +139,6 @@
 #pragma mark - Photo Methodes -
 
 - (void)didTakePhoto {
-<<<<<<< Updated upstream
-    
-    if ([self isCameraAvailable] && [self doesCameraSupportTakingPhotos]) {
-        
-        UIImagePickerController *controller = [[UIImagePickerController alloc] init];
-        controller.sourceType = UIImagePickerControllerSourceTypeCamera;
-        
-        NSString *requiredMediaType = (__bridge NSString *)kUTTypeImage;
-        controller.mediaTypes = [[NSArray alloc]
-                                 initWithObjects:requiredMediaType, nil];
-        controller.allowsEditing = YES;
-        controller.delegate = self;
-        
-        [self presentViewController:controller animated:YES completion:nil];
-        
-    } else {
-        [self cameralertview];
-=======
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIImagePickerController *controller = [[UIImagePickerController alloc] init];
         controller.delegate = self;
@@ -210,14 +184,12 @@
         else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done" message:@"Camera is not available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
         [alert show];
->>>>>>> Stashed changes
     }
 }
 
 - (BOOL)isCameraAvailable {
     return [UIImagePickerController isSourceTypeAvailable:
             UIImagePickerControllerSourceTypeCamera];
-    
 }
 
 - (BOOL)doesCameraSupportTakingPhotos {
@@ -229,6 +201,7 @@
                  sourceType:(UIImagePickerControllerSourceType)paramSourceType {
     __block BOOL result = NO;
     if ([paramMediaType length] == 0){
+        NSLog(@"Media type is empty.");
         return NO;
     }
     NSArray *availableMediaTypes =
@@ -240,7 +213,6 @@
          if ([mediaType isEqualToString:paramMediaType]){
              result = YES;
              *stop= YES;
-             
          }
      }];
     return result;
@@ -303,23 +275,18 @@
 - (void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
     if (error) {
-        [self imagesavealertView];
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
     }
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark AlerView
-
-- (void)cameralertview {
-    [ASAlertView alertWithTitle:ApplicationTitle message:@"Camera is not available..."];
-}
-- (void)imagesavealertView {
-    
-    [ASAlertView alertWithTitle:ApplicationTitle message:@"Failed to save image..."];
-    
 }
 
 @end
