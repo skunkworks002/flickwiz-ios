@@ -75,13 +75,11 @@ static const CGFloat cellSpacing = 20;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // return [imagesUrlArray count];
     return 1;
 }
 
@@ -106,8 +104,6 @@ static const CGFloat cellSpacing = 20;
 }
 
 #pragma mark - Table view delegate
-
-// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MoviewDetailController *moviedetailView = [MoviewDetailController new];

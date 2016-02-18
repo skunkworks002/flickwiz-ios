@@ -9,10 +9,12 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "SearchViewController.h"
+#import "IndicatorView.h"
 
 @interface AppDelegate ()
 
 @end
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

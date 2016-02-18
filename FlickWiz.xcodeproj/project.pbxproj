@@ -56,8 +56,6 @@
 		704B8D361C087BA5006257E9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704B8D331C087BA5006257E9 /* MainViewController.xib */; };
 		704B8D371C087BA5006257E9 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8D341C087BA5006257E9 /* SearchViewController.m */; };
 		704B8D3A1C087BB1006257E9 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704B8D391C087BB1006257E9 /* SearchViewController.xib */; };
-		7073140A1C58C88300480294 /* fw.png in Resources */ = {isa = PBXBuildFile; fileRef = 707314091C58C88300480294 /* fw.png */; };
-		7073140C1C58CB4C00480294 /* 180x180.png in Resources */ = {isa = PBXBuildFile; fileRef = 7073140B1C58CB4C00480294 /* 180x180.png */; };
 		7089C51C1C0DA50100B14779 /* ASAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7089C50F1C0DA50100B14779 /* ASAlertView.m */; };
 		7094B1191C0EDAD800BF2AAF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7094B1181C0EDAD800BF2AAF /* QuartzCore.framework */; };
 		70E681561C6B96B100401D71 /* capture_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 70E681531C6B96B100401D71 /* capture_button@2x.png */; };
@@ -188,8 +186,6 @@
 		704B8D341C087BA5006257E9 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		704B8D381C087BB1006257E9 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		704B8D391C087BB1006257E9 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		707314091C58C88300480294 /* fw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fw.png; sourceTree = "<group>"; };
-		7073140B1C58CB4C00480294 /* 180x180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 180x180.png; sourceTree = "<group>"; };
 		7089C50E1C0DA50100B14779 /* ASAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASAlertView.h; sourceTree = "<group>"; };
 		7089C50F1C0DA50100B14779 /* ASAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASAlertView.m; sourceTree = "<group>"; };
 		7094B1181C0EDAD800BF2AAF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -449,8 +445,6 @@
 				70E681531C6B96B100401D71 /* capture_button@2x.png */,
 				70E681541C6B96B100401D71 /* focusIndicator.png */,
 				70E681551C6B96B100401D71 /* focusIndicator@2x.png */,
-				7073140B1C58CB4C00480294 /* 180x180.png */,
-				707314091C58C88300480294 /* fw.png */,
 				04264CE41C4520980078FA4D /* No_Image_Available.png */,
 				04D91C6B1C219342001DCF32 /* animation_mob.gif */,
 				70344D191C216B3300E5AD1A /* logo_update.png */,
@@ -679,7 +673,6 @@
 				TargetAttributes = {
 					704B8CCB1C082A6F006257E9 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = PXWQXF66ZU;
 					};
 					704B8CE41C082A6F006257E9 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -717,7 +710,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3F16DA81C6DE60F006032EE /* CameraShot.png in Resources */,
-				7073140A1C58C88300480294 /* fw.png in Resources */,
 				7006BE491C6CC0830022BE69 /* 6s.jpg in Resources */,
 				70E681561C6B96B100401D71 /* capture_button@2x.png in Resources */,
 				70344D181C21668800E5AD1A /* 2.png in Resources */,
@@ -740,7 +732,6 @@
 				70344D141C21464D00E5AD1A /* ph.png in Resources */,
 				7006BE481C6CC0830022BE69 /* 6plus.jpg in Resources */,
 				704B8D0D1C082E80006257E9 /* MovieCell.xib in Resources */,
-				7073140C1C58CB4C00480294 /* 180x180.png in Resources */,
 				7006BE471C6CC0830022BE69 /* 5s.jpg in Resources */,
 				D3FE009A1C69B0D5006BFFEA /* SVProgressHUD.bundle in Resources */,
 				70344D0E1C21439700E5AD1A /* background.jpg in Resources */,
@@ -905,7 +896,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -942,7 +933,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -956,7 +947,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhatPosters/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FlickWiz1;
 				PRODUCT_NAME = FlickWiz;
@@ -971,7 +962,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = WhatPosters/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = FlickWiz1;
 				PRODUCT_NAME = FlickWiz;

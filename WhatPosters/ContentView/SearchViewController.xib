@@ -16,26 +16,19 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" id="l6q-TG-Ntc">
-                    <rect key="frame" x="25" y="391" width="270" height="70"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Klf-rU-Nlg">
-                            <rect key="frame" x="0.0" y="36" width="270" height="34"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.9137254901960784" green="0.14117647058823529" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <state key="normal" title="Processing"/>
-                            <connections>
-                                <action selector="searchButton:" destination="-1" eventType="touchUpInside" id="d9Z-0I-83Z"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
-                <view contentMode="scaleToFill" id="Wjp-A5-uiG">
-                    <rect key="frame" x="25" y="90" width="270" height="330"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Klf-rU-Nlg">
+                    <rect key="frame" x="33" y="457" width="254" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" red="0.9137254901960784" green="0.14117647058823529" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <state key="normal" title="Processing"/>
+                    <connections>
+                        <action selector="searchButton:" destination="-1" eventType="touchUpInside" id="d9Z-0I-83Z"/>
+                    </connections>
+                </button>
+                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" id="Wjp-A5-uiG">
+                    <rect key="frame" x="61" y="145" width="198" height="289"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                 </view>
             </subviews>

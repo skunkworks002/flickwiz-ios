@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Detail";
     self.tableView.backgroundColor = [UIColor whiteColor];
     //Main json result
     myJsonResult = jsonResponsDic;
@@ -63,6 +64,8 @@
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"PhotoCell" owner:self options:nil] objectAtIndex:0];
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 cell.rankingLabel.hidden = YES;
+                cell.fullrankinglabel.hidden = YES;
+                cell.starLabel.hidden = YES;
                 NSString *imageUrlString = personNameDetailArray[2];
                 imageData =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:imageUrlString]]];
                 if ([imageData isEqual:@"no image available"] || imageData == nil) {

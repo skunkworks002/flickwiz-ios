@@ -42,7 +42,6 @@
     [super viewDidLoad];
     
     self.title = @"Main View";
-    
     editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(openEditor:)];
     self.navigationItem.rightBarButtonItem.enabled=NO;
 }
