@@ -44,8 +44,6 @@
 		704B8CDF1C082A6F006257E9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 704B8CDD1C082A6F006257E9 /* LaunchScreen.storyboard */; };
 		704B8CEA1C082A6F006257E9 /* WhatPostersTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8CE91C082A6F006257E9 /* WhatPostersTests.m */; };
 		704B8CF51C082A6F006257E9 /* WhatPostersUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8CF41C082A6F006257E9 /* WhatPostersUITests.m */; };
-		704B8D061C082B1A006257E9 /* SeacrhResults.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8D041C082B1A006257E9 /* SeacrhResults.m */; };
-		704B8D071C082B1A006257E9 /* SeacrhResults.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704B8D051C082B1A006257E9 /* SeacrhResults.xib */; };
 		704B8D0C1C082E80006257E9 /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 704B8D0A1C082E80006257E9 /* MovieCell.m */; };
 		704B8D0D1C082E80006257E9 /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 704B8D0B1C082E80006257E9 /* MovieCell.xib */; };
 		704B8D2A1C086F9A006257E9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 704B8D291C086F9A006257E9 /* MobileCoreServices.framework */; };
@@ -65,6 +63,8 @@
 		70E7A83C1C6CA46F00FE6F36 /* bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 70E7A83B1C6CA46F00FE6F36 /* bg.jpg */; };
 		D3BA0FF11C636A5E00C533FB /* CustomButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3BA0FEF1C636A5E00C533FB /* CustomButtonCell.m */; };
 		D3BA0FF21C636A5E00C533FB /* CustomButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3BA0FF01C636A5E00C533FB /* CustomButtonCell.xib */; };
+		D3EF26D21C773E7200F612FD /* SearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = D3EF26D01C773E7200F612FD /* SearchResult.m */; };
+		D3EF26D31C773E7200F612FD /* SearchResult.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EF26D11C773E7200F612FD /* SearchResult.xib */; };
 		D3F16DA71C6DE60F006032EE /* CameraClose.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F16DA41C6DE60F006032EE /* CameraClose.png */; };
 		D3F16DA81C6DE60F006032EE /* CameraShot.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F16DA51C6DE60F006032EE /* CameraShot.png */; };
 		D3F16DA91C6DE60F006032EE /* overlaygraphic.png in Resources */ = {isa = PBXBuildFile; fileRef = D3F16DA61C6DE60F006032EE /* overlaygraphic.png */; };
@@ -170,9 +170,6 @@
 		704B8CF01C082A6F006257E9 /* FlickWiz.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickWiz.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		704B8CF41C082A6F006257E9 /* WhatPostersUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhatPostersUITests.m; sourceTree = "<group>"; };
 		704B8CF61C082A6F006257E9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		704B8D031C082B1A006257E9 /* SeacrhResults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeacrhResults.h; sourceTree = "<group>"; };
-		704B8D041C082B1A006257E9 /* SeacrhResults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeacrhResults.m; sourceTree = "<group>"; };
-		704B8D051C082B1A006257E9 /* SeacrhResults.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SeacrhResults.xib; sourceTree = "<group>"; };
 		704B8D091C082E80006257E9 /* MovieCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieCell.h; sourceTree = "<group>"; };
 		704B8D0A1C082E80006257E9 /* MovieCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieCell.m; sourceTree = "<group>"; };
 		704B8D0B1C082E80006257E9 /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
@@ -197,6 +194,9 @@
 		D3BA0FEE1C636A5E00C533FB /* CustomButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomButtonCell.h; sourceTree = "<group>"; };
 		D3BA0FEF1C636A5E00C533FB /* CustomButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomButtonCell.m; sourceTree = "<group>"; };
 		D3BA0FF01C636A5E00C533FB /* CustomButtonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomButtonCell.xib; sourceTree = "<group>"; };
+		D3EF26CF1C773E7200F612FD /* SearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResult.h; sourceTree = "<group>"; };
+		D3EF26D01C773E7200F612FD /* SearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResult.m; sourceTree = "<group>"; };
+		D3EF26D11C773E7200F612FD /* SearchResult.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResult.xib; sourceTree = "<group>"; };
 		D3F16DA41C6DE60F006032EE /* CameraClose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraClose.png; sourceTree = "<group>"; };
 		D3F16DA51C6DE60F006032EE /* CameraShot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraShot.png; sourceTree = "<group>"; };
 		D3F16DA61C6DE60F006032EE /* overlaygraphic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overlaygraphic.png; sourceTree = "<group>"; };
@@ -375,9 +375,9 @@
 				704B8D381C087BB1006257E9 /* SearchViewController.h */,
 				704B8D341C087BA5006257E9 /* SearchViewController.m */,
 				704B8D391C087BB1006257E9 /* SearchViewController.xib */,
-				704B8D031C082B1A006257E9 /* SeacrhResults.h */,
-				704B8D041C082B1A006257E9 /* SeacrhResults.m */,
-				704B8D051C082B1A006257E9 /* SeacrhResults.xib */,
+				D3EF26CF1C773E7200F612FD /* SearchResult.h */,
+				D3EF26D01C773E7200F612FD /* SearchResult.m */,
+				D3EF26D11C773E7200F612FD /* SearchResult.xib */,
 				04E043CB1C33AEC00042AB88 /* MoviewDetailController.h */,
 				04E043CC1C33AEC00042AB88 /* MoviewDetailController.m */,
 				04E043CD1C33AEC00042AB88 /* MoviewDetailController.xib */,
@@ -724,7 +724,6 @@
 				04E043DC1C33AFF80042AB88 /* PhotoCell.xib in Resources */,
 				70E681581C6B96B100401D71 /* focusIndicator@2x.png in Resources */,
 				70E681571C6B96B100401D71 /* focusIndicator.png in Resources */,
-				704B8D071C082B1A006257E9 /* SeacrhResults.xib in Resources */,
 				04264CE31C44E6780078FA4D /* MoviesPersonsDetailView.xib in Resources */,
 				D3F16DA71C6DE60F006032EE /* CameraClose.png in Resources */,
 				04E043DA1C33AFF80042AB88 /* LableCell.xib in Resources */,
@@ -734,6 +733,7 @@
 				704B8D0D1C082E80006257E9 /* MovieCell.xib in Resources */,
 				7006BE471C6CC0830022BE69 /* 5s.jpg in Resources */,
 				D3FE009A1C69B0D5006BFFEA /* SVProgressHUD.bundle in Resources */,
+				D3EF26D31C773E7200F612FD /* SearchResult.xib in Resources */,
 				70344D0E1C21439700E5AD1A /* background.jpg in Resources */,
 				04ADC0051C4CF0530024AD7B /* MovieTypeDetailController.xib in Resources */,
 				70344D1A1C216B3300E5AD1A /* logo_update.png in Resources */,
@@ -772,6 +772,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3EF26D21C773E7200F612FD /* SearchResult.m in Sources */,
 				D3FE00931C69B0D5006BFFEA /* UIImage+PECrop.m in Sources */,
 				D3FE00861C69B0D5006BFFEA /* AFURLSessionManager.m in Sources */,
 				D3FE00921C69B0D5006BFFEA /* PEResizeControl.m in Sources */,
@@ -797,7 +798,6 @@
 				0423AB491C1A9AD600D61910 /* Base64.m in Sources */,
 				D3FE007F1C69B0D5006BFFEA /* AFHTTPRequestOperationManager.m in Sources */,
 				04ADC0041C4CF0530024AD7B /* MovieTypeDetailController.m in Sources */,
-				704B8D061C082B1A006257E9 /* SeacrhResults.m in Sources */,
 				D3FE00891C69B0D5006BFFEA /* UIAlertView+AFNetworking.m in Sources */,
 				D3FE00901C69B0D5006BFFEA /* PECropView.m in Sources */,
 				704B8D0C1C082E80006257E9 /* MovieCell.m in Sources */,

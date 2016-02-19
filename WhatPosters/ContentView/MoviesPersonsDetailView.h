@@ -10,6 +10,8 @@
 
 @interface MoviesPersonsDetailView : UITableViewController
 
+@property (nonatomic, weak) NSString *titleName;
+
 @property (strong, nonatomic) NSDictionary *jsonResponsDic;
 
 @end

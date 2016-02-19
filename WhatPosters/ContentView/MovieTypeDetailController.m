@@ -9,7 +9,7 @@
 #import "MovieTypeDetailController.h"
 #import "MovieCell.h"
 static const CGFloat cellHeight = 90;
-static const CGFloat cellSpacing = 20;
+static const CGFloat cellSpacing = 0;
 
 @interface MovieTypeDetailController ()<UIAlertViewDelegate> {
     // NSStrings

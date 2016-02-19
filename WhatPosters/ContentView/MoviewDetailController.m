@@ -49,7 +49,7 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Details";
+    self.title = @"Movie Detail";
     index = 0;
     // Separate String by comma & create Array
     actornameExtractArray = [_selectedmovieMakers componentsSeparatedByString:@","];
@@ -462,44 +462,57 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
 -(void)movieResponse:(UIButton*)sender {
     NSInteger abcd = sender.tag;;
     NSString *myname;
+    NSString *titleNameSend;
     // For Actor Button Click
     if (abcd == 0) {
         NSString *actor1 = actornameExtractArray[0];
         myname = actor1;
+        titleNameSend = @"Actor Detail";
     }
     else if (abcd == 1){
         NSString *actor2 = actornameExtractArray[1];
         myname = actor2;
+        titleNameSend = @"Actor Detail";
+
     }
     else if (abcd == 2){
         NSString *actor2 = actornameExtractArray[2];
         myname = actor2;
+        titleNameSend = @"Actor Detail";
+
     }
     // Diractor Name Button Click
     else if (abcd == 6){
         NSString *actor2 = directrnameExtractArray[0];
         myname = actor2;
+        titleNameSend = @"Director Detail";
+
     }
     else if (abcd == 7){
         NSString *actor2 = directrnameExtractArray[1];
         myname = actor2;
+        titleNameSend = @"Director Detail";
     }
     else if (abcd == 8){
         NSString *actor2 = directrnameExtractArray[2];
         myname = actor2;
+        titleNameSend = @"Director Detail";
     }
     // Writer Names Button Click
     else if (abcd == 9){
         NSString *actor2 = writernameExtractArray1[0];
         myname = actor2;
+        titleNameSend = @"Writer Detail";
     }
     else if (abcd == 10){
         NSString *actor2 = writernameExtractArray1[1];
         myname = actor2;
+        titleNameSend = @"Writer Detail";
     }
     else if (abcd == 11){
         NSString *actor2 = writernameExtractArray1[2];
         myname = actor2;
+        titleNameSend = @"Writer Detail";
     }
     NSDictionary *parameters =  @{@"personName":myname};
     manager = [AFHTTPRequestOperationManager manager];
@@ -508,6 +521,7 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
     [manager GET:movieSubDetailUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *jsonResponseDetails = responseObject;
         MoviesPersonsDetailView *moviesPersonDetails = [MoviesPersonsDetailView new];
+        moviesPersonDetails.titleName = titleNameSend;
         moviesPersonDetails.jsonResponsDic = jsonResponseDetails;
         [self.navigationController pushViewController:moviesPersonDetails animated:YES];
         [SVProgressHUD dismiss];
@@ -517,7 +531,6 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
         [SVProgressHUD dismiss];
     }];
 }
-
 
 
 #pragma mark AlertView

@@ -1,21 +1,20 @@
+
 //
-//SeacrhResults.m
-//  WhatPosters
+//  SearchResult.m
+//  FlickWiz
 //
-//  Created by Qazi on 27/11/2015.
-//  Copyright © 2015 Qazi. All rights reserved.
+//  Created by Qazi on 16/02/2016.
+//  Copyright © 2016 Qazi. All rights reserved.
 //
 
-#import "SeacrhResults.h"
+#import "SearchResult.h"
 #import "MovieCell.h"
 #import "MoviewDetailController.h"
+#import "MainViewController.h"
+static const CGFloat cellHeight = 100;
+static const CGFloat cellSpacing = 0;
 
-static const CGFloat cellHeight = 90;
-static const CGFloat cellSpacing = 20;
-
-
-@interface SeacrhResults () {
-    // NSStrings
+@interface SearchResult ()<UITableViewDataSource,UITableViewDelegate> {
     NSString *datePick;
     NSString *Datestring2;
     NSString *movieName;
@@ -54,13 +53,13 @@ static const CGFloat cellSpacing = 20;
 }
 @end
 
-@implementation SeacrhResults
-@synthesize jsonResponsDic;
+@implementation SearchResult
+@synthesize jsonResponsDic,QueryimageView;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Matches";
-    // Array init
+    self.title = @"Best Matches";
     moviedateArray = [NSMutableArray array];
     movietypeListArray = [NSMutableArray array];
     moviedecListArray = [NSMutableArray array];
@@ -69,12 +68,10 @@ static const CGFloat cellSpacing = 20;
     moviewriterListArray = [NSMutableArray array];
     moviedirectorListArray = [NSMutableArray array];
     moviedetailpathListArray = [NSMutableArray array];
+    self.QueryimageView.image = _selectedImage1;
     [self callingFunctionAllLoops];
-    self.tableView.backgroundColor = [UIColor lightGrayColor];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    
+    // Do any additional setup after loading the view from its nib.
 }
 
 #pragma mark - Table view data source
@@ -83,7 +80,7 @@ static const CGFloat cellSpacing = 20;
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UIView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [imagesUrlArray count];
 }
 
@@ -98,7 +95,7 @@ static const CGFloat cellSpacing = 20;
     [cell.movieImages setImage:imagesData];
     cell.movienameLabel.text = [movienameArray objectAtIndex:indexPath.row];
     cell.movieDateLabel.text = [moviedateArray objectAtIndex:indexPath.row];
-    cell.movieImages.backgroundColor=[UIColor whiteColor];
+    //cell.movieImages.backgroundColor=[UIColor whiteColor];
     cell.movieImages.layer.masksToBounds = YES;
     return cell;
 }
@@ -144,7 +141,6 @@ static const CGFloat cellSpacing = 20;
 {
     view.tintColor = [UIColor clearColor];
 }
-
 
 -(void)callingFunctionAllLoops {
     // json result
@@ -202,5 +198,20 @@ static const CGFloat cellSpacing = 20;
         [movierakingListArray addObject:movierakingString];
     }
 }
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

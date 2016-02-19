@@ -23,10 +23,12 @@
 
 @implementation MoviesPersonsDetailView
 @synthesize jsonResponsDic;
+@synthesize titleName;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Detail";
+    self.title = titleName;
+    
     self.tableView.backgroundColor = [UIColor whiteColor];
     //Main json result
     myJsonResult = jsonResponsDic;

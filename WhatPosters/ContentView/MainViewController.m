@@ -49,20 +49,7 @@
     [super didReceiveMemoryWarning];
 }
 
-#pragma mark - PECropViewControllerDelegate methods
-
-- (void)cropViewController:(PECropViewController *)controller didFinishCroppingImage:(UIImage *)croppedImage transform:(CGAffineTransform)transform cropRect:(CGRect)cropRect
-{
-    theImageTake = croppedImage;
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [self updateEditButtonEnabled];
-    }
-    [self pusingFunctionToSearchView];
-    [controller dismissViewControllerAnimated:YES completion:NULL];
-}
-
 -(void)pusingFunctionToSearchView {
-    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [self updateEditButtonEnabled];
     }
@@ -82,52 +69,22 @@
         searchController.imageHight = imageHightB;
         searchController.imageWeight = imageWeightB;
         searchController.theImage = myResultImage;
+
     }
     [self.navigationController pushViewController:searchController animated:YES];
-}
-- (void)cropViewControllerDidCancel:(PECropViewController *)controller {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [self updateEditButtonEnabled];
-    }
-    [controller dismissViewControllerAnimated:YES completion:NULL];
-    [self pusingFunctionToSearchView];
 }
 
 #pragma mark - Action methods
 
-- (void)openEditor:(id)sender {
-    PECropViewController *controller = [[PECropViewController alloc] init];
-    controller.delegate = self;
-    controller.image = theImageTake;
-    UIImage *image = theImageTake;
-    CGFloat width = image.size.width;
-    CGFloat height = image.size.height;
-    CGFloat length = MIN(width, height);
-    controller.imageCropRect = CGRectMake((width - length) / 2,
-                                          (height - length) / 2,
-                                          length,
-                                          length);
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:controller];
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        navigationController.modalPresentationStyle = UIModalPresentationFormSheet;
-    }
-    [self presentViewController:navigationController animated:YES completion:NULL];
-}
-
-- (void)updateEditButtonEnabled
-{
+- (void)updateEditButtonEnabled {
     editButton.enabled = !!theImageTake;
 }
-
-#pragma mark - Button Action Methodes takeCameraPhoto  -
 
 - (IBAction)takeCameraPhoto:(UIButton *)sender {
     UIButton *localButton = (UIButton *)sender;
     buttonTag = localButton.tag;
     [self didTakePhoto];
 }
-
-#pragma mark - Button Action Methodes takeGallaryPhoto -
 
 - (IBAction)takeGallaryPhoto:(UIButton *)sender{
     UIButton *localButton = (UIButton *)sender;
@@ -137,48 +94,12 @@
 
 #pragma mark - Photo Methodes -
 
-
 - (void)didTakePhoto {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         UIImagePickerController *controller = [[UIImagePickerController alloc] init];
         controller.delegate = self;
         controller.sourceType = UIImagePickerControllerSourceTypeCamera;
-        controller.showsCameraControls = NO;
-        squareImageStartY = 400 - 320;
-        // Top View In Camera
-        UIView *topView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, squareImageStartY)];
-        UIImageView  *logoImage = [[UIImageView alloc] initWithFrame:CGRectMake(20, 10, 280, 60)];
-        logoImage.image = [UIImage imageNamed:@"logo.png"];
-        logoImage.contentMode = UIViewContentModeScaleToFill;
-        [topView addSubview:logoImage];
-        [controller.cameraOverlayView addSubview:topView];
-        topView.backgroundColor = [UIColor blackColor];
-        int y = topView.frame.origin.y +topView.frame.size.height + 320;
-        // Bottom View In Camera
-        UIView *bottomView = [[UIView alloc] initWithFrame:CGRectMake(0, y, 320, [UIScreen mainScreen].bounds.size.height - y)];
-        bottomView.backgroundColor = [UIColor blackColor];
-        [controller.cameraOverlayView addSubview:bottomView];
-        CGRect rect = CGRectMake(0.0f,80.0f,320,320);
-        UIImageView  *overlayView = [[UIImageView alloc] initWithFrame:rect];
-        UIImage *image = [UIImage imageNamed:@"overlaygraphic.png"];
-        overlayView.image = image;
-        overlayView.contentMode = UIViewContentModeScaleToFill;
-        overlayView.autoresizingMask =
-        UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        overlayView.alpha = 0.5;
-        [controller.cameraOverlayView addSubview:overlayView];
-        // cancelCameraButton
-        UIButton *cancelCameraBut = [[UIButton alloc] initWithFrame:CGRectMake(160-120,bottomView.frame.size.height/2 - 10, 30, 30)];
-        [cancelCameraBut setBackgroundImage:[UIImage imageNamed:@"CameraClose.png"] forState:UIControlStateNormal];
-        [cancelCameraBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [cancelCameraBut addTarget:controller action:@selector(dismissModalViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
-        [bottomView addSubview:cancelCameraBut];
-        // TakePhotoButton
-        UIButton *takePhotoBut = [[UIButton alloc] initWithFrame:CGRectMake(160-40,bottomView.frame.size.height/2 - 25, 80, 80)];
-        [takePhotoBut setBackgroundImage:[UIImage imageNamed:@"CameraShot.png"] forState:UIControlStateNormal];
-        [takePhotoBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [takePhotoBut addTarget:controller action:@selector(takePicture) forControlEvents:UIControlEventTouchUpInside];
-        [bottomView addSubview:takePhotoBut];
+        controller.showsCameraControls = YES;
         [self presentViewController:controller animated:YES completion:nil];
     }
     else {
@@ -241,34 +162,12 @@
     if (buttonTag == 100) {
         theImageTake = originalImage;
         [picker dismissViewControllerAnimated:YES completion:^{
-            [self openEditor:nil];
+            [self pusingFunctionToSearchView];
         }];
     }
     else {
         [picker dismissViewControllerAnimated:YES completion:^{
-            CGImageRef imageRef = nil;
-            if([UIScreen mainScreen].bounds.size.height > 480)
-            {
-                UIGraphicsBeginImageContext(CGSizeMake(640, 852));
-                [originalImage drawInRect: CGRectMake(0, 0, 640, 852)];
-                UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                int y = squareImageStartY*2;
-                CGRect cropRect = CGRectMake(0, y, 640, 640);
-                imageRef = CGImageCreateWithImageInRect([smallImage CGImage], cropRect);
-            }
-            else
-            {
-                UIGraphicsBeginImageContext(CGSizeMake(720, 960));
-                [originalImage drawInRect: CGRectMake(0, 0, 720, 960)];
-                UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-                int y = squareImageStartY*2;
-                CGRect cropRect = CGRectMake(40, y, 640, 640);
-                imageRef = CGImageCreateWithImageInRect([smallImage CGImage], cropRect);
-                
-            }
-            theImageTake = [UIImage imageWithCGImage:imageRef];
+            theImageTake = originalImage;
             [self pusingFunctionToSearchView];
         }];
     }
@@ -277,8 +176,6 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
 
 - (void)image:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
 {
@@ -293,9 +190,7 @@
     [ASAlertView alertWithTitle:ApplicationTitle message:@"Camera is not available..."];
 }
 - (void)imagesavealertView {
-    
     [ASAlertView alertWithTitle:ApplicationTitle message:@"Failed to save image..."];
-    
 }
 
 @end

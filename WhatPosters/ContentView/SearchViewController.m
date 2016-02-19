@@ -7,7 +7,7 @@
 //
 #import "SearchViewController.h"
 #import "MainViewController.h"
-#import "SeacrhResults.h"
+#import "SearchResult.h"
 #import "SVProgressHUD.h"
 #import "AFNetworking.h"
 #import "AppDelegate.h"
@@ -32,7 +32,6 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 }
 @property (nonatomic,strong) IndicatorView *indicator;
 @property (strong, nonatomic) IBOutlet UIButton *searchButton;
-@property (strong, nonatomic) IBOutlet UIButton *captureNewPhoto;
 @end
 
 @implementation SearchViewController
@@ -44,10 +43,60 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.searchButton.hidden = YES;
     
     self.title = @"Search";
+    [self screenSizeSetting];
+    [self.view addSubview:imageView];
+    _indicator = [[IndicatorView alloc]initWithTarget:self.view.window
+                                           userEnable:YES
+                                              message:@"Processing"
+                                      backgroundColor:[UIColor colorWithRed:0.0/255.0
+                                                                      green:0.0/255.0
+                                                                       blue:0.0/255.0 alpha:0]
+                                            fontColor:[UIColor whiteColor]];
     
-    
+    // start
+    [self.view addSubview:self.indicator];
+    self.indicator.center = CGPointMake(CGRectGetMidX(self.view.bounds),
+                                        CGRectGetMidY(self.view.bounds));
+    [self searchButtonCalling];
+}
+
+#pragma mark Search Poster Button
+
+//- (IBAction)searchButton:(id)sender {
+
+-(void)searchButtonCalling {
+    [_indicator start];
+
+    imageData = UIImageJPEGRepresentation(imageView.image, 1.0);
+    imageSize = imageData.length;
+    imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
+    strEncoded = [Base64 encode:imageData];
+    parameters = @{@"name":imageName, @"ext":imageExt, @"size":imagesizeString,@"base64Code":strEncoded};
+    manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [manager POST:movieimagesUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        responseJsonResult = responseObject;
+        SearchResult *searchViewResult = [SearchResult new];
+        searchViewResult.jsonResponsDic = responseJsonResult;
+        searchViewResult.selectedImage1 = imageView.image;
+        
+        [_indicator stop];
+        [self.view setUserInteractionEnabled:YES];
+        [self.navigationController pushViewController:searchViewResult animated:YES];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        [SVProgressHUD showErrorWithStatus:@"Error"];
+        [_indicator stop];
+        [self.view setUserInteractionEnabled:YES];
+    }];
+}
+
+
+-(void)screenSizeSetting {
+
     //Size's of imageView's diffetrnts ios screens
     NSInteger imageHightA = imageHight;
     NSInteger imageWeightA = imageWeight;
@@ -93,7 +142,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
                 imageView.image = theImage;
             }
             else {
-                CGRect rect = CGRectMake(90,200,220,220);
+                CGRect rect = CGRectMake(90,200,220,300);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeScaleAspectFit;
                 [self compressImage];
@@ -102,7 +151,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
         //for iphone 4 4s
         else {
             if (imageHightA <= 350 ) {
-                CGRect rect = CGRectMake(50,100,240,imageHightA);
+                CGRect rect = CGRectMake(60,140,200,150);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeCenter;
                 imageView.image = theImage;
@@ -115,42 +164,10 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
             }
         }
     }
-    [self.view addSubview:imageView];
-}
-
-#pragma mark Search Poster Button
-
-- (IBAction)searchButton:(id)sender {
-    _indicator = [[IndicatorView alloc]initWithTarget:self.view.window
-                                           userEnable:YES
-                                              message:@"Processing"
-                                      backgroundColor:[UIColor colorWithRed:0.0/255.0
-                                                                      green:0.0/255.0
-                                                                       blue:0.0/255.0 alpha:0]
-                                            fontColor:[UIColor whiteColor]];
-    // start
-    [_indicator start];
-    imageData = UIImageJPEGRepresentation(imageView.image, 1.0);
-    imageSize = imageData.length;
-    imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
-    strEncoded = [Base64 encode:imageData];
-    parameters = @{@"name":imageName, @"ext":imageExt, @"size":imagesizeString,@"base64Code":strEncoded};
-    manager = [AFHTTPRequestOperationManager manager];
-    manager.requestSerializer = [AFJSONRequestSerializer serializer];
-    [manager POST:movieimagesUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        responseJsonResult = responseObject;
-        SeacrhResults *searchViewResult = [SeacrhResults new];
-        searchViewResult.jsonResponsDic = responseJsonResult;
-        [self.navigationController pushViewController:searchViewResult animated:YES];
-        [_indicator stop];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-        [SVProgressHUD showErrorWithStatus:@"Error"];
-        [_indicator stop];
-    }];
 }
 
 #pragma mark function For Larg image Compress
+
 - (UIImage *)compressImage {
     CGSize newSize = CGSizeMake(600, 800);
     UIGraphicsBeginImageContext(newSize);// a CGSize that has the size you want
