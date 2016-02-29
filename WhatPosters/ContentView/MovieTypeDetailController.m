@@ -8,6 +8,8 @@
 
 #import "MovieTypeDetailController.h"
 #import "MovieCell.h"
+#import "CustomImageView.h"
+
 static const CGFloat cellHeight = 90;
 static const CGFloat cellSpacing = 0;
 
@@ -37,7 +39,7 @@ static const CGFloat cellSpacing = 0;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Movie Type List";
+    self.title = @"Genre List";
     // Array init
     genericArr = [[NSMutableArray alloc]init];
     movieDateListArray = [NSMutableArray array];
@@ -71,11 +73,11 @@ static const CGFloat cellSpacing = 0;
         NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"MovieCell" owner:self options:nil];
         cell = [nibArray objectAtIndex:0];
     }
-    NSMutableDictionary *dataDict = [genericArr objectAtIndex:indexPath.row];
-    imagesData =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[dataDict objectForKey:@"movieImages"]]]];
-    [cell.movieImages setImage:imagesData];
-    cell.movienameLabel.text =    [dataDict objectForKey:@"movieNames"];
-    cell.movieDateLabel.text = [dataDict objectForKey:@"movieDate"];
+    [cell.movieImages startLoading:[movieTypeImageListArray objectAtIndex:indexPath.row]];
+    //imagesData =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[movieTypeImageListArray objectAtIndex:indexPath.row]]]];
+   // [cell.movieImages setImage:imagesData];
+    cell.movienameLabel.text = [movieNameListArray objectAtIndex:indexPath.row];
+    cell.movieDateLabel.text = [movieDateListArray objectAtIndex:indexPath.row];
     cell.movieImages.backgroundColor=[UIColor whiteColor];
     cell.movieImages.layer.masksToBounds = YES;
     cell.selectionStyle = UITableViewCellAccessoryNone;
@@ -125,13 +127,6 @@ static const CGFloat cellSpacing = 0;
         [movieDateListArray addObject:DateReleaseString];
     }
     
-    
-    for (int i = 0; i < [movieTypeImageListArray count]; i++) {
-        
-        NSMutableDictionary *dataDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:[movieTypeImageListArray objectAtIndex:i],@"movieImages",[movieNameListArray objectAtIndex:i],@"movieNames",[movieDateListArray objectAtIndex:i],@"movieDate", nil];
-        [genericArr addObject:dataDict];
-        
-    }
     
 }
 

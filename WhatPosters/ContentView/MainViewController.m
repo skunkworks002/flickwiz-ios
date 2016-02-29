@@ -42,8 +42,6 @@
     [super viewDidLoad];
     
     self.title = @"Main View";
-    editButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(openEditor:)];
-    self.navigationItem.rightBarButtonItem.enabled=NO;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -69,7 +67,7 @@
         searchController.imageHight = imageHightB;
         searchController.imageWeight = imageWeightB;
         searchController.theImage = myResultImage;
-
+        
     }
     [self.navigationController pushViewController:searchController animated:YES];
 }
@@ -103,8 +101,7 @@
         [self presentViewController:controller animated:YES completion:nil];
     }
     else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Done" message:@"Camera is not available." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:@"Cancel", nil];
-        [alert show];
+        [self cameralertview];
     }
 }
 

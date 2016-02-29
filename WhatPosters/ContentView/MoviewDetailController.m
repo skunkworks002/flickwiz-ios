@@ -473,20 +473,20 @@ static NSString *const  movietypeSubDetailUrl = @"http://52.5.222.145:9000/flick
         NSString *actor2 = actornameExtractArray[1];
         myname = actor2;
         titleNameSend = @"Actor Detail";
-
+        
     }
     else if (abcd == 2){
         NSString *actor2 = actornameExtractArray[2];
         myname = actor2;
         titleNameSend = @"Actor Detail";
-
+        
     }
     // Diractor Name Button Click
     else if (abcd == 6){
         NSString *actor2 = directrnameExtractArray[0];
         myname = actor2;
         titleNameSend = @"Director Detail";
-
+        
     }
     else if (abcd == 7){
         NSString *actor2 = directrnameExtractArray[1];

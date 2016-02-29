@@ -11,6 +11,8 @@
 #import "MovieCell.h"
 #import "MoviewDetailController.h"
 #import "MainViewController.h"
+#import "CustomImageView.h"
+
 static const CGFloat cellHeight = 100;
 static const CGFloat cellSpacing = 0;
 
@@ -90,12 +92,11 @@ static const CGFloat cellSpacing = 0;
     if (cell == nil) {
         NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"MovieCell" owner:self options:nil];
         cell = [nibArray objectAtIndex:0];
+        
     }
-    imagesData =[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[imagesUrlArray objectAtIndex:indexPath.row]]]];
-    [cell.movieImages setImage:imagesData];
+    [cell.movieImages startLoading:[imagesUrlArray objectAtIndex:indexPath.row]];
     cell.movienameLabel.text = [movienameArray objectAtIndex:indexPath.row];
     cell.movieDateLabel.text = [moviedateArray objectAtIndex:indexPath.row];
-    //cell.movieImages.backgroundColor=[UIColor whiteColor];
     cell.movieImages.layer.masksToBounds = YES;
     return cell;
 }

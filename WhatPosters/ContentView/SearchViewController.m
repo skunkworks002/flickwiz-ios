@@ -65,11 +65,10 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 
 #pragma mark Search Poster Button
 
-//- (IBAction)searchButton:(id)sender {
 
 -(void)searchButtonCalling {
     [_indicator start];
-
+    
     imageData = UIImageJPEGRepresentation(imageView.image, 1.0);
     imageSize = imageData.length;
     imagesizeString = [NSString stringWithFormat:@"%lu",(unsigned long)imageSize];
@@ -82,7 +81,6 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
         SearchResult *searchViewResult = [SearchResult new];
         searchViewResult.jsonResponsDic = responseJsonResult;
         searchViewResult.selectedImage1 = imageView.image;
-        
         [_indicator stop];
         [self.view setUserInteractionEnabled:YES];
         [self.navigationController pushViewController:searchViewResult animated:YES];
@@ -96,7 +94,7 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
 
 
 -(void)screenSizeSetting {
-
+    
     //Size's of imageView's diffetrnts ios screens
     NSInteger imageHightA = imageHight;
     NSInteger imageWeightA = imageWeight;
@@ -151,13 +149,13 @@ static NSString *const  movieimagesUrl =  @"http://52.5.222.145:9000/flickwiz/up
         //for iphone 4 4s
         else {
             if (imageHightA <= 350 ) {
-                CGRect rect = CGRectMake(60,140,200,150);
+                CGRect rect = CGRectMake(60,160,200,150);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeCenter;
                 imageView.image = theImage;
             }
             else {
-                CGRect rect = CGRectMake(50,100,200,200);
+                CGRect rect = CGRectMake(50,120,200,200);
                 imageView =[[UIImageView alloc] initWithFrame:rect];
                 imageView.contentMode = UIViewContentModeScaleAspectFit;
                 [self compressImage];

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomImageView.h"
 
 @interface MovieCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *movienameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *movieDateLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *movieImages;
+@property (strong, nonatomic) IBOutlet CustomImageView *movieImages;
 @end
